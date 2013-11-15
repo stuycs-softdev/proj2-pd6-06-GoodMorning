@@ -9,7 +9,7 @@ proj2-pd6-06-GoodMorning
   1. Dorit Rein
   2. Victoria Greene
   3. Raymond Lam
-  4. Jason Luo
+  4. Jason (Joe) Luo
 
   Our project is a morning organizer application. It displays the weather, train information, 
   the date and time, and the first 5 events in your calender. Before you begin using this program,
