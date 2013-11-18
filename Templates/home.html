@@ -1,1 +1,42 @@
-Hi
+<!DOCTYPE>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> app: home </title>
+    <link href= "CSS/homestyle.css" rel="stylesheet">
+    <link href= "CSS/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <h1> Good Morning {{name}}! </h1>
+    <p>Click the button to get your next five events.</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>  
+    <script>
+      function myFunction()
+      {
+      calender = [1,2,3,4,5]
+      var x="";
+      for (var i=0;i<5;i++)
+		       {
+		       x=x + calender[i] + ",        ";
+		       }
+		       document.getElementById("demo").innerHTML=x;
+		       }
+		     		     
+  </script>
+   
+
+    <div class="calender">
+	  <p> Click below to go to your calender. </p>
+          <li class="active"> <a href="/calender" > Calender </a> </li>
+    </div>
+
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 colo-sm-9">
+          <p class="pull-right visible-xs">
+          </p>
+
