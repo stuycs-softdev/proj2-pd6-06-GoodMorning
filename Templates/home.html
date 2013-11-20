@@ -12,26 +12,31 @@
 
     <h1> Good Morning {{name}}! </h1>
     <p>Click the button to get your next five events.</p>
-    <button onclick="myFunction()">Try it</button>
+    <button onclick="myFunction({{ Calender }})">Reminder</button>
+    <button onclick="newFunc()">Reminder2</button>
     <p id="demo"></p>  
     <script>
-      function myFunction()
+      function myFunction(Cal)
       {
-      calender = [1,2,3,4,5]
+      calender = Cal
       var x="";
-      for (var i=0;i<5;i++)
-		       {
+      for (var i=0;i<5;i++){
 		       x=x + calender[i] + ",        ";
 		       }
 		       document.getElementById("demo").innerHTML=x;
 		       }
-		     		     
-  </script>
-   
+     function newFunc()
+		       {
+		       alert("Click the button again to see your next 5 events.")
+		       }
+		      
+		       
+		       </script>
+    
 
     <div class="calender">
-	  <p> Click below to go to your calender. </p>
-          <li class="active"> <a href="/calender" > Calender </a> </li>
+      <p> Click below to go to your calender. </p>
+      <li class="active"> <a href="/calender" > Calender </a> </li>
     </div>
 
     <div class="container">
