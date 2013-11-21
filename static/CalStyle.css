@@ -33,12 +33,19 @@ td  {
     height: 100px;
     text-align: left;
     vertical-align: top;
-    background-color: white
+    /*background-color: white*/
     }
 
-homebutton {
-    position: right;
-    align: right;
+.normday {
+    background-color: white;
+}
+
+.currday {
+    background-color: #FFFFCC;
+}
+
+.editday {
+    background-color: red;
 }
 
 .button {
@@ -80,11 +87,5 @@ a.button:hover {
 .homebtn {
     background: white;
     width: 60px;
-    float: center;
-}
-
-.editbtn {
-    background: white;
-    float: right;
-    width: 150px;
+    float: left;
 }
