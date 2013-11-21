@@ -16,6 +16,7 @@ table {
     table-layout: fixed;
     border-collapse: collapse;
     width: 100%;
+    float: center;
     }
 /* Days of the Week */
 th {
@@ -26,7 +27,7 @@ th {
     color:black;
     }
 /* Days */
-td  {     
+td {     
     font: medium Arial;
     padding: 0.25em 0.25em;   
     width: 100px; 
@@ -35,6 +36,38 @@ td  {
     vertical-align: top;
     /*background-color: white*/
     }
+
+td a {
+    display: block;
+    text-decoration: none;
+    height: 100px
+}
+
+a {
+    background-color: transparent;
+    color: black;
+    vertical-align: bottom;
+}
+
+td:hover{
+    background-color: transparent;
+    z-index: 50;
+}
+
+.white_content {
+    font: medium Arial, sans-serif;
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    padding: 5px;
+    border: 5px solid #66B2FF;
+    background-color: #CCE5FF;
+    z-index:1002;
+    overflow: auto;
+}
 
 .normday {
     background-color: white;
