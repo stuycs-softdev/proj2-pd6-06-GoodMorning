@@ -1,42 +1,97 @@
-<!DOCTYPE html>
-
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Good Morning {{ User }}!!</title>
+<style type="text/css">
+h1{text-align:center}
 
-h1{text-align:center;}
-h1{font-size:30px;}
-body{color:white;}
-body {background-image:url('http://i1.sndcdn.com/artworks-000017516576-lw5fu1-original.jpg?3eddc42');}
-h2{text-align:right}
-p.reminders{text-align:right;}
-p.trains{text-align:left;}
-a:link {background-color:#B2FF99;}    /* unvisited link */
-a:visited {background-color:#FFFF85;} /* visited link */
-a:hover {background-color:#FF704D;}   /* mouse over link */
-a:active {background-color:#FF704D;}  /* selected link */
+body{
+margin:0;
+padding:0;
+line-height: 1.5em;
+}
+
+b{font-size: 110%;}
+em{color: red;}
+
+a{
+list-style-type:circle
+}
+
+#maincontainer{
+width: 840px; /*Width of main container*/
+margin: 0 auto; /*Center container on page*/
+text-align:center
+}
+
+#topsection{
+background: #EAEAEA;
+height: 90px; /*Height of top section*/
+}
+
+#topsection h1{
+margin: 0;
+padding-top: 15px;
+}
+
+#contentwrapper{
+float: left;
+width: 100%;
+}
+
+#contentcolumn{
+margin-left: 250px; /*Set left margin to LeftColumnWidth*/
+}
+
+#leftcolumn{
+float: left;
+width: 250px; /*Width of left column*/
+margin-left: -840px; /*Set left margin to -(MainContainerWidth)*/
+background: #C8FC98;
+}
+
+#footer{
+clear: left;
+width: 100%;
+background: black;
+color: #FFF;
+text-align: center;
+padding: 4px 0;
+}
+
+#footer a{
+color: #FFFF80;
+}
+
+.innertube{
+margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
+margin-top: 0;
+}
 
 </style>
+
 </head>
-
-
 <body>
-<h1>Good Morning {{ User }}!</h1>
-<p class = "trains"> Train information goes here ...</p>
-<p><b><a href="http://new.mta.info">Click here for more MTA info</a></b></p>
-<h2> Your Events </h2>
-<p class= "reminders"> {{ Event1 }} </p>
-<p class= "reminders"> {{ Event2 }} </p>
-<p class= "reminders"> {{ Event3 }} </p>
-<p class= "reminders"> {{ Event4 }} </p>
-<p class= "reminders"> {{ Event5 }} </p>
-<p class= "date"> {{ MM/DD/YYYY}} : {{ Time }} </p>
-<p><b><a href="http://0.0.0.0/5000/calender">Calendar</a></b></p>
+<div id="maincontainer">
 
+<div id="topsection"><div class="innertube"><h1>Good Morning {{ User }}!</h1></div></div>
 
+<div id="contentwrapper">
+<div id="contentcolumn">
+<div class="innertube"><b>Events</b> Event1<script type="text/javascript">
 
+</script></div>
+</div>
+</div>
 
+<div id="leftcolumn">
+<div class="innertube"><b> {{ Day }}, {{ Date }}</b> <script type="text/javascript">filltext(15)</script></div>
+</div>
 
+<div id="footer"><a href="calender.html">Click here to go to your calender.</a></div>
+
+</div>
 </body>
-
 </html>
