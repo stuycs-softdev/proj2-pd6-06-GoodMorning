@@ -36,13 +36,14 @@ def login():
         box = request.form.get("acceptTerms")
         if password != confirmPW:
                 return render_template(register.html, message = "Your passwords do not match.")
-        if !box:
+        elif !box:
                 return render_template(register.html, message = "Please check the terms and conditions.")
-        if not username or not password or not confirmPW:
+        elif not username or not password or not confirmPW:
                 return render_template(register.html, message = "Please fill in all of the fields.")
-        if !utils.checkUser(username):
-                re
-
+        elif utils.checkUser(username): #username taken
+                return render_template(register.html, message = "Username already taken. Please find another.")
+        else :
+                utils.addUser(username, password, db)
 
 
 @app.route("/settings", methods = ["GET", "POST"])
