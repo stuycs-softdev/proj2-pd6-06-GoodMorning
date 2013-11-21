@@ -1,0 +1,90 @@
+/* Month and year */
+* {
+    background-color: #CCE5FF; 
+}
+
+div.title {
+    font: x-large Arial, sans-serif;
+    text-align: center;
+    height: 40px;
+    background-color: #CCE5FF;
+    color: black;
+    }
+
+/* Table */
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    }
+/* Days of the Week */
+th {
+    font:small Arial, sans-serif;
+    padding: 0 0.5em;
+    text-align: center;
+    background-color:#66B2FF;
+    color:black;
+    }
+/* Days */
+td  {     
+    font: medium Arial;
+    padding: 0.25em 0.25em;   
+    width: 100px; 
+    height: 100px;
+    text-align: left;
+    vertical-align: top;
+    background-color: white
+    }
+
+homebutton {
+    position: right;
+    align: right;
+}
+
+.button {
+    display: block;
+    height: 15px
+    background: white;
+    border: 1px solid black;
+    
+
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: bottom;
+    font: small Arial, sans-serif;
+
+    background: -webkit-linear-gradient(top, white, #66B2FF);
+    background: -moz-linear-gradient(top, white, #66B2FF);
+    background: -o-linear-gradient(top, white, #66B2FF);
+    background: -ms-linear-gradient(top, white, #66B2FF);
+    background: linear-gradient(top, white, #66B2FF);
+     
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+     
+     
+}
+ 
+a.button:hover {
+    background: #66B2FF;
+    background: -webkit-linear-gradient(top, grey, grey);
+    background: -moz-linear-gradient(top, grey, grey);
+    background: -o-linear-gradient(top, grey, grey);
+    background: -ms-linear-gradient(top, grey, grey);
+    background: linear-gradient(top, grey, grey);
+}
+
+.homebtn {
+    background: white;
+    width: 60px;
+    float: center;
+}
+
+.editbtn {
+    background: white;
+    float: right;
+    width: 150px;
+}
