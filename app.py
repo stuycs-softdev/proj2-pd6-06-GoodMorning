@@ -11,7 +11,10 @@ app.secret_key = 'jasoniscool'
 
 @app.route("/")
 def home():
-        return render_template(homepage.html)
+        if "username" in session: #if logged in already
+                return render_template(homepage.html)
+        else: #if not logged in
+                return redirect("/login"
 
 
 @app.route("/login",methods=['GET','POST'])
