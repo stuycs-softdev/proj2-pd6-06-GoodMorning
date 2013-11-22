@@ -13,5 +13,11 @@ def addLocation(user, location):
 def getLocation(location, coll):
     return [x for x in coll.find ({'location':location})
 
+def changeLocation(username, location):
+    
 def addEvent():
 
+def changeName(username, name):
+    
+def checkUser(username):
+    
