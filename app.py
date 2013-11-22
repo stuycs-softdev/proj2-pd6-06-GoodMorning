@@ -41,7 +41,7 @@ def register():
         box = request.form.get("acceptTerms")
         if password != confirmPW: #if the two pw's don't match
                 return render_template(register.html, message = "Your passwords do not match.")
-        elif !box: #if terms and conditions box is not checked
+        elif not box: #if terms and conditions box is not checked
                 return render_template(register.html, message = "Please check the terms and conditions.")
         elif not username or not password or not confirmPW: #if not all fields are filled
                 return render_template(register.html, message = "Please fill in all of the fields.")
