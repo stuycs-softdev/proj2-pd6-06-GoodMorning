@@ -6,6 +6,7 @@
 div.title {
     font: x-large Arial, sans-serif;
     text-align: center;
+    vertical-align: center;
     height: 40px;
     background-color: #CCE5FF;
     color: black;
@@ -15,8 +16,9 @@ div.title {
 table {
     table-layout: fixed;
     border-collapse: collapse;
-    width: 100%;
-    float: center;
+    width: 95%;
+    margin-left:auto;
+    margin-right:auto;
     }
 /* Days of the Week */
 th {
@@ -27,7 +29,7 @@ th {
     color:black;
     }
 /* Days */
-td {     
+td { 
     font: medium Arial;
     padding: 0.25em 0.25em;   
     width: 100px; 
@@ -54,7 +56,7 @@ td:hover{
     z-index: 50;
 }
 
-.white_content {
+.expandday {
     font: medium Arial, sans-serif;
     display: none;
     position: absolute;
@@ -62,11 +64,20 @@ td:hover{
     left: 25%;
     width: 50%;
     height: 50%;
-    padding: 5px;
-    border: 5px solid #66B2FF;
+    padding: 20px;
+    border: 1px solid black;
     background-color: #CCE5FF;
     z-index:1002;
     overflow: auto;
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+li {
+    font: medium Arial, sans-serif;
+    text-align: left;
+    padding: 0 40px; 
 }
 
 .normday {
@@ -103,9 +114,7 @@ td:hover{
     -webkit-border-radius: 10px;
     -khtml-border-radius: 10px;
     -moz-border-radius: 10px;
-    border-radius: 10px;
-     
-     
+    border-radius: 10px;     
 }
  
 a.button:hover {
