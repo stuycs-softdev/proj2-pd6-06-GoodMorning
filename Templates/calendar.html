@@ -9,58 +9,69 @@
 
 </head>
 
-<!--<body bgcolor="#CCE5FF">-->
-<a class="button editbtn">Edit Calendar</a><br>
+<body bgcolor="#CCE5FF">
+<a href="Homepage.html" class="homebtn button">Home</a>
+<br>
+  
 <div class="title">Month Year</div>
 <table border="1">
 <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
 
-<tr><td>1</td>
-<td>2</td>
-<td>3</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td></tr>
+<div id="light" class="expandday">
+  <div class="title">Month Day</div>
+  <li class="normday">Today I need to do this</li>
+  <li class="normday">And remember this</li>
+  <li class="normday">Also I need to remember to do something else</li>
+  <a href = "javascript:void(0)" onclick =
+  "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+  <br>
+  Done
+  </a></div>
 
-<tr><td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td></tr>
+<tr><td class="currday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">1</a></td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">2</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">3</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
 
-<tr><td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td></tr>
+<tr><td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
 
-<tr><td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td></tr>
+<tr><td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
 
-<tr><td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td>
-<td>#</td></tr>
+<tr><td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
+
+<tr><td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
+<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
 </table>
 <br>
 <a href="homepage.html" class="homebtn button">Home</a>
-
 <ul class="pure-paginator" align = "center">
     <li><a class="pure-button prev" href="#">&#171; Prev</a></li>
     <li><a class="pure-button next" href="#">&#187; Next</a></li>
 </ul>    
-    
 </body></html>

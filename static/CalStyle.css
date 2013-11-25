@@ -6,6 +6,7 @@
 div.title {
     font: x-large Arial, sans-serif;
     text-align: center;
+    vertical-align: center;
     height: 40px;
     background-color: #CCE5FF;
     color: black;
@@ -15,7 +16,9 @@ div.title {
 table {
     table-layout: fixed;
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
+    margin-left:auto;
+    margin-right:auto;
     }
 /* Days of the Week */
 th {
@@ -26,19 +29,85 @@ th {
     color:black;
     }
 /* Days */
-td  {     
+td { 
     font: medium Arial;
     padding: 0.25em 0.25em;   
     width: 100px; 
     height: 100px;
     text-align: left;
     vertical-align: top;
-    background-color: white
+    /*background-color: white*/
     }
 
-homebutton {
-    position: right;
-    align: right;
+td a {
+    display: block;
+    text-decoration: none;
+    height: 100px
+}
+
+a {
+    background-color: transparent;
+    color: black;
+    vertical-align: bottom;
+}
+
+td:hover{
+    background-color: transparent;
+    z-index: 50;
+}
+
+.expandday {
+    font: medium Arial, sans-serif;
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: #CCE5FF;
+    z-index:1002;
+    overflow: auto;
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+div.box {
+    font: medium Arial, sans-serif;
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: #CCE5FF;
+    z-index:1002;
+    overflow: auto;
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+li {
+    font: medium Arial, sans-serif;
+    text-align: left;
+    padding: 0 40px; 
+}
+
+.normday {
+    background-color: white;
+}
+
+.currday {
+    background-color: #FFFFCC;
+}
+
+.editday {
+    background-color: red;
 }
 
 .button {
@@ -63,9 +132,7 @@ homebutton {
     -webkit-border-radius: 10px;
     -khtml-border-radius: 10px;
     -moz-border-radius: 10px;
-    border-radius: 10px;
-     
-     
+    border-radius: 10px;     
 }
  
 a.button:hover {
@@ -80,11 +147,5 @@ a.button:hover {
 .homebtn {
     background: white;
     width: 60px;
-    float: center;
-}
-
-.editbtn {
-    background: white;
-    float: right;
-    width: 150px;
+    float: left;
 }
