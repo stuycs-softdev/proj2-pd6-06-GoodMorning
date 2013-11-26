@@ -13,7 +13,7 @@ def getWeather():
   weather = parsed_json['hourly_forecast'][0]['condition']
   f.close()
 #-----------------what the sky should look like (ex: cloudy, rainy, etc.)
-    return weather
+  return weather
 
 def getTemp():
   f = url()
@@ -22,4 +22,4 @@ def getTemp():
   temp_f = parsed_json['hourly_forecast'][0]['temp']['english']
   f.close()
 #-----------------the expected temperature in fahrenheit. celsius is possible by replacing 'english' with 'metric'
-    return temp_f
+  return temp_f
