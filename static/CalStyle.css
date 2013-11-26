@@ -74,28 +74,17 @@ td:hover{
     box-shadow:         3px 3px 5px 6px #ccc;
 }
 
-div.box {
-    font: medium Arial, sans-serif;
-    display: none;
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    width: 50%;
-    height: 50%;
-    padding: 20px;
-    border: 1px solid black;
-    background-color: #CCE5FF;
-    z-index:1002;
-    overflow: auto;
-    -moz-box-shadow:    3px 3px 5px 6px #ccc;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow:         3px 3px 5px 6px #ccc;
-}
-
 li {
     font: medium Arial, sans-serif;
     text-align: left;
     padding: 0 40px; 
+}
+
+h1 {
+    font: medium Arial, sans-serif;
+    font-weight:normal;
+    text-decoration: underline;
+    padding: 0 0px;
 }
 
 .normday {
@@ -106,9 +95,6 @@ li {
     background-color: #FFFFCC;
 }
 
-.editday {
-    background-color: red;
-}
 
 .button {
     display: block;
@@ -148,4 +134,9 @@ a.button:hover {
     background: white;
     width: 60px;
     float: left;
+}
+
+input[type="text"], textarea { 
+    background-color: white;
+    width: 90%;
 }

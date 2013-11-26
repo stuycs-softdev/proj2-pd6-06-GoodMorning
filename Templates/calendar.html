@@ -1,7 +1,5 @@
 <html>
 <head>
-
-<head>
     <title>My Calendar</title>
     <meta charset="utf-8" />
     <link href="../static/CalStyle.css" rel="stylesheet" type="text/css" media="screen" />
@@ -16,17 +14,14 @@
 <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
 
 <div id="light" class="expandday">
-  <div class="title">Month Day</div>
+  <div class="title" bgcolor="#CCE5FF">Month Day</div>
   <li class="normday">Today I need to do this</li>
-  <br>
   <li class="normday">And remember this</li>
-  <br>
   <li class="normday">Also I need to remember to do something else</li>
-  <br>
-  <br>
-
-  <form>
- New Event: <input type="text" name="newevent" id="nev" value=""><br>
+  <hr>
+  <form bgcolor="#CCE5FF">
+  <h1 align="center">Add Event</h1>
+  Description: <input type="text" name="newevent" id="nev" value="" style="width: 80%;"><br>
 </form>
   <a href = "javascript:void(0)" onclick =
   "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
@@ -74,4 +69,5 @@
 <td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
 <td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
 </table>
-</body></html>
+</body>
+</html>
