@@ -1,0 +1,105 @@
+  <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+    
+        <title>Homepage-DJRV</title>
+    
+    
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    
+    
+    <link rel="stylesheet" href="homepage.css">
+    
+    
+    
+    
+        
+    
+        
+    
+    </head>
+    <body>
+    
+    
+    
+    
+    
+    
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <header class="header">
+                <hgroup>
+                    <h1 class="brand-title">Good Morning {{ User }}!</h1>
+                </hgroup>
+            </header>
+        </div>
+    
+        <div class="pure-u-1">
+            <div class="content">
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                    <h1 class="content-subhead">The Weather</h1>
+    
+                    <!-- A single blog post -->
+                    <section class="post">
+                        <header class="post-header">
+                        {{ Weather Info Here}}
+    
+                            <h2 class="post-title">Train Information</h2>
+                            {{ Train Info Here }}
+                            <p class="post-meta">
+                             <a class="post-category post-category-pure" href="http://new.mta.info/">More MTA Info</a>
+                            </p>
+                        </header>
+                    </section>
+                </div>
+    
+                <div class="posts">
+                    <h1 class="content-subhead">Your Events</h1>
+                    {{Somehow bring events into here}}
+    
+                        <div class="post-description">
+                        
+    
+                    <section class="post">
+                        <header class="post-header">
+    
+                            <p class="post-meta">
+                                 <a class="post-author" href="calendar.html">Click here to go to your calender.</a>
+                           </p>
+                        </header>
+    
+                </div>
+    
+                <footer class="footer">
+                    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="home.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </footer>
+                </div>
+            </div>
+        </div>
+    
+    <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui.js"></script>
+    <script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+        // This just makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        Y.one('body').delegate('click', function (e) {
+            e.preventDefault();
+        }, 'a[href="#"]');
+    });
+    </script>
+    
+    
+    
+    
+    
+    </body>
+    </html>
