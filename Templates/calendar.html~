@@ -1,0 +1,66 @@
+<html>
+<head>
+
+<head>
+    <title>My Calendar</title>
+    <meta charset="utf-8" />
+    <link href="../static/CalStyle.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+
+</head>
+
+<!--<body bgcolor="#CCE5FF">-->
+<a class="button editbtn">Edit Calendar</a><br>
+<div class="title">Month Year</div>
+<table border="1">
+<tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
+
+<tr><td>1</td>
+<td>2</td>
+<td>3</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td></tr>
+
+<tr><td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td></tr>
+
+<tr><td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td></tr>
+
+<tr><td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td></tr>
+
+<tr><td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+<td>#</td></tr>
+</table>
+<br>
+<a href="homepage.html" class="homebtn button">Home</a>
+
+<ul class="pure-paginator">
+    <li><a class="pure-button prev" href="#">&#171;</a></li>
+    <li><a class="pure-button next" href="#">&#187;</a></li>
+</ul>    
+    
+</body></html>
