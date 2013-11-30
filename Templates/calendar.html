@@ -1,13 +1,19 @@
 <html>
 <head>
-
-<head>
     <title>My Calendar</title>
     <meta charset="utf-8" />
     <link href="../static/CalStyle.css" rel="stylesheet" type="text/css" media="screen" />
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
-
 </head>
+
+<SCRIPT Language="JavaScript">
+function showAndClearField(frm){
+  if (frm.newevent.value == "")
+      alert("Hey! You didn't enter anything!")
+  else
+      alert("The field contains the text: " + frm.newevent.value)
+  frm.newevent.value = ""
+}
+</SCRIPT>
 
 <body bgcolor="#CCE5FF">
 <a href="Homepage.html" class="homebtn button">Home</a>
@@ -18,14 +24,32 @@
 <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
 
 <div id="light" class="expandday">
-  <div class="title">Month Day</div>
+  <div class="title" bgcolor="#CCE5FF">Month Day</div>
   <li class="normday">Today I need to do this</li>
   <li class="normday">And remember this</li>
   <li class="normday">Also I need to remember to do something else</li>
-  <a href = "javascript:void(0)" onclick =
-  "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+  <hr>
+  <form action="http://localhost" method="POST" name="einfo" bgcolor="#CCE5FF">
+  <h1 align="center">Add Event</h1>
+  Description: <input type="text" name="newevent" id="nev" value="" style="width: 85%;"><br>
+  Time: <input type="text" name="starthour" id="shr" value="" size="1" maxlength="1" align="center">
+  :<input type="text" name="startmin" id="smin" value="" size="2" maxlength="2" align="center">
+  <select name="amorpm1">
+    <option value="am1" selected>AM</option>
+    <option value="pm1">PM</option>
+  </select>
+  - <input type="text" name="endhour" id="ehr" value="" size="1" maxlength="1" align="center">
+  :<input type="text" name="endmin" id="emin" value="" size="2" maxlength="2" align="center">
+  <select name="amorpm2">
+    <option value="am2" selected>AM</option>
+    <option value="pm2">PM</option>
+  </select>
   <br>
-  Done
+  <input type="button" value="Add" onClick="showAndClearField(this.form)">
+</form>
+  <br>
+  <a href = "javascript:void(0)" onclick =
+  "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Done
   </a></div>
 
 <tr><td class="currday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">1</a></td>
@@ -68,10 +92,5 @@
 <td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
 <td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
 </table>
-<br>
-<a href="homepage.html" class="homebtn button">Home</a>
-<ul class="pure-paginator" align = "center">
-    <li><a class="pure-button prev" href="#">&#171; Prev</a></li>
-    <li><a class="pure-button next" href="#">&#187; Next</a></li>
-</ul>    
-</body></html>
+</body>
+</html>
