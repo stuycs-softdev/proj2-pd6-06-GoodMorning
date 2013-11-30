@@ -5,6 +5,16 @@
     <link href="../static/CalStyle.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
+<SCRIPT Language="JavaScript">
+function showAndClearField(frm){
+  if (frm.newevent.value == "")
+      alert("Hey! You didn't enter anything!")
+  else
+      alert("The field contains the text: " + frm.newevent.value)
+  frm.newevent.value = ""
+}
+</SCRIPT>
+
 <body bgcolor="#CCE5FF">
 <a href="Homepage.html" class="homebtn button">Home</a>
 <br>
@@ -19,14 +29,27 @@
   <li class="normday">And remember this</li>
   <li class="normday">Also I need to remember to do something else</li>
   <hr>
-  <form bgcolor="#CCE5FF">
+  <form name="einfo" bgcolor="#CCE5FF">
   <h1 align="center">Add Event</h1>
-  Description: <input type="text" name="newevent" id="nev" value="" style="width: 80%;"><br>
-</form>
-  <a href = "javascript:void(0)" onclick =
-  "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+  Description: <input type="text" name="newevent" id="nev" value="" style="width: 85%;"><br>
+  Time: <input type="text" name="starthour" id="shr" value="" size="1" maxlength="1" align="center">
+  :<input type="text" name="startmin" id="smin" value="" size="2" maxlength="2" align="center">
+  <select name="amorpm1">
+    <option value="am1" selected>AM</option>
+    <option value="pm1">PM</option>
+  </select>
+  - <input type="text" name="endhour" id="ehr" value="" size="1" maxlength="1" align="center">
+  :<input type="text" name="endmin" id="emin" value="" size="2" maxlength="2" align="center">
+  <select name="amorpm2">
+    <option value="am2" selected>AM</option>
+    <option value="pm2">PM</option>
+  </select>
   <br>
-  Done
+  <input type="button" value="Add" onClick="showAndClearField(this.form)">
+</form>
+  <br>
+  <a href = "javascript:void(0)" onclick =
+  "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Done
   </a></div>
 
 <tr><td class="currday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">1</a></td>
