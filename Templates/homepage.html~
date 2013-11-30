@@ -1,97 +1,105 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Good Morning {{ User }}!!</title>
-<style type="text/css">
-h1{text-align:center}
-
-body{
-margin:0;
-padding:0;
-line-height: 1.5em;
-}
-
-b{font-size: 110%;}
-em{color: red;}
-
-a{
-list-style-type:circle
-}
-
-#maincontainer{
-width: 840px; /*Width of main container*/
-margin: 0 auto; /*Center container on page*/
-text-align:center
-}
-
-#topsection{
-background: #EAEAEA;
-height: 90px; /*Height of top section*/
-}
-
-#topsection h1{
-margin: 0;
-padding-top: 15px;
-}
-
-#contentwrapper{
-float: left;
-width: 100%;
-}
-
-#contentcolumn{
-margin-left: 250px; /*Set left margin to LeftColumnWidth*/
-}
-
-#leftcolumn{
-float: left;
-width: 250px; /*Width of left column*/
-margin-left: -840px; /*Set left margin to -(MainContainerWidth)*/
-background: #C8FC98;
-}
-
-#footer{
-clear: left;
-width: 100%;
-background: black;
-color: #FFF;
-text-align: center;
-padding: 4px 0;
-}
-
-#footer a{
-color: #FFFF80;
-}
-
-.innertube{
-margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
-margin-top: 0;
-}
-
-</style>
-
-</head>
-<body>
-<div id="maincontainer">
-
-<div id="topsection"><div class="innertube"><h1>Good Morning {{ User }}!</h1></div></div>
-
-<div id="contentwrapper">
-<div id="contentcolumn">
-<div class="innertube"><b>Events</b> Event1<script type="text/javascript">
-
-</script></div>
-</div>
-</div>
-
-<div id="leftcolumn">
-<div class="innertube"><b> {{ Day }}, {{ Date }}</b> <script type="text/javascript">filltext(15)</script></div>
-</div>
-
-<div id="footer"><a href="calendar.html">Click here to go to your calendar.</a></div>
-
-</div>
-</body>
-</html>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+    
+        <title>Homepage-DJRV</title>
+    
+    
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    
+    
+    <link rel="stylesheet" href="homepage.css">
+    
+    
+    
+    
+        
+    
+        
+    
+    </head>
+    <body>
+    
+    
+    
+    
+    
+    
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <header class="header">
+                <hgroup>
+                    <h1 class="brand-title">Good Morning {{ User }}!</h1>
+                </hgroup>
+            </header>
+        </div>
+    
+        <div class="pure-u-1">
+            <div class="content">
+                <!-- A wrapper for all the blog posts -->
+                <div class="posts">
+                    <h1 class="content-subhead">The Weather</h1>
+    
+                    <!-- A single blog post -->
+                    <section class="post">
+                        <header class="post-header">
+                        {{ Weather Info Here}}
+    
+                            <h2 class="post-title">Train Information</h2>
+    			{{ Train Info Here }}
+                            <p class="post-meta">
+    			  <a class="post-category post-category-pure" href="http://new.mta.info/">More MTA Info</a>
+                            </p>
+                        </header>
+                    </section>
+                </div>
+    
+                <div class="posts">
+                    <h1 class="content-subhead">Your Events</h1>
+    		{{Somehow bring events into here}}
+    
+                        <div class="post-description">
+                        
+    
+                    <section class="post">
+                        <header class="post-header">
+    
+                            <p class="post-meta">
+                                 <a class="post-author" href="calendar.html">Click here to go to your calender.</a> 
+                           </p>
+                        </header>
+    
+                </div>
+    
+                <footer class="footer">
+                    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="home.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </footer>
+                </div>
+    	</div>
+        </div>
+    
+    <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui.js"></script>
+    <script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+        // This just makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        Y.one('body').delegate('click', function (e) {
+            e.preventDefault();
+        }, 'a[href="#"]');
+    });
+    </script>
+    
+    
+    
+    
+    
+    </body>
+    </html>
