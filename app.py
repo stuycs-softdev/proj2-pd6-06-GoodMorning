@@ -14,13 +14,13 @@ def home():
         if "username" in session: #if logged in already
                 return render_template(homepage.html)
         else: #if not logged in
-                return redirect("/login"
+                return redirect("/login")
 
 
 @app.route("/login",methods=['GET','POST'])
 def login():
         if request.method=="GET":
-                return render_template(login.html)
+                return render_template("login.html")
         username = request.form['name']
         password = request.form['password']
         if not username or not password:    #there are fields that are empty
