@@ -33,7 +33,8 @@ def home():
                 				      l = service[7],
                 				      nqr = service[8],
                 				      s = service[9],
-                				      sir = service[10]
+                				      sir = service[10],
+                				      greeting = utils.getName(username)
                 				      )
          #if not logged in
 	else:
@@ -78,7 +79,7 @@ def register():
 
 @app.route("/settings", methods = ["GET", "POST"])
 def settings():
-	if "username" not in session:
+	if "username" not in session: #not logged in
 		return redirect("/login")
         if request.method=="GET":
                 return render_template(settings.html)
@@ -88,8 +89,8 @@ def settings():
         #oldPW = request.form['oldPW']
         #newPW = request.form['newPW'] ------change password maybe? will leave this here.-----
         #confirmNPW = request.form['cNPW']
-        if "username" not in session: #not logged in
-                return redirect("/login")
+        #if "username" not in session: 
+          #      return redirect("/login")
         if button == 'changeName':
                 utils.changeName(session["username"], name) #to change name
         if button == 'changeLocation':
