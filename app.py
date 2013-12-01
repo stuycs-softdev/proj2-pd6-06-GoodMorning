@@ -14,7 +14,7 @@ def home():
         if "username" in session: #if logged in already
                 return render_template(homepage.html)
         else: #if not logged in
-                return redirect("/login"
+                return redirect("/login")
 
 
 @app.route("/login",methods=['GET','POST'])
@@ -23,19 +23,19 @@ def login():
                 return render_template(login.html)
         username = request.form['name']
         password = request.form['password']
-        if not username or not password:    #there are fields that are empty
-                return render_template(login.html, message = "Please fill out the empty fields!")
-        elif utils.auth(username, password, db): #login successful
-                session["username"] = username
-                return redirect("/")
-        else: #login unsuccessful
-                return render_template(login.html, message = "Incorrect username and password combination.")
-        
+if not username or not password:    #there are fields that are empty
+	return render_template(login.html, message = "Please fill out the empty fields!")
+elif utils.auth(username, password, db): #login successful
+	session["username"] = username
+	return redirect("/")
+else: #login unsuccessful
+	return render_template(login.html, message = "Incorrect username and password combination.")
+
 @app.route("/register",methods = ["GET","POST"])
 def register():
         if request.method=="GET":
                 return render_template(register.html)
-        username = request.form['name']
+	username = request.form['name']
         password = request.form['password']
         confirmPW = request.form['confirm']
         box = request.form.get("acceptTerms")
@@ -54,6 +54,8 @@ def register():
 
 @app.route("/settings", methods = ["GET", "POST"])
 def settings():
+	if "username" not in session:
+		return redirect("/login")
         if request.method=="GET":
                 return render_template(settings.html)
         name = request.form['name'] #who you want to be greeted as
