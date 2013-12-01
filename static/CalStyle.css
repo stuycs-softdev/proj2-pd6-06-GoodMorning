@@ -1,8 +1,8 @@
-/* Month and year */
 * {
     background-color: #CCE5FF; 
 }
 
+/* Month and year */
 div.title {
     font: x-large Arial, sans-serif;
     text-align: center;
@@ -20,6 +20,7 @@ table {
     margin-left:auto;
     margin-right:auto;
     }
+
 /* Days of the Week */
 th {
     font:small Arial, sans-serif;
@@ -28,6 +29,7 @@ th {
     background-color:#66B2FF;
     color:black;
     }
+
 /* Days */
 td { 
     font: medium Arial;
@@ -76,10 +78,13 @@ td:hover{
 }
 
 li {
-    font: medium Arial, sans-serif;
+    font: x-small Arial, sans-serif;
     text-align: left;
-    padding: 0 40px; 
+    color: #0080FF;
+    padding: 5px 10px; 
+    background-color: transparent;
 }
+
 
 h1 {
     font: medium Arial, sans-serif;
@@ -88,13 +93,10 @@ h1 {
     padding: 0 0px;
 }
 
-hr {
-    position: relative;
-    float: bottom;
-}
-
 .normday {
     background-color: white;
+    font: medium Arial, sans-serif;
+    color: black;
 }
 
 .currday {
@@ -108,7 +110,6 @@ hr {
     background: white;
     border: 1px solid black;
     
-
     color: black;
     text-decoration: none;
     text-align: center;
@@ -151,4 +152,38 @@ a.button:hover {
 
 input[type="text"], textarea { 
     background-color: white;
+}
+
+input[type="button"], button { 
+    display: block;
+    height: 15px
+    width: 60px;
+    background: white;
+    border: 1px solid black;
+    
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: bottom;
+    font: small Arial, sans-serif;
+
+    background: -webkit-linear-gradient(top, white, #66B2FF);
+    background: -moz-linear-gradient(top, white, #66B2FF);
+    background: -o-linear-gradient(top, white, #66B2FF);
+    background: -ms-linear-gradient(top, white, #66B2FF);
+    background: linear-gradient(top, white, #66B2FF);
+     
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;     
+}
+
+input[type="button"]:hover, button {
+    background: #66B2FF;
+    background: -webkit-linear-gradient(top, grey, grey);
+    background: -moz-linear-gradient(top, grey, grey);
+    background: -o-linear-gradient(top, grey, grey);
+    background: -ms-linear-gradient(top, grey, grey);
+    background: linear-gradient(top, grey, grey);
 }

@@ -1,96 +1,170 @@
 <html>
-<head>
+  <head>
     <title>My Calendar</title>
     <meta charset="utf-8" />
     <link href="../static/CalStyle.css" rel="stylesheet" type="text/css" media="screen" />
-</head>
-
-<SCRIPT Language="JavaScript">
-function showAndClearField(frm){
-  if (frm.newevent.value == "")
-      alert("Hey! You didn't enter anything!")
-  else
-      alert("The field contains the text: " + frm.newevent.value)
-  frm.newevent.value = ""
-}
-</SCRIPT>
-
-<body bgcolor="#CCE5FF">
-<a href="Homepage.html" class="homebtn button">Home</a>
-<br>
+  </head>
   
-<div class="title">Month Year</div>
-<table border="1">
-<tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
+  <script type="text/javascript">
+    function showAndClearField(frm){
+    if (frm.newevent.value == "")
+    alert("Hey! You didn't enter anything!")
+    else if (frm.starthour.value == ""
+             || frm.endhour.value == ""
+             || frm.startmin.value == ""
+             || frm.endmin.value == "") {
 
-<div id="light" class="expandday">
-  <div class="title" bgcolor="#CCE5FF">Month Day</div>
-  <li class="normday">Today I need to do this</li>
-  <li class="normday">And remember this</li>
-  <li class="normday">Also I need to remember to do something else</li>
-  <hr>
-  <form action="http://localhost" method="POST" name="einfo" bgcolor="#CCE5FF">
-  <h1 align="center">Add Event</h1>
-  Description: <input type="text" name="newevent" id="nev" value="" style="width: 85%;"><br>
-  Time: <input type="text" name="starthour" id="shr" value="" size="1" maxlength="1" align="center">
-  :<input type="text" name="startmin" id="smin" value="" size="2" maxlength="2" align="center">
-  <select name="amorpm1">
-    <option value="am1" selected>AM</option>
-    <option value="pm1">PM</option>
-  </select>
-  - <input type="text" name="endhour" id="ehr" value="" size="1" maxlength="1" align="center">
-  :<input type="text" name="endmin" id="emin" value="" size="2" maxlength="2" align="center">
-  <select name="amorpm2">
-    <option value="am2" selected>AM</option>
-    <option value="pm2">PM</option>
-  </select>
-  <br>
-  <input type="button" value="Add" onClick="showAndClearField(this.form)">
-</form>
-  <br>
-  <a href = "javascript:void(0)" onclick =
-  "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Done
-  </a></div>
+          frm.submit()
+    }
+    else {
+           frm.submit()
+    }
+    }
 
-<tr><td class="currday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">1</a></td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">2</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">3</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
+function addHidden(theForm, key, value) {
+    // Create a hidden input element, and append it to the form:
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+    theForm.appendChild(input);
+}
 
-<tr><td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
 
-<tr><td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
+function openLBox(d) {
+               var nmonth = document.getElementById("ttl").innerHTML.split(/\s+/);
+               document.getElementById("etl").innerHTML = nmonth[0]+" " + d;
+               var frm = document.forms['einfo'];
+               addHidden(frm, 'year', nmonth[1]); 
+               addHidden(frm, 'month', nmonth[0]);
+               addHidden(frm, 'day', d);
+               document.getElementById('light').style.display='block';
+               document.getElementById('fade').style.display='block;'
+}
 
-<tr><td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
+function setMonth() {
+	       var final = "";
+	       var d = new Date();
+	       var m = d.getMonth();
+	       if (m == 0) {final += "January"}
+	       else if (m == 1) {final += "February"}
+	       else if (m == 2) {final += "March"}
+	       else if (m == 3) {final += "April"}
+	       else if (m == 4) {final += "May"}
+	       else if (m == 5) {final += "June"}
+	       else if (m == 6) {final += "July"}
+	       else if (m == 7) {final += "August"}
+	       else if (m == 8) {final += "September"}
+	       else if (m == 9) {final += "October"}
+	       else if (m == 10) {final += "November"}
+	       else if (m = 11) {final += "December"}
+	       final += " " + d.getFullYear();
+	       document.getElementById("ttl").innerHTML = final;
+	       }
+	       
 
-<tr><td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
-</table>
-</body>
+    function setDays() {
+    var numDays = 30;
+    var startDay = 5; 
+    var i = 1;
+    var day = "";
+    var tdid = "";
+    var d = new Date();
+    var x = d.getDate();
+    while (i < numDays+1) {
+	       var temp = i+startDay;
+	       day = i.toString();
+	       tdid = temp.toString();
+	       document.getElementById(tdid).innerHTML = day;
+               document.getElementById(tdid).innerHTML =
+    document.getElementById(tdid).innerHTML + "<a href=\"javascript:openLBox("+day+")\"><li>3:30-4:30 - This and that</li></a>";
+               
+
+if (day == x) { document.getElementById(tdid).className = "currday";}
+	       i++;
+	       }
+	       }
+</script>
+
+  <body bgcolor="#CCE5FF" onload="setDays();setMonth()">
+    <a href="Homepage.html" class="homebtn button">Home</a>
+    <br>
+
+
+    <div id = "ttl" class="title"></div>
+    <table border="1">
+      <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
+
+      <div id="light" class="expandday">
+	<div id = "etl" class="title" bgcolor="#CCE5FF">Month Day</div>
+	<li class="normday">Today I need to do this</li>
+	<li class="normday">And remember this</li>
+	<li class="normday">Also I need to remember to do something else</li>
+	<hr>
+	<form method="POST" name="einfo" bgcolor="#CCE5FF">
+	  <h1 align="center">Add Event</h1>
+	  Time: <input type="text" name="starthour" id="shr" value="" size="1" maxlength="2" align="center">
+	  :<input type="text" name="startmin" id="smin" value="" size="1" maxlength="2" align="center">
+	  <select name="amorpm1">
+	    <option value="AM" selected>AM</option>
+	    <option value="PM">PM</option>
+	  </select>
+	  - <input type="text" name="endhour" id="ehr" value="" size="1" maxlength="2" align="center">
+	  :<input type="text" name="endmin" id="emin" value="" size="1" maxlength="2" align="center">
+	  <select name="amorpm2">
+	    <option value="AM" selected>AM</option>
+	    <option value="PM">PM</option>
+	  </select>
+	  <br>
+	  Description: <input type="text" name="newevent" id="nev" value="" style="width: 85%;">
+	  <br>
+	  <input type="button" value="Add" onClick="showAndClearField(this.form)">
+	</form>
+	<br>
+	<a href = "javascript:void(0)" onclick =
+	   "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Done
+      </a></div>
+
+      <tr><td id="1" class="normday"></td>
+	<td id="2" class="normday"></td>
+	<td id="3" class="normday"></td>
+	<td id="4" class="normday"></td>
+	<td id="5" class="normday"></td>
+	<td id="6" class="normday"></td>
+	<td id="7" class="normday"></td></tr>
+
+      <tr><td id="8" class="normday"></td>
+	<td id="9" class="normday"></td>
+	<td id="10" class="normday"></td>
+	<td id="11" class="normday"></td>
+	<td id="12" class="normday"></td>
+	<td id="13" class="normday"></td>
+	<td id="14" class="normday"></td></tr>
+
+      <tr><td id="15" class="normday"></td>
+	<td id="16" class="normday"></td>
+	<td id="17" class="normday"></td>
+	<td id="18" class="normday"></td>
+	<td id="19" class="normday"></td>
+	<td id="20" class="normday"></td>
+	<td id="21" class="normday"></td></tr>
+
+      <tr><td id="22" class="normday"></td>
+	<td id="23" class="normday"></td>
+	<td id="24" class="normday"></td>
+	<td id="25" class="normday"></td>
+	<td id="26" class="normday"></td>
+	<td id="27" class="normday"></td>
+	<td id="28" class="normday"></td></tr>
+
+      <tr><td id="29" class="normday"></td>
+	<td id="30" class="normday"></td>
+	<td id="31" class="normday"></td>
+	<td id="32" class="normday"></td>
+	<td id="33" class="normday"></td>
+	<td id="34" class="normday"></td>
+	<td id="35" class="normday" id="35"></td></tr>
+    </table>
+  </body>
 </html>
+    
