@@ -24,3 +24,5 @@ def changeName(user, name): #changes name
     
 def checkUser(username, coll): #this is auth without the password
     return [ x for x in coll.find ({'username': user})] != []
+
+def getName(username, coll): #this should return the nickname of a user
