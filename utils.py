@@ -13,14 +13,14 @@ def addLocation(user, location): #adds location
 def getLocation(location, coll): #returns location
     return [x for x in coll.find ({'location':location})
 
-def changeLocation(username, location): #changes location
-    coll.update({'username': user}, {'$set':{'location': 'location'}}) 
+def changeLocation(location): #changes location
+    coll.update({'$set':{'location': 'location'}) 
     
-def addEvent(user, event): #adds events
-    coll.insert({'username':user, 'event': event}) #possibly return values if there is a sucess or not?
+def addEvent(event): #adds events
+    coll.insert({'event': event}) #possibly return values if there is a sucess or not?
 
-def changeName(username, name): #changes name
-    coll.update({'username': user}, {'$set':{'name': 'name'}})
+def changeName(name): #changes name
+    coll.update({'$set':{'name': 'name'}})
     
 def checkUser(username, coll): #this is auth without the password
     return [ x for x in coll.find ({'username': user})] != []
