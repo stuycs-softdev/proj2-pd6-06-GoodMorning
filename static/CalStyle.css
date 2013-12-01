@@ -130,11 +130,11 @@ h1 {
  
 a.button:hover {
     background: #66B2FF;
-    background: -webkit-linear-gradient(top, grey, grey);
-    background: -moz-linear-gradient(top, grey, grey);
-    background: -o-linear-gradient(top, grey, grey);
-    background: -ms-linear-gradient(top, grey, grey);
-    background: linear-gradient(top, grey, grey);
+    background: -webkit-linear-gradient(top, #66B2FF, #66B2FF);
+    background: -moz-linear-gradient(top, #66B2FF, #66B2FF);
+    background: -o-linear-gradient(top, #66B2FF, #66B2FF);
+    background: -ms-linear-gradient(top, #66B2FF, #66B2FF);
+    background: linear-gradient(top, #66B2FF, #66B2FF);
 }
 
 .homebtn {
