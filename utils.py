@@ -11,10 +11,10 @@ def addLocation(user, location): #adds location
     coll.insert({'username': user, 'location': location})
 
 def getLocation(location, coll): #returns location
-    return [x for x in coll.find ({'location':location})
+    return [x for x in coll.find ({'location':location})]
 
 def changeLocation(location): #changes location
-    coll.update({'$set':{'location': 'location'}) 
+    coll.update({'$set':{'location': 'location'}}) 
     
 def addEvent(event): #adds events
     coll.insert({'event': event}) #possibly return values if there is a sucess or not?

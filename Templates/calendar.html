@@ -3,128 +3,199 @@
     <title>My Calendar</title>
     <meta charset="utf-8" />
     <link href="../static/CalStyle.css" rel="stylesheet" type="text/css" media="screen" />
-  </head>
-  
-  <script type="text/javascript">
-    function showAndClearField(frm){
-    if (frm.newevent.value == "")
-    alert("Hey! You didn't enter anything!")
-    else if (frm.starthour.value == ""
-             || frm.endhour.value == ""
-             || frm.startmin.value == ""
-             || frm.endmin.value == "") {
+    <script type="text/javascript">
+      function Container(param) {
+         this.member = param;
+      }
 
+      function CurrDay() {
+         var d = new Date();
+         return d;
+      }
+
+      function NumDays(m,y) {
+        var n = 0;
+        if (m == 0) {n = 31;}
+        else if (m == 1) {
+          if (y % 4 == 0) {n = 29;}
+          else {n = 28;}
+        }
+        else if (m == 2) {n = 31;}
+        else if (m == 3) {n = 30;}
+        else if (m == 4) {n = 31;}
+        else if (m == 5) {n = 30;}
+        else if (m == 6) {n = 31;}
+        else if (m == 7) {n = 31;}
+        else if (m == 8) {n = 30;}
+        else if (m == 9) {n = 31;}
+        else if (m == 10) {n = 30;}
+        else if (m = 11) {n = 31;}
+        return n;
+      }
+ 
+      var date = new CurrDay()
+      var Month = new Container(date.getMonth())
+      var Year = new Container(date.getFullYear())
+      var Number = new Container(NumDays(Month.member,Year.member))
+
+      function FirstDay() {
+        var d = new Date();
+        d.setDate(1);
+        d.setMonth(Month.member);
+        d.setFullYear(Year.member);
+        var l = d.getDay();
+        return l;
+      }
+
+      function LastDay() {
+        var d = new Date();
+        d.setDate(Number.member);
+        d.setMonth(Month.member);
+        d.setFullYear(Year.member);
+        var l = d.getDay();
+        return l;
+      }
+
+      var First = new Container(FirstDay())
+      var Last = new Container(LastDay())
+
+      function showAndClearField(frm){
+        if (frm.newevent.value == "")
+          alert(First.member + " " + Last.member)
+        else if (frm.starthour.value == ""
+          || frm.endhour.value == ""
+          || frm.startmin.value == ""
+          || frm.endmin.value == "") {
           frm.submit()
-    }
-    else {
-           frm.submit()
-    }
-    }
+        }
+        else {
+          frm.submit()
+        }
+      }
 
-function addHidden(theForm, key, value) {
-    // Create a hidden input element, and append it to the form:
-    var input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = key;
-    input.value = value;
-    theForm.appendChild(input);
-}
+      function addHidden(theForm, key, value) {
+     // Create a hidden input element, and append it to the form:
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value;
+        theForm.appendChild(input);
+      }
 
-
-function openLBox(d) {
-               var nmonth = document.getElementById("ttl").innerHTML.split(/\s+/);
-               document.getElementById("etl").innerHTML = nmonth[0]+" " + d;
-               var frm = document.forms['einfo'];
-               addHidden(frm, 'year', nmonth[1]); 
-               addHidden(frm, 'month', nmonth[0]);
-               addHidden(frm, 'day', d);
-               document.getElementById('light').style.display='block';
-               document.getElementById('fade').style.display='block;'
-}
-
-function setMonth() {
-	       var final = "";
-	       var d = new Date();
-	       var m = d.getMonth();
-	       if (m == 0) {final += "January"}
-	       else if (m == 1) {final += "February"}
-	       else if (m == 2) {final += "March"}
-	       else if (m == 3) {final += "April"}
-	       else if (m == 4) {final += "May"}
-	       else if (m == 5) {final += "June"}
-	       else if (m == 6) {final += "July"}
-	       else if (m == 7) {final += "August"}
-	       else if (m == 8) {final += "September"}
-	       else if (m == 9) {final += "October"}
-	       else if (m == 10) {final += "November"}
-	       else if (m = 11) {final += "December"}
-	       final += " " + d.getFullYear();
-	       document.getElementById("ttl").innerHTML = final;
-	       }
+      function setMonth() {
+        var final = "";
+        var m = Month.member;
+        if (m == 0) {final += "January";}
+        else if (m == 1) {final += "February";}
+        else if (m == 2) {final += "March";}
+        else if (m == 3) {final += "April";}
+        else if (m == 4) {final += "May";}
+        else if (m == 5) {final += "June";}
+        else if (m == 6) {final += "July";}
+        else if (m == 7) {final += "August";}
+        else if (m == 8) {final += "September";}
+        else if (m == 9) {final += "October";}
+        else if (m == 10) {final += "November";}
+        else if (m = 11) {final += "December";}
+        final += " " + Year.member;
+        document.getElementById("ttl").innerHTML = final;
+      }
 	       
+      function getEvents(day) {
+        var i;
+        var ret = "";
+        var list = {{event_list|safe}};
+        for (i in list[day]) {
+          ret += "<li>"+list[day][i]+"</li>"
+        }
+        return ret;
+      }
 
-    function setDays() {
-    var numDays = 30;
-    var startDay = 5; 
-    var i = 1;
-    var day = "";
-    var tdid = "";
-    var d = new Date();
-    var x = d.getDate();
-    while (i < numDays+1) {
-	       var temp = i+startDay;
-	       day = i.toString();
-	       tdid = temp.toString();
-	       document.getElementById(tdid).innerHTML = day;
-               document.getElementById(tdid).innerHTML =
-    document.getElementById(tdid).innerHTML + "<a href=\"javascript:openLBox("+day+")\"><li>3:30-4:30 - This and that</li></a>";
-               
+      function getBigEvents(day) {
+        var i;
+        var ret = "";
+        var list = {{event_list|safe}};
+        for (i in list[day]) {
+          ret += "<li class='normday'>"+list[day][i]+"</li>"
+        }
+        return ret;
+      }
 
-if (day == x) { document.getElementById(tdid).className = "currday";}
-	       i++;
-	       }
-	       }
+      function openLBox(d) {
+        var i = parseInt(d);
+        document.getElementById('stuff').innerHTML = getBigEvents(i-1);
+        var nmonth = document.getElementById("ttl").innerHTML.split(/\s+/);
+        document.getElementById("etl").innerHTML = nmonth[0]+" " + d;
+        var frm = document.forms['einfo'];
+        addHidden(frm, 'year', nmonth[1]); 
+        addHidden(frm, 'month', nmonth[0]);
+        addHidden(frm, 'day', d);
+        document.getElementById('light').style.display='block';
+        document.getElementById('fade').style.display='block';
+      }
+
+      function setDays() {
+        var numDays = Number.member;
+        var startDay = First.member; 
+        var i = 1;
+        var day = "";
+        var tdid = "";
+        var d = new Date();
+        var x = d.getDate();
+        while (i < numDays+1) {
+		   var temp = i+startDay;
+		   day = i.toString();
+		   tdid = temp.toString();
+		   document.getElementById(tdid).innerHTML = day;
+		   document.getElementById(tdid).innerHTML =
+		   document.getElementById(tdid).innerHTML + "<a href=\"javascript:openLBox("+day+")\">" +getEvents(i-1) +"</a>";
+		   if (day == x) { document.getElementById(tdid).className = "currday";}
+		   i++;
+	  }
+	  document.getElementById("prev").href = "calendar/"+Year.member+"/"+(Month.member-1);
+	  document.getElementById("next").href = "calendar/"+Year.member+"/"+(Month.member+1);
+	}
+	  
 </script>
 
+  </head>
+  
   <body bgcolor="#CCE5FF" onload="setDays();setMonth()">
-    <a href="Homepage.html" class="homebtn button">Home</a>
+    <a href="homepage.html" class="homebtn button">Home</a>
     <br>
-
-
+    
+    <div id="light" class="expandday">
+      <div id = "etl" class="title" bgcolor="#CCE5FF">Month Day</div>
+      <p id="stuff" class="normday"></p>
+      <hr>
+      <form method="POST" name="einfo" bgcolor="#CCE5FF">
+	<h1 align="center">Add Event</h1>
+	Time: <input type="text" name="starthour" id="shr" value="" size="1" maxlength="2" align="center">
+	:<input type="text" name="startmin" id="smin" value="" size="1" maxlength="2" align="center">
+	<select name="amorpm1">
+	  <option value="AM" selected>AM</option>
+	  <option value="PM">PM</option>
+	</select>
+	- <input type="text" name="endhour" id="ehr" value="" size="1" maxlength="2" align="center">
+	:<input type="text" name="endmin" id="emin" value="" size="1" maxlength="2" align="center">
+	<select name="amorpm2">
+	  <option value="AM" selected>AM</option>
+	  <option value="PM">PM</option>
+	</select>
+	<br>
+	Description: <input type="text" name="newevent" id="nev" value="" style="width: 85%;">
+	<br>
+	<input type="button" value="Add" align="right" onClick="showAndClearField(this.form)">
+      </form>
+      <br>
+      <a href = "javascript:void(0)" class="right" onclick =
+	 "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Done
+    </a></div>
+    
     <div id = "ttl" class="title"></div>
     <table border="1">
       <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
-
-      <div id="light" class="expandday">
-	<div id = "etl" class="title" bgcolor="#CCE5FF">Month Day</div>
-	<li class="normday">Today I need to do this</li>
-	<li class="normday">And remember this</li>
-	<li class="normday">Also I need to remember to do something else</li>
-	<hr>
-	<form method="POST" name="einfo" bgcolor="#CCE5FF">
-	  <h1 align="center">Add Event</h1>
-	  Time: <input type="text" name="starthour" id="shr" value="" size="1" maxlength="2" align="center">
-	  :<input type="text" name="startmin" id="smin" value="" size="1" maxlength="2" align="center">
-	  <select name="amorpm1">
-	    <option value="AM" selected>AM</option>
-	    <option value="PM">PM</option>
-	  </select>
-	  - <input type="text" name="endhour" id="ehr" value="" size="1" maxlength="2" align="center">
-	  :<input type="text" name="endmin" id="emin" value="" size="1" maxlength="2" align="center">
-	  <select name="amorpm2">
-	    <option value="AM" selected>AM</option>
-	    <option value="PM">PM</option>
-	  </select>
-	  <br>
-	  Description: <input type="text" name="newevent" id="nev" value="" style="width: 85%;">
-	  <br>
-	  <input type="button" value="Add" onClick="showAndClearField(this.form)">
-	</form>
-	<br>
-	<a href = "javascript:void(0)" onclick =
-	   "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Done
-      </a></div>
-
+      
       <tr><td id="1" class="normday"></td>
 	<td id="2" class="normday"></td>
 	<td id="3" class="normday"></td>
@@ -132,7 +203,7 @@ if (day == x) { document.getElementById(tdid).className = "currday";}
 	<td id="5" class="normday"></td>
 	<td id="6" class="normday"></td>
 	<td id="7" class="normday"></td></tr>
-
+      
       <tr><td id="8" class="normday"></td>
 	<td id="9" class="normday"></td>
 	<td id="10" class="normday"></td>
@@ -140,7 +211,7 @@ if (day == x) { document.getElementById(tdid).className = "currday";}
 	<td id="12" class="normday"></td>
 	<td id="13" class="normday"></td>
 	<td id="14" class="normday"></td></tr>
-
+      
       <tr><td id="15" class="normday"></td>
 	<td id="16" class="normday"></td>
 	<td id="17" class="normday"></td>
@@ -148,7 +219,7 @@ if (day == x) { document.getElementById(tdid).className = "currday";}
 	<td id="19" class="normday"></td>
 	<td id="20" class="normday"></td>
 	<td id="21" class="normday"></td></tr>
-
+      
       <tr><td id="22" class="normday"></td>
 	<td id="23" class="normday"></td>
 	<td id="24" class="normday"></td>
@@ -156,7 +227,7 @@ if (day == x) { document.getElementById(tdid).className = "currday";}
 	<td id="26" class="normday"></td>
 	<td id="27" class="normday"></td>
 	<td id="28" class="normday"></td></tr>
-
+      
       <tr><td id="29" class="normday"></td>
 	<td id="30" class="normday"></td>
 	<td id="31" class="normday"></td>
@@ -165,6 +236,10 @@ if (day == x) { document.getElementById(tdid).className = "currday";}
 	<td id="34" class="normday"></td>
 	<td id="35" class="normday" id="35"></td></tr>
     </table>
+    <br>
+    <a id="prev" href="calendar" class="homebtn button">Previous</a>
+    <a id="next" href="calendar" class="nextbtn button">Next</a>
+    <br>
   </body>
 </html>
     

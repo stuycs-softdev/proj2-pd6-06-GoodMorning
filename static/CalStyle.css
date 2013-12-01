@@ -1,5 +1,5 @@
 * {
-    background-color: #CCE5FF; 
+    background-color: #CCE5FF;
 }
 
 /* Month and year */
@@ -93,6 +93,11 @@ h1 {
     padding: 0 0px;
 }
 
+.right {
+    float: right;
+}
+
+
 .normday {
     background-color: white;
     font: medium Arial, sans-serif;
@@ -143,8 +148,7 @@ a.button:hover {
     float: left;
 }
 
-.donebtn {
-    position: bottom;
+.nextbtn {
     background: white;
     width: 60px;
     float: right;
@@ -165,6 +169,7 @@ input[type="button"], button {
     text-decoration: none;
     text-align: center;
     vertical-align: bottom;
+    align: center;
     font: small Arial, sans-serif;
 
     background: -webkit-linear-gradient(top, white, #66B2FF);

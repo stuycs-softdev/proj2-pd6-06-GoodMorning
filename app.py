@@ -23,13 +23,13 @@ def login():
                 return render_template("login.html")
         username = request.form['name']
         password = request.form['password']
-if not username or not password:    #there are fields that are empty
-	return render_template(login.html, message = "Please fill out the empty fields!")
-elif utils.auth(username, password, db): #login successful
-	session["username"] = username
-	return redirect("/")
-else: #login unsuccessful
-	return render_template(login.html, message = "Incorrect username and password combination.")
+	if not username or not password:    #there are fields that are empty
+		return render_template(login.html, message = "Please fill out the empty fields!")
+	elif utils.auth(username, password, db): #login successful
+		session["username"] = username
+		return redirect("/")
+	else: #login unsuccessful
+		return render_template(login.html, message = "Incorrect username and password combination.")
 
 @app.route("/register",methods = ["GET","POST"])
 def register():
