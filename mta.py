@@ -1,7 +1,7 @@
 import urllib2
 from bs4 import BeautifulSoup
 
-#scraping mta right now, will switch to api if need be
+#scraping mta right now, will switch to api if needed
 
 def url():
   f = urllib2.urlopen('http://www.mta.info/status/serviceStatus.txt')
@@ -12,7 +12,7 @@ def lineNamesInfo():
   result = BeautifulSoup(f)
   
   #---------this should return a list of all the train names?
-  lineNames = soup.service.subway.find_next_siblings('line').name
+  lineNames = result.service.subway.find_next_siblings('line').name
   return lineNames
   
 def lineStatusInfo():
@@ -20,7 +20,7 @@ def lineStatusInfo():
   result = BeautifulSoup(f)
   
   #--------this should return a list of the status of those said trains?  
-  lineStatus = soup.service.subway.find_next_siblings('line').status
+  lineStatus = result.service.subway.find_next_siblings('line').status
   return lineStatus
   #--------thinking about buses, but that will be for later
   
