@@ -3,6 +3,9 @@ from flask import request, render_template, redirect, session
 from pymongo import MongoClient
 
 import utils
+import mta
+import weather
+import event
 
 db = MongoClient().db
 
@@ -12,9 +15,26 @@ app.secret_key = 'jasoniscool'
 
 @app.route("/")
 def home():
+	trains = [ott(), ffs(), seven(), ace(), bdfm(), g(), jz(), l(), nqr(), s(), sir()]
+	temp = getTemp()
+	sky = getWeather()
+	service = [x[1] for x in trains]
         if "username" in session: #if logged in already
 		username = session ['username']
-                return render_template(homepage.html)
+                return render_template(homepage.html, temperature = temp, 
+                				      weather = sky, 
+                				      ott = service[0],
+                				      ffs = service[1],
+                				      seven = service[2],
+                				      ace = service[3],
+                				      bdfm = service[4],
+                				      g = service[5],
+                				      jz = service[6],
+                				      l = service[7],
+                				      nqr = service[8],
+                				      s = service[9],
+                				      sir = service[10]
+                				      )
          #if not logged in
 	else:
 		return redirect("/login")
