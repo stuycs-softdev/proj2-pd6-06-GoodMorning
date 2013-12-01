@@ -18,30 +18,9 @@ class Event():
                 self.date.month >= today.month and
                 self.date.day >= today.day)
 
-#events = [Event(1000, 1, 27, 5, 00, "hello")]
-
 def organize(events):
     today = datetime.today()
     print 'today is', events[0].date.year >= today.hour
     events = sorted([e for e in events if e.should_show()], key=lambda e: e.date)
     return events
-
-
-import random
-def test(i=15):
-    popsicle = []
-    while i > 0:
-        year = random.choice(range(2013, 2015))
-        month = random.choice(range(1, 13))
-        day = random.choice(range(1, 28))
-        hour = random.choice(range(0, 24))
-        minute = random.choice(range(0, 60))
-        popsicle.append(Event(year, month, day, hour, minute, 'Event %d'%i))
-        i -= 1
-#    print 'unsorted:', [form(e) for e in popsicle]
-    print 'sorted:', [form(e) for e in organize(popsicle)]
-
-def form(e):
-    return "%s at %s"%(e.title, e.date)
-
-test()        
+        
