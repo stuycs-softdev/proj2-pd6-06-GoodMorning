@@ -18,9 +18,15 @@ class Event():
                 self.date.month >= today.month and
                 self.date.day >= today.day)
 
+#events = [Event(1000, 1, 27, 5, 00, "hello")]
+
 def organize(events):
     today = datetime.today()
     print 'today is', events[0].date.year >= today.hour
     events = sorted([e for e in events if e.should_show()], key=lambda e: e.date)
     return events
-        
+
+def form(e):
+    return "%s at %s"%(e.title, e.date)
+
+      

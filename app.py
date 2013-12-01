@@ -3,6 +3,9 @@ from flask import request, render_template, redirect, session
 from pymongo import MongoClient
 
 import utils
+import mta
+import weather
+import event
 
 db = MongoClient().db
 
@@ -12,9 +15,27 @@ app.secret_key = 'jasoniscool'
 
 @app.route("/")
 def home():
+	trains = [ott(), ffs(), seven(), ace(), bdfm(), g(), jz(), l(), nqr(), s(), sir()]
+	temp = getTemp()
+	sky = getWeather()
+	service = [x[1] for x in trains]
         if "username" in session: #if logged in already
 		username = session ['username']
-                return render_template(homepage.html)
+                return render_template(homepage.html, temperature = temp, 
+                				      weather = sky, 
+                				      ott = service[0],
+                				      ffs = service[1],
+                				      seven = service[2],
+                				      ace = service[3],
+                				      bdfm = service[4],
+                				      g = service[5],
+                				      jz = service[6],
+                				      l = service[7],
+                				      nqr = service[8],
+                				      s = service[9],
+                				      sir = service[10],
+                				      greeting = utils.getName(username)
+                				      )
          #if not logged in
 	else:
 		return redirect("/login")
@@ -58,7 +79,7 @@ def register():
 
 @app.route("/settings", methods = ["GET", "POST"])
 def settings():
-	if "username" not in session:
+	if "username" not in session: #not logged in
 		return redirect("/login")
         if request.method=="GET":
                 return render_template(settings.html)
@@ -68,8 +89,8 @@ def settings():
         #oldPW = request.form['oldPW']
         #newPW = request.form['newPW'] ------change password maybe? will leave this here.-----
         #confirmNPW = request.form['cNPW']
-        if "username" not in session: #not logged in
-                return redirect("/login")
+        #if "username" not in session: 
+          #      return redirect("/login")
         if button == 'changeName':
                 utils.changeName(session["username"], name) #to change name
         if button == 'changeLocation':
