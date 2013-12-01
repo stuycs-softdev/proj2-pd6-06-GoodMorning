@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template, redirect, session
+from flask import Flask
+from flask import request, render_template, redirect, session
 from pymongo import MongoClient
 
 import utils
@@ -12,9 +13,11 @@ app.secret_key = 'jasoniscool'
 @app.route("/")
 def home():
         if "username" in session: #if logged in already
+		username = session ['username']
                 return render_template(homepage.html)
-        else: #if not logged in
-                return redirect("/login")
+         #if not logged in
+	else:
+		return redirect("/login")
 
 
 @app.route("/login",methods=['GET','POST'])
@@ -28,7 +31,8 @@ def login():
 	elif utils.auth(username, password, db): #login successful
 		session["username"] = username
 		return redirect("/")
-	else: #login unsuccessful
+ #login unsuccessful
+	else:
 		return render_template(login.html, message = "Incorrect username and password combination.")
 
 @app.route("/register",methods = ["GET","POST"])
@@ -73,10 +77,10 @@ def settings():
         
 @app.route("/logout")
 def logout():
-    session.pop("username", None)
-    return redirect("/") #or maybe redirect to login? idk.
+	session.pop("username", None)
+	return redirect("/") #or maybe redirect to login? idk.
 
 
 if __name__=="__main__":
-    app.debug=True
-    app.run(host='0.0.0.0',port=5000)
+	app.debug=True
+	app.run(host='0.0.0.0',port=5000)

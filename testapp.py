@@ -72,11 +72,11 @@ def cal():
             de = request.form['newevent']
         e = Event(y,m+1,d,h,mi,de)
 
-        #print(e.date)
-        #print(e.title)
+        print(e.date)
+        print(e.title)
         
 
-        return render_template('calpage.html', event_list=json.dumps([[e.title for e in d] for d in December2013]))
+        return render_template('calendar.html', event_list=json.dumps([[e.title for e in d] for d in December2013]))
 
 @app.route('/calendar/<int:year>/<int:month>', methods = ['GET', 'POST'])
 def getCal(year, month):
@@ -93,8 +93,7 @@ def getCal(year, month):
     e0 = Event(2013,12,25,0,0,"Merry Christmas!")
     
     December2013 = [ [e1,e2], [e3], [], [], [], [e4], [], [], [], [], [], [], [], [], [], [], [e5], [], [], [e6,e7,e8,e9], [], [], [], [], [e0], [], [], [], [], [], [] ]
-
-
+      
     if month < 0:
         year -= 1
         month = 12 - month
@@ -102,9 +101,11 @@ def getCal(year, month):
         year += 1
         month = month - 12
     if request.method =='GET':
-        return render_template('calendar.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in December2013]))
+        return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in December2013]))
     else:
         d = (int)(request.form['day'])
+        inclTime = True
+        inclEndTime = True
         if request.form['starthour'] == "":
             h = 0
             inclTime = False
@@ -118,13 +119,20 @@ def getCal(year, month):
             inclTime = False
         else:
             mi = (int)(request.form['startmin'])
-        if inclTime:
+        if ((request.form['endhour'] == "") or (request.form['endhour'] == "")):
+            inclEndTime = False
+        if inclTime and inclEndTime:
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + "-" + request.form['endhour'] + ":" + request.form['endmin'] + request.form['amorpm2'] + " - " + request.form['newevent']
+        elif inclTime:
+            de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
         e = Event(year,month,d,h,mi,de)
 
-        return render_template('calendar.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in December2013]))
+        print(e.date)
+        print(e.title)
+
+        return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in December2013]))
 
 app.debug=True
 app.run(host='0.0.0.0',port=5000)

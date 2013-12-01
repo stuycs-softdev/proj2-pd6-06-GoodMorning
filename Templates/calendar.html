@@ -152,8 +152,8 @@
 		   if (day == x) { document.getElementById(tdid).className = "currday";}
 		   i++;
 	  }
-	  document.getElementById("prev").href = "calendar/"+Year.member+"/"+(Month.member-1);
-	  document.getElementById("next").href = "calendar/"+Year.member+"/"+(Month.member+1);
+	  document.getElementById("prev").href = "/calendar/"+Year.member+"/"+(Month.member-1);
+	  document.getElementById("next").href = "/calendar/"+Year.member+"/"+(Month.member+1);
 	}
 	  
 </script>
@@ -237,8 +237,8 @@
 	<td id="35" class="normday" id="35"></td></tr>
     </table>
     <br>
-    <a id="prev" href="calendar" class="homebtn button">Previous</a>
-    <a id="next" href="calendar" class="nextbtn button">Next</a>
+    <a id="prev" class="homebtn button">Previous</a>
+    <a id="next" class="nextbtn button">Next</a>
     <br>
   </body>
 </html>
