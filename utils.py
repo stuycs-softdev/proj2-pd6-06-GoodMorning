@@ -16,8 +16,8 @@ def getLocation(location, coll): #returns location
 def changeLocation(user, location, coll): #changes location
     coll.update({'username': user}, {'$set':{'location': 'location'}}) 
     
-def addEvent(user, event, coll): #adds events
-    coll.insert({'username': user},{'event': event}) #possibly return values if there is a sucess or not?
+def addEvent(user, year, month, date, hour, minute, title , coll): #adds events
+    coll.insert({'username': user},{'year': year}, {'month': month}, {'date':date}, {'hour': hour}, {'minute':minute},{'title': title}) 
 
 def changeName(user, name): #changes name
     coll.update({'username': user},{'$set':{'name': 'name'}})
