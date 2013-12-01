@@ -18,9 +18,12 @@ def home():
 	trains = [ott(), ffs(), seven(), ace(), bdfm(), g(), jz(), l(), nqr(), s(), sir()]
 	temp = getTemp()
 	sky = getWeather()
-	service = [x[1] for x in trains]
+	service = []
+	for x in trains:
+		service.append(x[1])
+	#service = [x[1] for x in trains]
         if "username" in session: #if logged in already
-		username = session ['username']
+		username = session["username"]
                 return render_template(homepage.html, temperature = temp, 
                 				      weather = sky, 
                 				      ott = service[0],
@@ -35,7 +38,7 @@ def home():
                 				      s = service[9],
                 				      sir = service[10],
                 				      greeting = utils.getName(username)
-                				      )
+                				      ) #should have variables in html that correspond to these
          #if not logged in
 	else:
 		return redirect("/login")
@@ -47,12 +50,12 @@ def login():
                 return render_template("login.html")
         username = request.form['name']
         password = request.form['password']
-	if not username or not password:    #there are fields that are empty
+	if not username or not password:    #there are empty fields
 		return render_template(login.html, message = "Please fill out the empty fields!")
 	elif utils.auth(username, password, db): #login successful
 		session["username"] = username
 		return redirect("/")
- #login unsuccessful
+ 	# unsuccessful login
 	else:
 		return render_template(login.html, message = "Incorrect username and password combination.")
 
@@ -70,11 +73,11 @@ def register():
                 return render_template(register.html, message = "Please check the terms and conditions.")
         elif not username or not password or not confirmPW: #if not all fields are filled
                 return render_template(register.html, message = "Please fill in all of the fields.")
-        elif utils.checkUser(username): #if username taken
+        elif utils.checkUser(username): #if username is taken
                 return render_template(register.html, message = "Username already taken. Please find another.")
         else :
                 utils.addUser(username, password, db)
-                return redirect("/") #sends user back home
+                return redirect("/") #send user back home
 
 
 @app.route("/settings", methods = ["GET", "POST"])
