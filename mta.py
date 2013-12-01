@@ -20,7 +20,7 @@ def lineStatusInfo():
   result = BeautifulSoup(f)
   
   #--------this should return a list of the status of those said trains?  
-  lineStatus = soup.serive.subway.find_next_siblings('line').status
+  lineStatus = soup.service.subway.find_next_siblings('line').status
   return lineStatus
   #--------thinking about buses, but that will be for later
   
@@ -91,14 +91,3 @@ def sir():
   SIR = (names[10], status[10]);
   return SIR #the Staten Island Railroad
   
-  
-  #ffs = (lineNames[1], lineStatus[1]);
-  #seven = (lineNames[2], lineStatus[2]);
-  #ace = (lineNames[3], lineStatus[3]);
-  #bdfm = (lineNames[4], lineStatus[4]);
-  #g = (lineNames[5], lineStatus[5]);
-  #jz = (lineNames[6], lineStatus[6]);
-  #l = (lineNames[7], lineStatus[7]);
-  #nqr = (lineNames[8], lineStatus[8]);
-  #s = (lineNames[9], lineStatus[9]);
-  #sir = (lineNames[10], lineStatus[10]);
