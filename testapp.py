@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, redirect, request, render_template
 from event import Event
 from datetime import datetime
 import utils
@@ -95,8 +95,7 @@ def getCal(year, month):
     December2013 = [ [e1,e2], [e3], [], [], [], [e4], [], [], [], [], [], [], [], [], [], [], [e5], [], [], [e6,e7,e8,e9], [], [], [], [], [e0], [], [], [], [], [], [] ]
       
     if month < 0:
-        year -= 1
-        month = 12 - month
+        return render_template('calpage.html', y=year-1, m=11, event_list=json.dumps([[e.title for e in d] for d in December2013]))
     elif month > 11:
         year += 1
         month = month - 12
@@ -133,6 +132,23 @@ def getCal(year, month):
         print(e.title)
 
         return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in December2013]))
+
+@app.route('/calendar/<int:year>/-1', methods = ['GET', 'POST'])
+def prevError(year):
+    e1 = Event(2013,12,1,2,0,"2:00 - event on Dec 1")
+    e2 = Event(2013,12,1,4,0,"4:00 - event on Dec 1")
+    e3 = Event(2013,12,2,2,0,"2:00 - event on Dec 2")
+    e4 = Event(2013,12,6,2,0,"2:00 - event on Dec 6")
+    e5 = Event(2013,12,17,2,0,"2:00 - event on Dec 17")
+    e6 = Event(2013,12,20,2,0,"2:00 - event on Dec 20")
+    e7 = Event(2013,12,20,3,0,"3:00 - event on Dec 20")
+    e8 = Event(2013,12,20,4,0,"4:00 - event on Dec 20")
+    e9 = Event(2013,12,20,5,0,"5:00 - event on Dec 20")
+    e0 = Event(2013,12,25,0,0,"Merry Christmas!")
+    
+    December2013 = [ [e1,e2], [e3], [], [], [], [e4], [], [], [], [], [], [], [], [], [], [], [e5], [], [], [e6,e7,e8,e9], [], [], [], [], [e0], [], [], [], [], [], [] ]
+
+    return render_template('calpage.html', y=year-1, m=11, event_list=json.dumps([[e.title for e in d] for d in December2013]))
 
 app.debug=True
 app.run(host='0.0.0.0',port=5000)
