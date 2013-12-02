@@ -16,14 +16,14 @@ def getLocation(location, coll): #returns location
 def changeLocation(user, location, coll): #changes location
     coll.update({'username': user}, {'$set':{'location': 'location'}}) 
     
-def addEvent(user, year, month, date, hour, minute, title): #adds events
-    events.insert({'username': user},{'year': year}, {'month': month}, {'date':date}, {'hour': hour}, {'minute':minute},{'title': title}) 
+def addEvent(user, year, month, date, hour, minute, title, coll): #adds events
+    coll.insert({'username': user},{'year': year}, {'month': month}, {'date':date}, {'hour': hour}, {'minute':minute},{'title': title}) 
 
-def getEvent(year, month, date):
-    return events.find( {'year':year}, {'month':month}, {'date':date})
+def getEvent(year, month, date, coll):
+    return coll.find( {'year':year}, {'month':month}, {'date':date})
 
-def getMonthList(user, month, year):
-    return event.find({'user':user}, {'month':month}, {'year':year});
+def getMonthList(user, month, year, coll):
+    return coll.find({'user':user}, {'month':month}, {'year':year});
 
 def changeName(user, name): #changes name
     coll.update({'username': user},{'$set':{'name': 'name'}})
