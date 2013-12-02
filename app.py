@@ -18,11 +18,14 @@ app.secret_key = 'jasoniscool'
 
 @app.route("/home")
 def h():
-        return render_template("home.html")
+        return render_template("about.html")
 
 @app.route("/calendar")
 def calendar():
 	return render_template("calendar.html")
+@app.route("/homepage")
+def homepage():
+        return render_template("homepage.html")
 
 @app.route("/")
 def home():
@@ -88,7 +91,7 @@ def register():
                 return render_template("register.html", message = "Username already taken. Please find another.")
         else :
                 utils.addUser(username, password, db)
-                return redirect("/") #send user back home
+                return redirect("/homepage") #send user back home
 
 
 @app.route("/settings", methods = ["GET", "POST"])

@@ -15,21 +15,22 @@
 
   </head>
   <body>
+    {% block body %}
 
     <div class="content">
     <div class="header">
     <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
       <a class="pure-menu-heading" href="">Your Site</a>
       <ul>
-	<li class="pure-menu-selected"><a href="calendar.html">Calendar</a></li>
-	<li class="pure-menu-selected"><a href="settings.html">Settings</a></li>
-	<li class="pure-menu-selected" align="right" style="float: right;"><a href="home.html">Logout</a></li>
-	<li><a href="http://new.mta.info">MTA</a></li>
-	<li><a href="http://www.weather.com">Weather</a></li>
+        <li class="pure-menu-selected"><a href="calendar.html">Calendar</a></li>
+        <li class="pure-menu-selected"><a href="settings.html">Settings</a></li>
+        <li class="pure-menu-selected" align="right" style="float: right;"><a href="home.html">Logout</a></li>
+        <li><a href="http://new.mta.info">MTA</a></li>
+        <li><a href="http://www.weather.com">Weather</a></li>
       </ul>
     </div>
     </div>
-    {% if "username" in session %} {% else %}
+    {% if "username" in session %}
     <br>
     <br>
        
@@ -40,8 +41,8 @@
     <div class="pure-u-2-3">
     <div class="l-box splash-text">
 
-      <h1 class="splash-head" style="font-size: 400%; margin-left: 5%"> Good Morning, {{User}}! </h1>
-
+      <h1 class="splash-head" style="font-size: 400%; margin-left: 5%"> Good Morning, {session{["username"]}}! </h1>
+      {% endif %}
       <h2 class="splash-subhead" style="margin-left: 5%">Today's Events</h2>
 
       <p style="margin-left: 5%">
@@ -54,11 +55,10 @@
       <li style="margin-left: 15%">Event4</li>
       <br>
       <li style="margin-left: 15%">Event5</li>
-      {% block body %}
       {% range number from 0 to 4 %}
       <ul>
-	<li>events[number]</li>
-	{% endfor %}
+        <li>events[number]</li>
+        {% endfor %}
       </ul>
       {% endrange %}
       {% endblock %}
@@ -71,52 +71,52 @@
     </div>
     </div>
 
-	
-	
-	<div class="content" style="position: fixed; top: 0; bottom:0; width: 25%; margin-left: -25%; background: #CCE5FF; color: black;">
-	  <br>
-	  <br>
-	  <br>
-	  <h3>&nbsp;&nbsp; Today's Weather </h3>
+        
+        
+        <div class="content" style="position: fixed; top: 0; bottom:0; width: 25%; margin-left: -25%; background: #CCE5FF; color: black;">
+          <br>
+          <br>
+          <br>
+          <h3>&nbsp;&nbsp; Today's Weather </h3>
 
-	  <div style="width: 150px">  
-	  <div style="padding: 5px">
-	    <span style="font-size:small;
-	  vertical-align:top">{{Weather}}stuff stuff tsuff
-	  safsakndsafnksladna asdnklasd sadklasd sdanklnds sdankl asdn
-	  yjeiro sdl esk asdnkl fnskal fsaknl</span>
-	    <img src="http://pakistan.embassyhomepage.com/pakistani-weather-forecast.jpg"
-	  width="400px" style="vertical-align:top;"
-	  </div>      
-	  </div>
+          <div style="width: 150px">  
+          <div style="padding: 5px">
+            <span style="font-size:small;
+          vertical-align:top">{{Weather}}stuff stuff tsuff
+          safsakndsafnksladna asdnklasd sadklasd sdanklnds sdankl asdn
+          yjeiro sdl esk asdnkl fnskal fsaknl</span>
+            <img src="http://pakistan.embassyhomepage.com/pakistani-weather-forecast.jpg"
+          width="400px" style="vertical-align:top;"
+          </div>      
+          </div>
 
-	  <div class="pure-g-r content-ribbon">
-	  <div class="pure-u-2-3">
-	  <div class="l-box">
-	    <h3 class="content-subhead">&nbsp;&nbsp; Train Information</h3>
-	    <p> {{Train}} </p>
-	    
-	    
-	  </div>
-	  </div>
-	  </div>
-	  </div>
-	  
-	  <div class="l-box ribbon">
-	    
-	    <a href="home.html" class="pure-button primary-button">Log out</a>
-	  </div>
-	  
-	<script src="http://yui.yahooapis.com/3.12.0/build/yui/yui.js"></script>
-	<script>
-	  YUI().use('node-base', 'node-event-delegate', function (Y) {
-	  // This just makes sure that the href="#" attached to the <a> elements
-	    // don't scroll you back up the page.
-	    Y.one('body').delegate('click', function (e) {
+          <div class="pure-g-r content-ribbon">
+          <div class="pure-u-2-3">
+          <div class="l-box">
+            <h3 class="content-subhead">&nbsp;&nbsp; Train Information</h3>
+            <p> {{Train}} </p>
+            
+            
+          </div>
+          </div>
+          </div>
+          </div>
+          
+          <div class="l-box ribbon">
+            
+            <a href="home.html" class="pure-button primary-button">Log out</a>
+          </div>
+          
+        <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui.js"></script>
+        <script>
+          YUI().use('node-base', 'node-event-delegate', function (Y) {
+          // This just makes sure that the href="#" attached to the <a> elements
+            // don't scroll you back up the page.
+            Y.one('body').delegate('click', function (e) {
             e.preventDefault();
-	    }, 'a[href="#"]');
-	    });
-	</script>
+            }, 'a[href="#"]');
+            });
+        </script>
 
 
 
