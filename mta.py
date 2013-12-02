@@ -1,3 +1,4 @@
+#-----------------------NOT USING ANYMORE----------(i think)------------------------
 import urllib2
 from bs4 import BeautifulSoup
 
@@ -12,7 +13,10 @@ def lineNamesInfo():
   result = BeautifulSoup(f)
   
   #---------this should return a list of all the train names?
-  lineNames = result.service.subway.find_next_siblings('line').name
+  lineNames1 = result.service.subway.find_next_siblings("line")
+  lineNames = []
+  for x in lineNames1:
+	lineNames.append(x.name)
   return lineNames
   
 def lineStatusInfo():
@@ -20,9 +24,11 @@ def lineStatusInfo():
   result = BeautifulSoup(f)
   
   #--------this should return a list of the status of those said trains?  
-  lineStatus = result.service.subway.find_next_siblings('line').status
+  lineStatus1 = result.service.subway.find_next_siblings("line")
+  lineStatus = []
+  for x in lineStatus1:
+	lineStatus.append(x.status)
   return lineStatus
-  #--------thinking about buses, but that will be for later
   
 #-----------------------------------TRAIN LINES---------------------------------------
 def ott():
