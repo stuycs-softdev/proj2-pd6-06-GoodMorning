@@ -7,13 +7,13 @@ def url():
   f = urllib2.urlopen('http://www.mta.info/status/serviceStatus.txt')
   return f
   
-def ott():
+def ott(): #-------THE 1, 2, 3
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
   return first_line.status.string
 
-def ffs():
+def ffs(): #---------THE 4, 5, 6
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
@@ -21,7 +21,7 @@ def ffs():
 	nextLine = first_line.find_next_sibling("line")
   return nextLine.status.string
 
-def seven():
+def seven(): #------THE 7
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
@@ -29,7 +29,7 @@ def seven():
 	nextLine = first_line.find_next_sibling("line")
   return nextLine.status.string
 
-def ace():
+def ace(): #-----THE A, C, E
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
@@ -37,7 +37,7 @@ def ace():
 	nextLine = first_line.find_next_sibling("line")
   return nextLine.status.string
 
-def bdfm():
+def bdfm(): #-----THE B, D, F, M
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
@@ -45,7 +45,7 @@ def bdfm():
 	nextLine = first_line.find_next_sibling("line")
   return nextLine.status.string
 
-def g():
+def g(): #--------THE G
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
@@ -53,7 +53,7 @@ def g():
 	nextLine = first_line.find_next_sibling("line")
   return nextLine.status.string
 
-def jz():
+def jz(): #-----THE J, Z
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
@@ -61,7 +61,7 @@ def jz():
 	nextLine = first_line.find_next_sibling("line")
   return nextLine.status.string
 
-def l():
+def l(): #-----THE L
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
@@ -69,7 +69,7 @@ def l():
 	nextLine = first_line.find_next_sibling("line")
   return nextLine.status.string
 
-def nqr():
+def nqr(): #----THE N, Q, R
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
@@ -77,7 +77,7 @@ def nqr():
 	nextLine = first_line.find_next_sibling("line")
   return nextLine.status.string
 
-def s():
+def s(): #--------THE S
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
@@ -85,7 +85,7 @@ def s():
 	nextLine = first_line.find_next_sibling("line")
   return nextLine.status.string
 
-def sir():
+def sir(): #-----THE STATEN ISLAND RAILROAD
   f = url()
   result = BeautifulSoup(f)
   first_line = result.line
