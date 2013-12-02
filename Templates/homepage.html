@@ -15,6 +15,7 @@
 
   </head>
   <body>
+    {% block body %}
 
     <div class="content">
     <div class="header">
@@ -29,7 +30,7 @@
       </ul>
     </div>
     </div>
-    {% if "username" in session %} {% else %}
+    {% if "username" in session %}
     <br>
     <br>
        
@@ -40,8 +41,8 @@
     <div class="pure-u-2-3">
     <div class="l-box splash-text">
 
-      <h1 class="splash-head" style="font-size: 400%; margin-left: 5%"> Good Morning, {{User}}! </h1>
-
+      <h1 class="splash-head" style="font-size: 400%; margin-left: 5%"> Good Morning, {session{["username"]}}! </h1>
+      {% endif %}
       <h2 class="splash-subhead" style="margin-left: 5%">Today's Events</h2>
 
       <p style="margin-left: 5%">
@@ -54,7 +55,6 @@
       <li style="margin-left: 15%">Event4</li>
       <br>
       <li style="margin-left: 15%">Event5</li>
-      {% block body %}
       {% range number from 0 to 4 %}
       <ul>
 	<li>events[number]</li>
