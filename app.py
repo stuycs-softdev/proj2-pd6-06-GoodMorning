@@ -88,7 +88,7 @@ def register():
                 return render_template("register.html", message = "Please fill in all of the fields.")
         elif utils.checkUser(username): #if username is taken
                 return render_template("register.html", message = "Username already taken. Please find another.")
-        else :
+        else:
                 utils.addUser(username, password, db)
                 return redirect("/") #send user back home
 
