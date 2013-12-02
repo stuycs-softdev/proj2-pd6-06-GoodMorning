@@ -3,21 +3,22 @@ from flask import request, render_template, redirect, session
 from pymongo import MongoClient
 
 import utils
-import mta
+import mta2
 import weather
 import event
 
-db = MongoClient().db
+c = MongoClient()
+db = c['test']
+events = db.events
 
 app = Flask(__name__)
 app.secret_key = 'jasoniscool'
 
-
 @app.route("/")
 def home():
-	trains = [ott(), ffs(), seven(), ace(), bdfm(), g(), jz(), l(), nqr(), s(), sir()]
-	temp = getTemp()
-	sky = getWeather()
+	trains = [mta2.ott(), mta2.ffs(), mta2.seven(), mta2.ace(), mta2.bdfm(), mta2.g(), mta2.jz(), mta2.l(), mta2.nqr(), mta2.s(), mta2.sir()]
+	temp = weather.getTemp()
+	sky = weather.getWeather()
 	service = []
 	for x in trains:
 		service.append(x[1])
@@ -37,7 +38,7 @@ def home():
                 				      nqr = service[8],
                 				      s = service[9],
                 				      sir = service[10],
-                				      greeting = utils.getName(username)
+                				      #greeting = utils.getName(username)
                 				      ) #should have variables in html that correspond to these
          #if not logged in
 	else:
@@ -107,4 +108,4 @@ def logout():
 
 if __name__=="__main__":
 	app.debug=True
-	app.run(host='0.0.0.0',port=5000)
+	app.run()
