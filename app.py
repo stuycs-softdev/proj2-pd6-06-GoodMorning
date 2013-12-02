@@ -66,7 +66,7 @@ def login():
 		return redirect("/")
  	# unsuccessful login
 	else:
-		return render_template(login.html, message = "Incorrect username and password combination.")
+		return render_template("login.html", message = "Incorrect username and password combination.")
 
 @app.route("/register",methods = ["GET","POST"])
 def register():
