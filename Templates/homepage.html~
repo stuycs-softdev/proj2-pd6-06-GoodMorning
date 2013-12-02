@@ -43,9 +43,7 @@
 
       <h1 class="splash-head" style="font-size: 400%; margin-left: 5%"> Good Morning, {{User}}! </h1>
 
-      <h2 class="splash-subhead" style="margin-left: 5%">
-      Today's Events:
-      </h2>
+      <h2 class="splash-subhead" style="margin-left: 5%">Today's Events</h2>
 
       <p style="margin-left: 5%">
       <li style="margin-left: 15%">Event1</li>
