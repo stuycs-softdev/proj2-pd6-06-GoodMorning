@@ -20,8 +20,12 @@ def changeLocation(user, location, coll): #changes location
 def addEvent(user, year, month, date, hour, minute, title): #adds events
     events.insert({'username': user},{'year': year}, {'month': month}, {'date':date}, {'hour': hour}, {'minute':minute},{'title': title}) 
 
-def getMonthList(user, month, year){
-    return event.find({'user':user}, {'month':month}, {'year':year});
+def getMonthList(user, month, year):
+    return events.find({'user':user}, {'month':month}, {'year':year});
+
+def getDate(user, month, year, date):
+    event = events.find({'user':user}, {'month':month}, {'year':year}, {'date':date})
+    return event['date']
 
 def changeName(user, name): #changes name
     coll.update({'username': user},{'$set':{'name': 'name'}})
