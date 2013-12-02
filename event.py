@@ -26,6 +26,7 @@ def organize(events):
     events = sorted([e for e in events if e.should_show()], key=lambda e: e.date)
     return events
 
+<<<<<<< HEAD
 
 import random
 def test(i=15):
@@ -45,3 +46,9 @@ def form(e):
     return "%s at %s"%(e.title, e.date)
 
 test()        
+=======
+def form(e):
+    return "%s at %s"%(e.title, e.date)
+
+      
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad

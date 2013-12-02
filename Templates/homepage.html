@@ -17,7 +17,11 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 
 
+<<<<<<< HEAD
 
+=======
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
 
 
     <link rel="stylesheet" href="css/layouts/marketing.css">
@@ -46,13 +50,32 @@
             <li><a href="http://new.mta.info">MTA</a></li>
             <li><a href="http://www.weather.com">Weather</a></li>
           </ul>
+<<<<<<< HEAD
         </div>
       </div>
     <h1> </h1>
+=======
+	  {% if "username" in session %}
+	  <div style="float: right;">
+            <a class="pure-button" href="settings.html">
+	      <i class= "icon-cog"></i>
+	      Settings
+	    </a>
+	  </div>
+	  { else }
+	  <div style="float: right;">
+            <a href="login.html" class="pure-button primary-button">Login</a>
+	    <a href="register.html" class="pure-button primary-button">Register</a>
+	  </div>
+
+        </div>
+      </div>
+      <h1> </h1>
       <div class="splash">
         <div class="pure-g-r">
           <div class="pure-u-2-3">
             <div class="l-box splash-text">
+
 	      <h1 class="splash-head"> Good Morning {{User}}! </h1>
 
               <h2 class="splash-subhead">
@@ -62,11 +85,9 @@
               <p>
                 <a href="settings.html" class="pure-button primary-button">Update Settings</a>
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
+      
+      
       <div class="content">
         <div class="pure-g-r content-ribbon">
           <div class="pure-u-2-3">
@@ -142,7 +163,11 @@
             <a href="home.html" class="pure-button primary-button">Logout</a>
           </div>
 	</div>
+<<<<<<< HEAD
 
+=======
+{% endif %} 
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
 	<div class="footer">
          Made with love by Dorit, Victoria, Raymond and Jason.
 	</div>

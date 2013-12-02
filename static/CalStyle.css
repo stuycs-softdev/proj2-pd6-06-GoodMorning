@@ -1,8 +1,8 @@
-/* Month and year */
 * {
-    background-color: #CCE5FF; 
+    background-color: #CCE5FF;
 }
 
+/* Month and year */
 div.title {
     font: x-large Arial, sans-serif;
     text-align: center;
@@ -20,6 +20,7 @@ table {
     margin-left:auto;
     margin-right:auto;
     }
+
 /* Days of the Week */
 th {
     font:small Arial, sans-serif;
@@ -28,6 +29,7 @@ th {
     background-color:#66B2FF;
     color:black;
     }
+
 /* Days */
 td { 
     font: medium Arial;
@@ -64,7 +66,10 @@ td:hover{
     top: 25%;
     left: 25%;
     width: 50%;
+<<<<<<< HEAD
     height: 50%;
+=======
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
     padding: 20px;   
     border: 1px solid black;
     background-color: #CCE5FF;
@@ -73,14 +78,28 @@ td:hover{
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
     box-shadow:         3px 3px 5px 6px #ccc;
+<<<<<<< HEAD
+=======
 }
 
 li {
-    font: medium Arial, sans-serif;
+    font: x-small Arial, sans-serif;
     text-align: left;
-    padding: 0 40px; 
+    color: #0080FF;
+    padding: 5px 10px; 
+    background-color: transparent;
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
 }
 
+
+h1 {
+    font: medium Arial, sans-serif;
+    font-weight:normal;
+    text-decoration: underline;
+    padding: 0 0px;
+}
+
+<<<<<<< HEAD
 h1 {
     font: medium Arial, sans-serif;
     font-weight:normal;
@@ -92,9 +111,17 @@ hr {
     position: relative;
     float: bottom;
 }
+=======
+.right {
+    float: right;
+}
+
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
 
 .normday {
     background-color: white;
+    font: medium Arial, sans-serif;
+    color: black;
 }
 
 .currday {
@@ -108,7 +135,6 @@ hr {
     background: white;
     border: 1px solid black;
     
-
     color: black;
     text-decoration: none;
     text-align: center;
@@ -129,11 +155,11 @@ hr {
  
 a.button:hover {
     background: #66B2FF;
-    background: -webkit-linear-gradient(top, grey, grey);
-    background: -moz-linear-gradient(top, grey, grey);
-    background: -o-linear-gradient(top, grey, grey);
-    background: -ms-linear-gradient(top, grey, grey);
-    background: linear-gradient(top, grey, grey);
+    background: -webkit-linear-gradient(top, #66B2FF, #66B2FF);
+    background: -moz-linear-gradient(top, #66B2FF, #66B2FF);
+    background: -o-linear-gradient(top, #66B2FF, #66B2FF);
+    background: -ms-linear-gradient(top, #66B2FF, #66B2FF);
+    background: linear-gradient(top, #66B2FF, #66B2FF);
 }
 
 .homebtn {
@@ -142,8 +168,12 @@ a.button:hover {
     float: left;
 }
 
+<<<<<<< HEAD
 .donebtn {
     position: bottom;
+=======
+.nextbtn {
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
     background: white;
     width: 60px;
     float: right;
@@ -152,3 +182,41 @@ a.button:hover {
 input[type="text"], textarea { 
     background-color: white;
 }
+<<<<<<< HEAD
+=======
+
+input[type="button"], button { 
+    display: block;
+    height: 15px
+    width: 60px;
+    background: white;
+    border: 1px solid black;
+    
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: bottom;
+    align: center;
+    font: small Arial, sans-serif;
+
+    background: -webkit-linear-gradient(top, white, #66B2FF);
+    background: -moz-linear-gradient(top, white, #66B2FF);
+    background: -o-linear-gradient(top, white, #66B2FF);
+    background: -ms-linear-gradient(top, white, #66B2FF);
+    background: linear-gradient(top, white, #66B2FF);
+     
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;     
+}
+
+input[type="button"]:hover, button {
+    background: #66B2FF;
+    background: -webkit-linear-gradient(top, grey, grey);
+    background: -moz-linear-gradient(top, grey, grey);
+    background: -o-linear-gradient(top, grey, grey);
+    background: -ms-linear-gradient(top, grey, grey);
+    background: linear-gradient(top, grey, grey);
+}
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad

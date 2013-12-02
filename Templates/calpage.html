@@ -1,62 +1,8 @@
 <html>
-<<<<<<< HEAD
-<head>
-    <title>My Calendar</title>
-    <meta charset="utf-8" />
-    <link href="../static/CalStyle.css" rel="stylesheet" type="text/css" media="screen" />
-</head>
-
-<SCRIPT Language="JavaScript">
-function showAndClearField(frm){
-  if (frm.newevent.value == "")
-      alert("Hey! You didn't enter anything!")
-  else
-      alert("The field contains the text: " + frm.newevent.value)
-  frm.newevent.value = ""
-}
-</SCRIPT>
-
-<body bgcolor="#CCE5FF">
-<a href="Homepage.html" class="homebtn button">Home</a>
-<br>
-  
-<div class="title">Month Year</div>
-<table border="1">
-<tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
-
-<div id="light" class="expandday">
-  <div class="title" bgcolor="#CCE5FF">Month Day</div>
-  <li class="normday">Today I need to do this</li>
-  <li class="normday">And remember this</li>
-  <li class="normday">Also I need to remember to do something else</li>
-  <hr>
-  <form action="http://localhost" method="POST" name="einfo" bgcolor="#CCE5FF">
-  <h1 align="center">Add Event</h1>
-  Description: <input type="text" name="newevent" id="nev" value="" style="width: 85%;"><br>
-  Time: <input type="text" name="starthour" id="shr" value="" size="1" maxlength="1" align="center">
-  :<input type="text" name="startmin" id="smin" value="" size="2" maxlength="2" align="center">
-  <select name="amorpm1">
-    <option value="am1" selected>AM</option>
-    <option value="pm1">PM</option>
-  </select>
-  - <input type="text" name="endhour" id="ehr" value="" size="1" maxlength="1" align="center">
-  :<input type="text" name="endmin" id="emin" value="" size="2" maxlength="2" align="center">
-  <select name="amorpm2">
-    <option value="am2" selected>AM</option>
-    <option value="pm2">PM</option>
-  </select>
-  <br>
-  <input type="button" value="Add" onClick="showAndClearField(this.form)">
-</form>
-  <br>
-  <a href = "javascript:void(0)" onclick =
-  "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Done
-  </a></div>
-=======
   <head>
     <title>My Calendar</title>
     <meta charset="utf-8" />
-    <link href="../static/CalStyle.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/static/CalStyle.css" rel="stylesheet" type="text/css" media="screen" />
     <script type="text/javascript">
       function Container(param) {
          this.member = param;
@@ -87,9 +33,10 @@ function showAndClearField(frm){
         return n;
       }
  
-      var date = new CurrDay()
-      var Month = new Container(date.getMonth())
-      var Year = new Container(date.getFullYear())
+      //var date = new CurrDay()
+      console.log("y: "+{{y}}+" m: " + {{m}});
+      var Month = new Container({{m}})
+      var Year = new Container({{y}})
       var Number = new Container(NumDays(Month.member,Year.member))
 
       function FirstDay() {
@@ -112,7 +59,6 @@ function showAndClearField(frm){
 
       var First = new Container(FirstDay())
       var Last = new Container(LastDay())
->>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
 
       function showAndClearField(frm){
         if (frm.newevent.value == "")
@@ -176,18 +122,6 @@ function showAndClearField(frm){
         return ret;
       }
 
-<<<<<<< HEAD
-<tr><td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td>
-<td class="normday"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">#</td></tr>
-</table>
-</body>
-</html>
-=======
       function openLBox(d) {
         var i = parseInt(d);
         document.getElementById('stuff').innerHTML = getBigEvents(i-1);
@@ -203,26 +137,34 @@ function showAndClearField(frm){
 
       function setDays() {
         var numDays = Number.member;
-        var startDay = First.member; 
+        var startDay = First.member;
+	if (numDays+startDay > 35) {
+	    document.getElementById('table').innerHTML =
+	  document.getElementById('table').innerHTML +
+	   "<tr><td id='36' class='normday'></td><td id='37' class='normday'></td><td id='38' class='normday'></td><td id='39' class='normday'></td><td id='40' class='normday'></td><td id='41' class='normday'></td><td id='42' class='normday'></td><tr>"
+	  }
         var i = 1;
         var day = "";
         var tdid = "";
         var d = new Date();
         var x = d.getDate();
+	var m = d.getMonth();
+	var y = d.getFullYear();
         while (i < numDays+1) {
-		   var temp = i+startDay;
-		   day = i.toString();
-		   tdid = temp.toString();
-		   document.getElementById(tdid).innerHTML = day;
-		   document.getElementById(tdid).innerHTML =
-		   document.getElementById(tdid).innerHTML + "<a href=\"javascript:openLBox("+day+")\">" +getEvents(i-1) +"</a>";
-		   if (day == x) { document.getElementById(tdid).className = "currday";}
-		   i++;
+	  var temp = i+startDay;
+	  day = i.toString();
+	  tdid = temp.toString();
+	  
+	  document.getElementById(tdid).innerHTML = day;
+	  document.getElementById(tdid).innerHTML =
+	  document.getElementById(tdid).innerHTML + "<a href=\"javascript:openLBox("+day+")\">" +getEvents(i-1) +"</a>";
+	  if (day == x && Month.member == d.getMonth() && Year.member == d.getFullYear())
+	  { document.getElementById(tdid).className = "currday";}
+	  i++;
 	  }
 	  document.getElementById("prev").href = "/calendar/"+Year.member+"/"+(Month.member-1);
 	  document.getElementById("next").href = "/calendar/"+Year.member+"/"+(Month.member+1);
 	}
-	  
 </script>
 
   </head>
@@ -260,7 +202,7 @@ function showAndClearField(frm){
     </a></div>
     
     <div id = "ttl" class="title"></div>
-    <table border="1">
+    <table id="table" border="1">
       <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
       
       <tr><td id="1" class="normday"></td>
@@ -301,13 +243,13 @@ function showAndClearField(frm){
 	<td id="32" class="normday"></td>
 	<td id="33" class="normday"></td>
 	<td id="34" class="normday"></td>
-	<td id="35" class="normday" id="35"></td></tr>
+	<td id="35" class="normday"></td></tr>
     </table>
     <br>
-    <a id="prev" class="homebtn button">Previous</a>
-    <a id="next" class="nextbtn button">Next</a>
+    <a id="prev" href="calendar" class="homebtn button">Previous</a>
+    <a id="next" href="calendar" class="nextbtn button">Next</a>
     <br>
   </body>
 </html>
     
->>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
+
