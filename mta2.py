@@ -1,8 +1,8 @@
 import urllib2
 from bs4 import BeautifulSoup
 
-#scraping mta right now, will switch to api if needed
-#only have trains, no buses
+#scraping mta; the api only has info about the 123 and 456
+#only using trains, no buses
 
 def url():
   f = urllib2.urlopen('http://www.mta.info/status/serviceStatus.txt')
