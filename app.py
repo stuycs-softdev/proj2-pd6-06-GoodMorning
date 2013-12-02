@@ -16,7 +16,7 @@ events = db.events
 app = Flask(__name__)
 app.secret_key = 'jasoniscool'
 
-@app.route("/about")
+@app.route("/")
 def about():
 	return render_template("about.html")
 
@@ -38,7 +38,7 @@ def index():
 def calendar():
 	return render_template("calendar.html")
 
-@app.route("/")
+@app.route("/homepage")
 def home():
 	#trains = [mta2.ott(), mta2.ffs(), mta2.seven(), mta2.ace(), mta2.bdfm(), mta2.g(), mta2.jz(), mta2.l(), mta2.nqr(), mta2.s(), mta2.sir()]
 	temp = weather.getTemp()
@@ -67,7 +67,7 @@ def login():
 		return render_template("login.html", message = "Please fill out the empty fields!")
 	elif utils.auth(username, password, db): #login successful
 		session["username"] = username
-		return redirect("/")
+		return redirect("/homepage")
  	# unsuccessful login
 	else:
 		return render_template("login.html", message = "Incorrect username and password combination.")
@@ -90,7 +90,7 @@ def register():
                 return render_template("register.html", message = "Username already taken. Please find another.")
         else:
                 utils.addUser(username, password, db)
-                return redirect("/") #send user back home
+                return redirect("/homepage") #send user back home
 
 
 @app.route("/settings", methods = ["GET", "POST"])
@@ -115,9 +115,9 @@ def settings():
 @app.route("/logout")
 def logout():
 	session.pop("username", None)
-	return redirect("/") #or maybe redirect to login? idk.
+	return redirect("/home") #or maybe redirect to login? idk.
 
 
 if __name__=="__main__":
 	app.debug=True
-	app.run(host="0.0.0.0", port=6006)
+	app.run(host="0.0.0.0", port=5050)
