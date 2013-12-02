@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request, render_template, redirect, session
 from pymongo import MongoClient
+from datetime import datetime
 
 import utils
 import mta2
@@ -38,7 +39,7 @@ def index():
 @app.route('/calendar', methods = ['GET', 'POST'])
 def cal():
     if request.method =='GET':
-        now = datetime.datetime.now()
+        now = datetime.now()
         yr = now.year
         mo = now.month -1
         el = makeAndDisplayEvents(yr,mo)
@@ -92,7 +93,7 @@ def cal():
             de = request.form['newevent']
         e = Event(y,m+1,d,h,mi,de)
 
-        addEvent(e)
+        utils.addEvent(e)
 
         el = makeAndDisplayEvents(y,m)
 
@@ -131,7 +132,7 @@ def getCal(year, month):
             de = request.form['newevent']
         e = Event(year,month+1,d,h,mi,de)
 
-        addEvent(e)
+        utils.addEvent(e)
 
         el = makeAndDisplayEvents(year,month)
 
@@ -175,7 +176,7 @@ def makeAndDisplayEvents(year,month):
     i = 1
     while (i <= numdays): 
         daystr = str(i)
-        monthlyEvents.append(getEvent(yrstr, monstr,daystr))
+        monthlyEvents.append(utils.getEvent(yrstr, monstr,daystr))
         i += 1
 
     return monthlyEvents
