@@ -16,9 +16,19 @@ events = db.events
 app = Flask(__name__)
 app.secret_key = 'jasoniscool'
 
+@app.route("/test")
+def test():
+	temp = weather.getTemp()
+	sky = weather.getWeather()
+	return render_template("test.html", temperature = temp, weather = sky, ott = mta2.ott(), ffs = mta2.ffs(), seven = mta2.seven(), ace = mta2.ace(), bdfm = mta2.bdfm(), g = mta2.g(), jz = mta2.jz(), l = mta2.l(), nqr = mta2.nqr(), s = mta2.s(), sir = mta2.sir())
+
 @app.route("/home")
 def h():
         return render_template("home.html")
+
+@app.route("/index")
+def index():
+	return render_template("index.html")
 
 @app.route("/calendar")
 def calendar():
@@ -35,21 +45,9 @@ def home():
 	#service = [x[1] for x in trains]
         if "username" in session: #if logged in already
 		username = session["username"]
-                return render_template("about.html", temperature = temp, 
-                				      weather = sky, 
-                				      ott = mta2.ott(),
-                				      ffs = mta2.ffs(),
-                				      seven = mta2.seven(),
-                				      ace = mta2.ace(),
-                				      bdfm = mta2.bdfm(),
-                				      g = mta2.g(),
-                				      jz = mta2.jz(),
-                				      l = mta2.l(),
-                				      nqr = mta2.nqr(),
-                				      s = mta2.s(),
-                				      sir = mta2.sir(),
+                return render_template("about.html", temperature = temp, weather = sky, ott = mta2.ott(), ffs = mta2.ffs(), seven = mta2.seven(), ace = mta2.ace(), bdfm = mta2.bdfm(), g = mta2.g(), jz = mta2.jz(), l = mta2.l(), nqr = mta2.nqr(), s = mta2.s(), sir = mta2.sir())
                 				      #greeting = utils.getName(username)
-                				      ) #should have variables in html that correspond to these
+                				       #should have variables in html that correspond to these
          #if not logged in
 	else:
 		return redirect("/login")
@@ -68,12 +66,12 @@ def login():
 		return redirect("/")
  	# unsuccessful login
 	else:
-		return render_template(login.html, message = "Incorrect username and password combination.")
+		return render_template("login.html", message = "Incorrect username and password combination.")
 
 @app.route("/register",methods = ["GET","POST"])
 def register():
         if request.method=="GET":
-                return render_template(register.html)
+                return render_template("register.html")
 	username = request.form['name']
         password = request.form['password']
         confirmPW = request.form['confirm']
