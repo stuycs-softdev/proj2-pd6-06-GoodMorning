@@ -2,7 +2,8 @@
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 
 <h1 align= "center"> Settings </h1> 
-
+<body bgcolor ="#CCE5FF">
+</body>
 
 <form class="pure-form pure-form-stacked">
   <fieldset class="pure-group">
@@ -26,6 +27,6 @@
 	
       </div>
     </div>
-    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary" align ="center">Update Settings</button>
+    <button type="submit" class="pure-button pure-button-primary" align = "center"><a href = "homepage.html">Update Settings</button>
 
 </form>
