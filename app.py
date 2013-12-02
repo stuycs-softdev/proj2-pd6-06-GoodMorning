@@ -3,41 +3,52 @@ from flask import request, render_template, redirect, session
 from pymongo import MongoClient
 
 import utils
-import mta
+import mta2
 import weather
 import event
 
-db = MongoClient().db
+#---------------COMMENTS ARE EITHER EXPLANATIONS OR OLD CODE---------------
+
+c = MongoClient()
+db = c['test']
+events = db.events
 
 app = Flask(__name__)
 app.secret_key = 'jasoniscool'
 
+@app.route("/home")
+def h():
+        return render_template("home.html")
+
+@app.route("/calendar")
+def calendar():
+	return render_template("calendar.html")
 
 @app.route("/")
 def home():
-	trains = [ott(), ffs(), seven(), ace(), bdfm(), g(), jz(), l(), nqr(), s(), sir()]
-	temp = getTemp()
-	sky = getWeather()
-	service = []
-	for x in trains:
-		service.append(x[1])
+	#trains = [mta2.ott(), mta2.ffs(), mta2.seven(), mta2.ace(), mta2.bdfm(), mta2.g(), mta2.jz(), mta2.l(), mta2.nqr(), mta2.s(), mta2.sir()]
+	temp = weather.getTemp()
+	sky = weather.getWeather()
+	#service = []
+	#for x in trains:
+	#	service.append(x[1])
 	#service = [x[1] for x in trains]
         if "username" in session: #if logged in already
 		username = session["username"]
-                return render_template(homepage.html, temperature = temp, 
+                return render_template("home.html", temperature = temp, 
                 				      weather = sky, 
-                				      ott = service[0],
-                				      ffs = service[1],
-                				      seven = service[2],
-                				      ace = service[3],
-                				      bdfm = service[4],
-                				      g = service[5],
-                				      jz = service[6],
-                				      l = service[7],
-                				      nqr = service[8],
-                				      s = service[9],
-                				      sir = service[10],
-                				      greeting = utils.getName(username)
+                				      ott = mta2.ott(),
+                				      ffs = mta2.ffs(),
+                				      seven = mta2.seven(),
+                				      ace = mta2.ace(),
+                				      bdfm = mta2.bdfm(),
+                				      g = mta2.g(),
+                				      jz = mta2.jz(),
+                				      l = mta2.l(),
+                				      nqr = mta2.nqr(),
+                				      s = mta2.s(),
+                				      sir = mta2.sir(),
+                				      #greeting = utils.getName(username)
                 				      ) #should have variables in html that correspond to these
          #if not logged in
 	else:
@@ -51,7 +62,7 @@ def login():
         username = request.form['name']
         password = request.form['password']
 	if not username or not password:    #there are empty fields
-		return render_template(login.html, message = "Please fill out the empty fields!")
+		return render_template("login.html", message = "Please fill out the empty fields!")
 	elif utils.auth(username, password, db): #login successful
 		session["username"] = username
 		return redirect("/")
@@ -68,13 +79,13 @@ def register():
         confirmPW = request.form['confirm']
         box = request.form.get("acceptTerms")
         if password != confirmPW: #if the two pw's don't match
-                return render_template(register.html, message = "Your passwords do not match.")
+                return render_template("register.html", message = "Your passwords do not match.")
         elif not box: #if terms and conditions box is not checked
-                return render_template(register.html, message = "Please check the terms and conditions.")
+                return render_template("register.html", message = "Please check the terms and conditions.")
         elif not username or not password or not confirmPW: #if not all fields are filled
-                return render_template(register.html, message = "Please fill in all of the fields.")
+                return render_template("register.html", message = "Please fill in all of the fields.")
         elif utils.checkUser(username): #if username is taken
-                return render_template(register.html, message = "Username already taken. Please find another.")
+                return render_template("register.html", message = "Username already taken. Please find another.")
         else :
                 utils.addUser(username, password, db)
                 return redirect("/") #send user back home
@@ -85,7 +96,7 @@ def settings():
 	if "username" not in session: #not logged in
 		return redirect("/login")
         if request.method=="GET":
-                return render_template(settings.html)
+                return render_template("settings.html")
         name = request.form['name'] #who you want to be greeted as
         location = request.form['location'] #where you are
         button = request.form['submit'] #this will be whichever button you've pressed: to change name or location
@@ -107,4 +118,4 @@ def logout():
 
 if __name__=="__main__":
 	app.debug=True
-	app.run(host='0.0.0.0',port=5000)
+	app.run()
