@@ -100,7 +100,7 @@
         final += " " + Year.member;
         document.getElementById("ttl").innerHTML = final;
       }
-	       
+               
       function getEvents(day) {
         var i;
         var ret = "";
@@ -143,19 +143,19 @@
         var d = new Date();
         var x = d.getDate();
         while (i < numDays+1) {
-		   var temp = i+startDay;
-		   day = i.toString();
-		   tdid = temp.toString();
-		   document.getElementById(tdid).innerHTML = day;
-		   document.getElementById(tdid).innerHTML =
-		   document.getElementById(tdid).innerHTML + "<a href=\"javascript:openLBox("+day+")\">" +getEvents(i-1) +"</a>";
-		   if (day == x) { document.getElementById(tdid).className = "currday";}
-		   i++;
-	  }
-	  document.getElementById("prev").href = "/calendar/"+Year.member+"/"+(Month.member-1);
-	  document.getElementById("next").href = "/calendar/"+Year.member+"/"+(Month.member+1);
-	}
-	  
+                   var temp = i+startDay;
+                   day = i.toString();
+                   tdid = temp.toString();
+                   document.getElementById(tdid).innerHTML = day;
+                   document.getElementById(tdid).innerHTML =
+                   document.getElementById(tdid).innerHTML + "<a href=\"javascript:openLBox("+day+")\">" +getEvents(i-1) +"</a>";
+                   if (day == x) { document.getElementById(tdid).className = "currday";}
+                   i++;
+          }
+          document.getElementById("prev").href = "/calendar/"+Year.member+"/"+(Month.member-1);
+          document.getElementById("next").href = "/calendar/"+Year.member+"/"+(Month.member+1);
+        }
+          
 </script>
 
   </head>
@@ -169,27 +169,27 @@
       <p id="stuff" class="normday"></p>
       <hr>
       <form method="POST" name="einfo" bgcolor="#CCE5FF">
-	<h1 align="center">Add Event</h1>
-	Time: <input type="text" name="starthour" id="shr" value="" size="1" maxlength="2" align="center">
-	:<input type="text" name="startmin" id="smin" value="" size="1" maxlength="2" align="center">
-	<select name="amorpm1">
-	  <option value="AM" selected>AM</option>
-	  <option value="PM">PM</option>
-	</select>
-	- <input type="text" name="endhour" id="ehr" value="" size="1" maxlength="2" align="center">
-	:<input type="text" name="endmin" id="emin" value="" size="1" maxlength="2" align="center">
-	<select name="amorpm2">
-	  <option value="AM" selected>AM</option>
-	  <option value="PM">PM</option>
-	</select>
-	<br>
-	Description: <input type="text" name="newevent" id="nev" value="" style="width: 85%;">
-	<br>
-	<input type="button" value="Add" align="right" onClick="showAndClearField(this.form)">
+        <h1 align="center">Add Event</h1>
+        Time: <input type="text" name="starthour" id="shr" value="" size="1" maxlength="2" align="center">
+        :<input type="text" name="startmin" id="smin" value="" size="1" maxlength="2" align="center">
+        <select name="amorpm1">
+          <option value="AM" selected>AM</option>
+          <option value="PM">PM</option>
+        </select>
+        - <input type="text" name="endhour" id="ehr" value="" size="1" maxlength="2" align="center">
+        :<input type="text" name="endmin" id="emin" value="" size="1" maxlength="2" align="center">
+        <select name="amorpm2">
+          <option value="AM" selected>AM</option>
+          <option value="PM">PM</option>
+        </select>
+        <br>
+        Description: <input type="text" name="newevent" id="nev" value="" style="width: 85%;">
+        <br>
+        <input type="button" value="Add" align="right" onClick="showAndClearField(this.form)">
       </form>
       <br>
       <a href = "javascript:void(0)" class="right" onclick =
-	 "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Done
+         "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Done
     </a></div>
     
     <div id = "ttl" class="title"></div>
@@ -197,44 +197,44 @@
       <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
       
       <tr><td id="1" class="normday"></td>
-	<td id="2" class="normday"></td>
-	<td id="3" class="normday"></td>
-	<td id="4" class="normday"></td>
-	<td id="5" class="normday"></td>
-	<td id="6" class="normday"></td>
-	<td id="7" class="normday"></td></tr>
+        <td id="2" class="normday"></td>
+        <td id="3" class="normday"></td>
+        <td id="4" class="normday"></td>
+        <td id="5" class="normday"></td>
+        <td id="6" class="normday"></td>
+        <td id="7" class="normday"></td></tr>
       
       <tr><td id="8" class="normday"></td>
-	<td id="9" class="normday"></td>
-	<td id="10" class="normday"></td>
-	<td id="11" class="normday"></td>
-	<td id="12" class="normday"></td>
-	<td id="13" class="normday"></td>
-	<td id="14" class="normday"></td></tr>
+        <td id="9" class="normday"></td>
+        <td id="10" class="normday"></td>
+        <td id="11" class="normday"></td>
+        <td id="12" class="normday"></td>
+        <td id="13" class="normday"></td>
+        <td id="14" class="normday"></td></tr>
       
       <tr><td id="15" class="normday"></td>
-	<td id="16" class="normday"></td>
-	<td id="17" class="normday"></td>
-	<td id="18" class="normday"></td>
-	<td id="19" class="normday"></td>
-	<td id="20" class="normday"></td>
-	<td id="21" class="normday"></td></tr>
+        <td id="16" class="normday"></td>
+        <td id="17" class="normday"></td>
+        <td id="18" class="normday"></td>
+        <td id="19" class="normday"></td>
+        <td id="20" class="normday"></td>
+        <td id="21" class="normday"></td></tr>
       
       <tr><td id="22" class="normday"></td>
-	<td id="23" class="normday"></td>
-	<td id="24" class="normday"></td>
-	<td id="25" class="normday"></td>
-	<td id="26" class="normday"></td>
-	<td id="27" class="normday"></td>
-	<td id="28" class="normday"></td></tr>
+        <td id="23" class="normday"></td>
+        <td id="24" class="normday"></td>
+        <td id="25" class="normday"></td>
+        <td id="26" class="normday"></td>
+        <td id="27" class="normday"></td>
+        <td id="28" class="normday"></td></tr>
       
       <tr><td id="29" class="normday"></td>
-	<td id="30" class="normday"></td>
-	<td id="31" class="normday"></td>
-	<td id="32" class="normday"></td>
-	<td id="33" class="normday"></td>
-	<td id="34" class="normday"></td>
-	<td id="35" class="normday" id="35"></td></tr>
+        <td id="30" class="normday"></td>
+        <td id="31" class="normday"></td>
+        <td id="32" class="normday"></td>
+        <td id="33" class="normday"></td>
+        <td id="34" class="normday"></td>
+        <td id="35" class="normday" id="35"></td></tr>
     </table>
     <br>
     <a id="prev" class="homebtn button">Previous</a>

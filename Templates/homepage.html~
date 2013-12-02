@@ -71,11 +71,13 @@
         </div>
       </div>
       <h1> </h1>
+      {% if "username" in session %}
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
       <div class="splash">
         <div class="pure-g-r">
           <div class="pure-u-2-3">
             <div class="l-box splash-text">
-
+<<<<<<< HEAD
 	      <h1 class="splash-head"> Good Morning {{User}}! </h1>
 
               <h2 class="splash-subhead">
@@ -85,9 +87,24 @@
               <p>
                 <a href="settings.html" class="pure-button primary-button">Update Settings</a>
               </p>
+=======
+		<h1 class="splash-head"> Good Morning {{User}}! </h1>
+		
+		<h2 class="splash-subhead">
+                  Welcome to your Morning Organizer! Scroll down for more information on your day. If you need to update your settings, click the button below. Have a great day!
+		</h2>
+		]
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
+            </div>
+          </div>
+        </div>
+      </div>
+<<<<<<< HEAD
 
+=======
       
       
+>>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
       <div class="content">
         <div class="pure-g-r content-ribbon">
           <div class="pure-u-2-3">
