@@ -176,10 +176,10 @@ def makeAndDisplayEvents(year,month):
     i = 1
     while (i <= numdays): 
         daystr = str(i)
-        monthlyEvents.append(utils.getEvent(yrstr, monstr,daystr))
+        monthlyEvents.append(utils.getEvent(yrstr, monstr,daystr, events))
         i += 1
 
-    return monthlyEvents
+    return monthlyEventsg
 
 @app.route("/homepage")
 def home():
@@ -232,7 +232,7 @@ def register():
         elif utils.checkUser(username): #if username is taken
                 return render_template("register.html", message = "Username already taken. Please find another.")
         else:
-                utils.addUser(username, password, db)
+                utils.addUser(username, password, events)
                 return redirect("/about") #send user back home
 
 
