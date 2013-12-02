@@ -26,29 +26,5 @@ def organize(events):
     events = sorted([e for e in events if e.should_show()], key=lambda e: e.date)
     return events
 
-<<<<<<< HEAD
-
-import random
-def test(i=15):
-    popsicle = []
-    while i > 0:
-        year = random.choice(range(2013, 2015))
-        month = random.choice(range(1, 13))
-        day = random.choice(range(1, 28))
-        hour = random.choice(range(0, 24))
-        minute = random.choice(range(0, 60))
-        popsicle.append(Event(year, month, day, hour, minute, 'Event %d'%i))
-        i -= 1
-#    print 'unsorted:', [form(e) for e in popsicle]
-    print 'sorted:', [form(e) for e in organize(popsicle)]
-
 def form(e):
     return "%s at %s"%(e.title, e.date)
-
-test()        
-=======
-def form(e):
-    return "%s at %s"%(e.title, e.date)
-
-      
->>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
