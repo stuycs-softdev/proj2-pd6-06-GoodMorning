@@ -97,7 +97,7 @@
         else if (m == 8) {final += "September";}
         else if (m == 9) {final += "October";}
         else if (m == 10) {final += "November";}
-        else if (m = 11) {final += "December";}
+        else if (m == 11) {final += "December";}
         final += " " + Year.member;
         document.getElementById("ttl").innerHTML = final;
       }
@@ -162,15 +162,26 @@
 	  { document.getElementById(tdid).className = "currday";}
 	  i++;
 	  }
-	  document.getElementById("prev").href = "/calendar/"+Year.member+"/"+(Month.member-1);
-	  document.getElementById("next").href = "/calendar/"+Year.member+"/"+(Month.member+1);
+	  if (Month.member == 0) {
+	     document.getElementById("prev").href = "/calendar/"+(Year.member-1)+"/"+(11);
+	  }
+	  else {
+	     document.getElementById("prev").href = "/calendar/"+Year.member+"/"+(Month.member-1);
+	  }
+	  if (Month.member == 11) {
+	     document.getElementById("next").href = "/calendar/"+(Year.member+1)+"/"+(0);
+	  }
+	  else {
+	     document.getElementById("next").href = "/calendar/"+Year.member+"/"+(Month.member+1);
+	  }
+	  document.getElementById("home").href = "/home";
 	}
 </script>
 
   </head>
   
   <body bgcolor="#CCE5FF" onload="setDays();setMonth()">
-    <a href="homepage.html" class="homebtn button">Home</a>
+    <a id="home" href="homepage.html" class="homebtn button">Home</a>
     <br>
     
     <div id="light" class="expandday">
