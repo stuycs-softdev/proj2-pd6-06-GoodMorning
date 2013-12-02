@@ -232,7 +232,7 @@ def register():
                 return render_template("register.html", message = "Username already taken. Please find another.")
         else:
                 utils.addUser(username, password, db)
-                return redirect("/homepage") #send user back home
+                return redirect("/about") #send user back home
 
 
 @app.route("/settings", methods = ["GET", "POST"])
