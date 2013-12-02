@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> app: home </title>
+    <!-----<link href= "CSS/homestyle.css" rel="stylesheet">--->
+    <link href= "../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <h1> Good Morning {{name}}! </h1>
+    <p>Click the button to get your next five events.</p>
+    <button onclick="myFunction({{ Calender }})">Reminder</button>
+    <button onclick="newFunc()">Reminder2</button>
+    <p id="demo"></p>  
+    <script>
+      function myFunction(Cal)
+      {
+<<<<<<< HEAD
+      calender = Cal
+      var x="";
+      for (var i=0;i<5;i++){
+		       x=x + calender[i] + ",        ";
+		       }
+		       document.getElementById("demo").innerHTML=x;
+		       }
+     function newFunc()
+		       {
+		       alert("Click the button again to see your next 5 events.")
+		       }
+		      
+		       
+		       </script>
+    
+
+    <div class="calender">
+      <p> Click below to go to your calendar. </p>
+      <li class="active"> <a href="/calendar" > Calendar </a> </li>
+=======
+      calendar = [1,2,3,4,5]
+      var x="";
+      for (var i=0;i<5;i++)
+                       {
+                       x=x + calendar[i] + ",        ";
+                       }
+                       document.getElementById("demo").innerHTML=x;
+                       }
+                                          
+  </script>
+   
+
+    <div class="calendar">
+          <p> Click below to go to your calendar. </p>
+          <li class="active"> <a href=/calendar > Calendar </a> </li>
+>>>>>>> 6d5ec3c1c600356b8a6688556791c42fd858240d
+    </div>
+
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 colo-sm-9">
+          <p class="pull-right visible-xs">
+          </p>
