@@ -7,6 +7,8 @@ import mta2
 import weather
 import event
 
+#---------------COMMENTS ARE EITHER EXPLANATIONS OR OLD CODE---------------
+
 c = MongoClient()
 db = c['test']
 events = db.events
@@ -24,28 +26,28 @@ def calendar():
 
 @app.route("/")
 def home():
-	trains = [mta2.ott(), mta2.ffs(), mta2.seven(), mta2.ace(), mta2.bdfm(), mta2.g(), mta2.jz(), mta2.l(), mta2.nqr(), mta2.s(), mta2.sir()]
+	#trains = [mta2.ott(), mta2.ffs(), mta2.seven(), mta2.ace(), mta2.bdfm(), mta2.g(), mta2.jz(), mta2.l(), mta2.nqr(), mta2.s(), mta2.sir()]
 	temp = weather.getTemp()
 	sky = weather.getWeather()
-	service = []
-	for x in trains:
-		service.append(x[1])
+	#service = []
+	#for x in trains:
+	#	service.append(x[1])
 	#service = [x[1] for x in trains]
         if "username" in session: #if logged in already
 		username = session["username"]
                 return render_template("home.html", temperature = temp, 
                 				      weather = sky, 
-                				      ott = service[0],
-                				      ffs = service[1],
-                				      seven = service[2],
-                				      ace = service[3],
-                				      bdfm = service[4],
-                				      g = service[5],
-                				      jz = service[6],
-                				      l = service[7],
-                				      nqr = service[8],
-                				      s = service[9],
-                				      sir = service[10],
+                				      ott = mta2.ott(),
+                				      ffs = mta2.ffs(),
+                				      seven = mta2.seven(),
+                				      ace = mta2.ace(),
+                				      bdfm = mta2.bdfm(),
+                				      g = mta2.g(),
+                				      jz = mta2.jz(),
+                				      l = mta2.l(),
+                				      nqr = mta2.nqr(),
+                				      s = mta2.s(),
+                				      sir = mta2.sir(),
                 				      #greeting = utils.getName(username)
                 				      ) #should have variables in html that correspond to these
          #if not logged in
