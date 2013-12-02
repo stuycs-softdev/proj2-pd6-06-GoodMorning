@@ -1,6 +1,6 @@
 from flask import Flask, redirect, request, render_template
 from event import Event
-from datetime import datetime
+import datetime
 import utils
 import json
 
@@ -8,21 +8,12 @@ app = Flask(__name__)
 
 @app.route('/calendar', methods = ['GET', 'POST'])
 def cal():
-    e1 = Event(2013,12,1,2,0,"2:00 - event on Dec 1")
-    e2 = Event(2013,12,1,4,0,"4:00 - event on Dec 1")
-    e3 = Event(2013,12,2,2,0,"2:00 - event on Dec 2")
-    e4 = Event(2013,12,6,2,0,"2:00 - event on Dec 6")
-    e5 = Event(2013,12,17,2,0,"2:00 - event on Dec 17")
-    e6 = Event(2013,12,20,2,0,"2:00 - event on Dec 20")
-    e7 = Event(2013,12,20,3,0,"3:00 - event on Dec 20")
-    e8 = Event(2013,12,20,4,0,"4:00 - event on Dec 20")
-    e9 = Event(2013,12,20,5,0,"5:00 - event on Dec 20")
-    e0 = Event(2013,12,25,0,0,"Merry Christmas!")
-    
-    December2013 = [ [e1,e2], [e3], [], [], [], [e4], [], [], [], [], [], [], [], [], [], [], [e5], [], [], [e6,e7,e8,e9], [], [], [], [], [e0], [], [], [], [], [], [] ]
-
     if request.method =='GET':
-        return render_template('calendar.html', event_list=json.dumps([[e.title for e in d] for d in December2013]))
+        now = datetime.datetime.now()
+        yr = now.year
+        mo = now.month -1
+        el = makeAndDisplayEvents(yr,mo)
+        return render_template('calendar.html', event_list=json.dumps([[e.title for e in d] for d in el]))
     else:
         #print (request.form['year'] + " " + request.form['month'] + " " + request.form['day'] + " " + request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + "-" + request.form['endhour'] + ":" + request.form['endmin'] + request.form['amorpm2'] + " - " + request.form['newevent'])
         inclTime = True
@@ -72,35 +63,18 @@ def cal():
             de = request.form['newevent']
         e = Event(y,m+1,d,h,mi,de)
 
-        print(e.date)
-        print(e.title)
-        
+        addEvent(e)
 
-        return render_template('calendar.html', event_list=json.dumps([[e.title for e in d] for d in December2013]))
+        el = makeAndDisplayEvents(y,m)
+
+        return render_template('calendar.html', event_list=json.dumps([[e.title for e in d] for d in el]))
 
 @app.route('/calendar/<int:year>/<int:month>', methods = ['GET', 'POST'])
 def getCal(year, month):
 
-    e1 = Event(2013,12,1,2,0,"2:00 - event on Dec 1")
-    e2 = Event(2013,12,1,4,0,"4:00 - event on Dec 1")
-    e3 = Event(2013,12,2,2,0,"2:00 - event on Dec 2")
-    e4 = Event(2013,12,6,2,0,"2:00 - event on Dec 6")
-    e5 = Event(2013,12,17,2,0,"2:00 - event on Dec 17")
-    e6 = Event(2013,12,20,2,0,"2:00 - event on Dec 20")
-    e7 = Event(2013,12,20,3,0,"3:00 - event on Dec 20")
-    e8 = Event(2013,12,20,4,0,"4:00 - event on Dec 20")
-    e9 = Event(2013,12,20,5,0,"5:00 - event on Dec 20")
-    e0 = Event(2013,12,25,0,0,"Merry Christmas!")
-    
-    December2013 = [ [e1,e2], [e3], [], [], [], [e4], [], [], [], [], [], [], [], [], [], [], [e5], [], [], [e6,e7,e8,e9], [], [], [], [], [e0], [], [], [], [], [], [] ]
-      
-    if month < 0:
-        return render_template('calpage.html', y=year-1, m=11, event_list=json.dumps([[e.title for e in d] for d in December2013]))
-    elif month > 11:
-        year += 1
-        month = month - 12
     if request.method =='GET':
-        return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in December2013]))
+        el = makeAndDisplayEvents(year,month)
+        return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in el]))
     else:
         d = (int)(request.form['day'])
         inclTime = True
@@ -126,29 +100,56 @@ def getCal(year, month):
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
-        e = Event(year,month,d,h,mi,de)
+        e = Event(year,month+1,d,h,mi,de)
 
-        print(e.date)
-        print(e.title)
+        addEvent(e)
 
-        return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in December2013]))
+        el = makeAndDisplayEvents(year,month)
 
-@app.route('/calendar/<int:year>/-1', methods = ['GET', 'POST'])
-def prevError(year):
-    e1 = Event(2013,12,1,2,0,"2:00 - event on Dec 1")
-    e2 = Event(2013,12,1,4,0,"4:00 - event on Dec 1")
-    e3 = Event(2013,12,2,2,0,"2:00 - event on Dec 2")
-    e4 = Event(2013,12,6,2,0,"2:00 - event on Dec 6")
-    e5 = Event(2013,12,17,2,0,"2:00 - event on Dec 17")
-    e6 = Event(2013,12,20,2,0,"2:00 - event on Dec 20")
-    e7 = Event(2013,12,20,3,0,"3:00 - event on Dec 20")
-    e8 = Event(2013,12,20,4,0,"4:00 - event on Dec 20")
-    e9 = Event(2013,12,20,5,0,"5:00 - event on Dec 20")
-    e0 = Event(2013,12,25,0,0,"Merry Christmas!")
-    
-    December2013 = [ [e1,e2], [e3], [], [], [], [e4], [], [], [], [], [], [], [], [], [], [], [e5], [], [], [e6,e7,e8,e9], [], [], [], [], [e0], [], [], [], [], [], [] ]
+        return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in el]))
 
-    return render_template('calpage.html', y=year-1, m=11, event_list=json.dumps([[e.title for e in d] for d in December2013]))
+def makeAndDisplayEvents(year,month):
+    nmonth = month +1
+    monstr = str(nmonth)
+    yrstr = str(year)
+    monthlyEvents = []
+    numdays = 31
+
+    if month == 0: 
+        numdays = 31
+    elif (month == 1): 
+        if y % 4 == 0:
+            numdays = 29
+        else: 
+            numdays = 28
+    elif (month == 2):
+        numdays = 31
+    elif (month == 3): 
+        numdays = 30
+    elif (month == 4): 
+        numdays = 31
+    elif (month == 5): 	     
+        numdays = 30
+    elif (month == 6): 
+        numdays = 31
+    elif (month == 7): 
+        numdays = 31
+    elif (month == 8): 
+        numdays = 30
+    elif (month == 9):
+        numdays = 31
+    elif (month == 10): 
+        numdays = 30
+    elif (month == 11): 
+        numdays= 31
+
+    i = 1
+    while (i <= numdays): 
+        daystr = str(i)
+        monthlyEvents.append(getEvent(yrstr, monstr,daystr))
+        i += 1
+
+    return monthlyEvents
 
 app.debug=True
 app.run(host='0.0.0.0',port=5000)

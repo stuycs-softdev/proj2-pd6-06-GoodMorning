@@ -66,10 +66,6 @@ td:hover{
     top: 25%;
     left: 25%;
     width: 50%;
-<<<<<<< HEAD
-    height: 50%;
-=======
->>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
     padding: 20px;   
     border: 1px solid black;
     background-color: #CCE5FF;
@@ -78,8 +74,6 @@ td:hover{
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
     box-shadow:         3px 3px 5px 6px #ccc;
-<<<<<<< HEAD
-=======
 }
 
 li {
@@ -88,7 +82,6 @@ li {
     color: #0080FF;
     padding: 5px 10px; 
     background-color: transparent;
->>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
 }
 
 
@@ -99,24 +92,10 @@ h1 {
     padding: 0 0px;
 }
 
-<<<<<<< HEAD
-h1 {
-    font: medium Arial, sans-serif;
-    font-weight:normal;
-    text-decoration: underline;
-    padding: 0 0px;
-}
-
-hr {
-    position: relative;
-    float: bottom;
-}
-=======
 .right {
     float: right;
 }
 
->>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
 
 .normday {
     background-color: white;
@@ -168,12 +147,7 @@ a.button:hover {
     float: left;
 }
 
-<<<<<<< HEAD
-.donebtn {
-    position: bottom;
-=======
 .nextbtn {
->>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
     background: white;
     width: 60px;
     float: right;
@@ -182,8 +156,6 @@ a.button:hover {
 input[type="text"], textarea { 
     background-color: white;
 }
-<<<<<<< HEAD
-=======
 
 input[type="button"], button { 
     display: block;
@@ -219,4 +191,3 @@ input[type="button"]:hover, button {
     background: -ms-linear-gradient(top, grey, grey);
     background: linear-gradient(top, grey, grey);
 }
->>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
