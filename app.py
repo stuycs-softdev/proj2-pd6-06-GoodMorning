@@ -26,6 +26,10 @@ def test():
 def h():
         return render_template("home.html")
 
+@app.route("/index")
+def index():
+	return render_template("index.html")
+
 @app.route("/calendar")
 def calendar():
 	return render_template("calendar.html")
@@ -67,7 +71,7 @@ def login():
 @app.route("/register",methods = ["GET","POST"])
 def register():
         if request.method=="GET":
-                return render_template(register.html)
+                return render_template("register.html")
 	username = request.form['name']
         password = request.form['password']
         confirmPW = request.form['confirm']
