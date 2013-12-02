@@ -1,6 +1,5 @@
 from pymongo import MongoClient
 
-events = db.events
 
 def auth(user, password, coll):
     return [ x for x in coll.find ({'username': user, 'password':password})] != []
@@ -21,6 +20,7 @@ def addEvent(user, year, month, date, hour, minute, title): #adds events
     events.insert({'username': user},{'year': year}, {'month': month}, {'date':date}, {'hour': hour}, {'minute':minute},{'title': title}) 
 
 def getMonthList(user, month, year):
+<<<<<<< HEAD
     return events.find({'user':user}, {'month':month}, {'year':year});
 
 def getDate(user, month, year, date):
@@ -33,4 +33,4 @@ def changeName(user, name): #changes name
 def checkUser(username, coll): #this is auth without the password
     return [ x for x in coll.find ({'username': user})] != []
 
-def getName(username, coll): #this should return the nickname of a user
+#def getName(username, coll): #this should return the nickname of a user
