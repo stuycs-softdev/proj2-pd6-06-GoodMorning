@@ -35,7 +35,7 @@ def home():
 	#service = [x[1] for x in trains]
         if "username" in session: #if logged in already
 		username = session["username"]
-                return render_template("home.html", temperature = temp, 
+                return render_template("about.html", temperature = temp, 
                 				      weather = sky, 
                 				      ott = mta2.ott(),
                 				      ffs = mta2.ffs(),
