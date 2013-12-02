@@ -19,6 +19,9 @@ def changeLocation(user, location, coll): #changes location
 def addEvent(user, year, month, date, hour, minute, title): #adds events
     events.insert({'username': user},{'year': year}, {'month': month}, {'date':date}, {'hour': hour}, {'minute':minute},{'title': title}) 
 
+def getEvent(year, month, date):
+    return events.find( {'year':year}, {'month':month}, {'date':date})
+
 def getMonthList(user, month, year):
     return event.find({'user':user}, {'month':month}, {'year':year});
 
