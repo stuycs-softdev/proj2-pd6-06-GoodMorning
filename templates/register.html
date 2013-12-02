@@ -2,6 +2,11 @@
   
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
   <head>
+    <script type="text/javascript">
+      function submit(frm){
+      frm.submit()
+      }
+    </script>
     <style>
       div.ex
       {
@@ -19,7 +24,7 @@
   <body bgcolor="#404040">
     <div class="ex">
     <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register</h1>
-    <form class="pure-form pure-form-aligned">
+    <form method="POST" name="reg" class="pure-form pure-form-aligned">
       <fieldset>
         <div class="pure-control-group">
           <label for="name">Username</label>
@@ -42,7 +47,7 @@
                 <input name="cb" type="checkbox"> I've read the terms and conditions
             </label>
 
-          <button type="submit" class="pure-button pure-button-primary">Submit</button>
+          <button type="submit" class="pure-button pure-button-primary" onClick="submit(this.form)">Submit</button>
         </div>
       </fieldset>
     </form>
