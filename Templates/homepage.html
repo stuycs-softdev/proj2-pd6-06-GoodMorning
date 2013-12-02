@@ -16,12 +16,8 @@
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 
-
-<<<<<<< HEAD
-
-=======
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
->>>>>>> 796d5262c10d5fc15c50ab29624efe9f668d65ad
+
 
 
     <link rel="stylesheet" href="css/layouts/marketing.css">
@@ -50,11 +46,9 @@
             <li><a href="http://new.mta.info">MTA</a></li>
             <li><a href="http://www.weather.com">Weather</a></li>
           </ul>
-<<<<<<< HEAD
         </div>
       </div>
     <h1> </h1>
-=======
 	  {% if "username" in session %}
 	  <div style="float: right;">
             <a class="pure-button" href="settings.html">
@@ -94,11 +88,12 @@
             <div class="l-box">
               <h4 class="content-subhead">Your Events</h4>
 	      {% block body %}
+	     {% range number from 0 to 4 %}
 	      <ul>
-		{% for x in events %}
-		<li><a href="{{ user.url }}">{{ user.username }}</a></li>
+		<li>events[number]</li>
 		{% endfor %}
 	      </ul>
+	      {% endrange %}
 	      {% endblock %}
 
 
