@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-from flask import Flask, url_for, request, redirect, render_template
 
 def open():
     client = MongoClient()
@@ -43,13 +42,13 @@ def changeNickname(username, nickname):
         db.test.update({'username' : username}, {'$set':{'nickname':nickname}})
         return True
 
-def changePW(username, password):
+def changePW(username, newpassword):
     db = open()
     user = db.test.find_one({'username' : username}, fields={'_id':False})
     if user == None:
         return False
     else:
-        db.test.update({'username' : username}, {'$set':{'nickname':nickname}})
+        db.test.update({'username' : username}, {'$set':{'password':newpassword}})
         return True
 #def changePW() ----------might think about implementing this---------- (done! i think)
 #def changeNickname() ------------and this-------------later-------- (also done! ...maybe....)
