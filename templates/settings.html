@@ -15,7 +15,62 @@
   </style>
 
   <title>Settings</title>
+
+  <script type="text/javascript">
+      function displayDateAndTime() {
+        var final = "";
+        var date = new Date();
+        var wd = date.getDay();
+        if (wd == 0) {final += "Sunday";}
+        else if (wd == 1) {final += "Monday";}
+        else if (wd == 2) {final += "Tuesday";}
+        else if (wd == 3) {final += "Wednesday";}
+        else if (wd == 4) {final += "Thursday";}
+        else if (wd == 5) {final += "Friday";}
+        else if (wd == 6) {final += "Saturday";}
+        final += ", ";
+        var m = date.getMonth();
+        if (m == 0) {final += "January";}
+        else if (m == 1) {final += "February";}
+        else if (m == 2) {final += "March";}
+        else if (m == 3) {final += "April";}
+        else if (m == 4) {final += "May";}
+        else if (m == 5) {final += "June";}
+        else if (m == 6) {final += "July";}
+        else if (m == 7) {final += "August";}
+        else if (m == 8) {final += "September";}
+        else if (m == 9) {final += "October";}
+        else if (m == 10) {final += "November";}
+        else if (m == 11) {final += "December";}
+        final += " " + date.getDate() + ", " + date.getFullYear() + " - ";
+        var PM = false; 
+        var h = date.getHours();
+        if (h == 0) {
+          h = 12;
+        }
+        else if (h == 12) {
+          PM = true;
+        }
+        else if (h > 12) {
+          h -= 12;
+          PM = true;
+        }
+        final += h + ":";
+        var m = date.getMinutes();
+        if (m < 10) { final += "0" + m;}
+        else { final += m;}
+        var aorp = "AM";
+        if (PM) {aorp = "PM";}
+        final += aorp;
+        document.getElementById("datetime").innerHTML = final;
+      }
+   </script>
+
+
 </head>
+
+<body bgcolor ="#CCE5FF" onload="displayDateAndTime()">
+
 <div class="header">
 	    <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
 	      <a class="pure-menu-heading" href="homepage.html">Your Site</a>
@@ -26,11 +81,12 @@
 		<!--<li><a href="http://new.mta.info">MTA</a></li>-->
 		<!--<li><a href="http://www.weather.com">Weather</a></li>-->
 		<li class="pure-menu-selected"><a href="about.html">Logout</a></li>
-		
+		<li class="pure-menu-selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		<li id="datetime" class="pure-menu-selected">datetime</li>
 	      </ul>
 	    </div>
 	  </div>
-<body bgcolor ="#CCE5FF">
+
   <div class="ex">
   <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Settings </h1> 
 
