@@ -74,7 +74,7 @@ the menu have 100% height and be fixed on the page as the rest of it scrolls.
     left: 150px; /* this should be "#menu" width */
     bottom: 0;
     z-index: 1; /* so the menu or its navicon stays above all content */
-    background: #191818;
+    background: #CCE5FF;
     overflow-y: auto;
     -webkit-overflow-scroll: touch; /* for smooth scrolling on mobile */
 }
@@ -101,14 +101,15 @@ the menu have 100% height and be fixed on the page as the rest of it scrolls.
     */
     #menu .pure-menu ul,
     #menu .pure-menu .menu-item-divided {
-        border-top: 1px solid #333;
+        border-top: 1px solid #999;
     }
         /*
         Change color of the anchor links on hover/focus.
         */
         #menu .pure-menu li a:hover,
         #menu .pure-menu li a:focus {
-            background: #333;
+            background: #1f8dd6;
+	    color: white;
         }
 
     /*
