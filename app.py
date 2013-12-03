@@ -230,7 +230,7 @@ def register():
                 return render_template("register.html", message = "Please check the terms and conditions.")
         elif not username or not password or not confirmPW: #if not all fields are filled
                 return render_template("register.html", message = "Please fill in all of the fields.")
-        elif utils.checkforName(username): #if username is taken
+        elif utils.checkForName(username): #if username is taken
                 return render_template("register.html", message = "Username already taken. Please find another.")
         else:
                 utils.register(username, password, nickname)
