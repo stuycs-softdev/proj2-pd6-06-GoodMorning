@@ -6,7 +6,7 @@ def open():
     db = client["test"]
     return db
     
-#------------USER MANAGEMENT---------------------------------------------------
+#------------ADDING USERS--------------------------------------------------
 def register(username, password, nickname):
     db = open()
     check = db.test.find_one({'username' : username}, fields={'_id':False})
@@ -16,6 +16,15 @@ def register(username, password, nickname):
     else:
         return false
         
+def checkForName(username):
+    db = open()
+    user = db.test.find_one({'username' : username}, fields={'_id':False})
+    if user is not None:
+        return False
+    else:
+        return True
+        
+#-------------LOGIN-----------------------------------------------------
 def login(username, password):
     db = open()
     user = db.test.find_one({'username' : username}, fields={'_id':False})
@@ -24,16 +33,26 @@ def login(username, password):
     else:
         return False
         
-def checkForName(username):
+#----------------USER MANAGEMENT--------------------------------
+def changeNickname(username, nickname):
     db = open()
     user = db.test.find_one({'username' : username}, fields={'_id':False})
-    if user is not None:
+    if user == None:
         return False
     else:
+        db.test.update({'username' : username}, {'$set':{'nickname':nickname}})
         return True
 
-#def changePW() ----------might think about implementing this----------
-#def changeNickname() ------------and this-------------later--------
+def changePW(username, password):
+    db = open()
+    user = db.test.find_one({'username' : username}, fields={'_id':False})
+    if user == None:
+        return False
+    else:
+        db.test.update({'username' : username}, {'$set':{'nickname':nickname}})
+        return True
+#def changePW() ----------might think about implementing this---------- (done! i think)
+#def changeNickname() ------------and this-------------later-------- (also done! ...maybe....)
 
 
 #def auth(user, password, coll):
