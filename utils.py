@@ -29,6 +29,6 @@ def changeName(user, name): #changes name
     coll.update({'username': user},{'$set':{'name': 'name'}})
     
 def checkUser(username, coll): #this is auth without the password
-    return [ x for x in coll.find ({'username': user})] != []
+    return [ x for x in coll.find ({'username': username})] != []
 
 #def getName(username, coll): #this should return the nickname of a user
