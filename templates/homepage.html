@@ -3,120 +3,135 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
 
-    <title>Homepage &ndash; DJRV &ndash; Good Morning</title>
+    <title>Homepage &ndash; DJRV &ndash; SoftDev</title>
+
+    
+
+
+
+
+
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../static/homepage.css">
+
+
+
+    <link rel="stylesheet" href="css/layouts/blog.css">
+
+
+
+
+    
+
+    
 
   </head>
   <body>
-    {% block body %}
 
-    <div class="content">
-    <div class="header">
-    <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
-      <a class="pure-menu-heading" href="">Your Site</a>
-      <ul>
-        <li class="pure-menu-selected"><a href="calendar.html">Calendar</a></li>
-        <li class="pure-menu-selected"><a href="settings.html">Settings</a></li>
-        <li class="pure-menu-selected" align="right" style="float: right;"><a href="home.html">Logout</a></li>
-        <li><a href="http://new.mta.info">MTA</a></li>
-        <li><a href="http://www.weather.com">Weather</a></li>
-      </ul>
-    </div>
-    </div>
-    {% if "username" in session %}
-    <br>
-    <br>
-       
-    </div>
-    <h1> </h1>
-    <div class="splash" style="padding-left: 25%; position: relative;">
-    <div class="pure-g-r">
-    <div class="pure-u-2-3">
-    <div class="l-box splash-text">
 
-      <h1 class="splash-head" style="font-size: 400%; margin-left: 5%"> Good Morning, {session{["username"]}}! </h1>
-      {% endif %}
-      <h2 class="splash-subhead" style="margin-left: 5%">Today's Events</h2>
 
-      <p style="margin-left: 5%">
-      <li style="margin-left: 15%">Event1</li>
-      <br>
-      <li style="margin-left: 15%">Event2</li>
-      <br>
-      <li style="margin-left: 15%">Event3</li>
-      <br>
-      <li style="margin-left: 15%">Event4</li>
-      <br>
-      <li style="margin-left: 15%">Event5</li>
-      {% range number from 0 to 4 %}
-      <ul>
-        <li>events[number]</li>
-        {% endfor %}
-      </ul>
-      {% endrange %}
-      {% endblock %}
-      </p>
 
-    <div class="pure-u-1-3">
-    <div class="l-box">
-      <img src="http://www.dicksoncountyschools.org/UserFiles/Servers/Server_3023089/Image/home_page/calendar.png">
-    </div>
-    </div>
-    </div>
 
-        
-        
-        <div class="content" style="position: fixed; top: 0; bottom:0; width: 25%; margin-left: -25%; background: #CCE5FF; color: black;">
-          <br>
-          <br>
-          <br>
-          <h3>&nbsp;&nbsp; Today's Weather </h3>
 
-          <div style="width: 150px">  
-          <div style="padding: 5px">
-            <span style="font-size:small;
-          vertical-align:top">{{Weather}}stuff stuff tsuff
-          safsakndsafnksladna asdnklasd sadklasd sdanklnds sdankl asdn
-          yjeiro sdl esk asdnkl fnskal fsaknl</span>
-            <img src="http://pakistan.embassyhomepage.com/pakistani-weather-forecast.jpg"
-          width="400px" style="vertical-align:top;"
-          </div>      
-          </div>
+    <div class="pure-g-r" id="layout">
+      <div class="sidebar pure-u">
+        <header class="header">
+	  <h1> </h1>
+	  <h2> </h2>
+          <h1 class="brand-title">Today's Weather</h1>
+          <p> {{Weather}} </p>
+	  <img src="http://pakistan.embassyhomepage.com/pakistani-weather-forecast.jpg"
+	       width="200px" style="vertical-align:top;">
+    
+	</header>
+      </div>
 
-          <div class="pure-g-r content-ribbon">
-          <div class="pure-u-2-3">
-          <div class="l-box">
-            <h3 class="content-subhead">&nbsp;&nbsp; Train Information</h3>
-            <p> {{Train}} </p>
-            
-            
-          </div>
-          </div>
-          </div>
-          </div>
-          
-          <div class="l-box ribbon">
-            
-            <a href="home.html" class="pure-button primary-button">Log out</a>
-          </div>
-          
-        <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui.js"></script>
-        <script>
-          YUI().use('node-base', 'node-event-delegate', function (Y) {
-          // This just makes sure that the href="#" attached to the <a> elements
-            // don't scroll you back up the page.
-            Y.one('body').delegate('click', function (e) {
-            e.preventDefault();
-            }, 'a[href="#"]');
-            });
-        </script>
+      <div class="pure-u-1">
+        <div class="content">
+	  <div class="header">
+	    <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
+	      <a class="pure-menu-heading" href="">Your Site</a>
+	      <ul>
+	
+		<li class="pure-menu-selected"><a href="calendar.html">Calendar</a></li>
+		<li class="pure-menu-selected"><a href="settings.html">Settings</a></li>
+		<li><a href="http://new.mta.info">MTA</a></li>
+		<li><a href="http://www.weather.com">Weather</a></li>
+		<li class="pure-menu-selected"><a href="home.html">Logout</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	  {% if "username" in session %}
+ <ul>
+ <li style="float: right;" ><p> {{Date}} - {{Time}} </p></li>
+ </ul>
+
+	  <div class="splash" style="padding-left: 15%; position: relative;">
+	    <div class="pure-g-r">
+	      <div class="pure-u-2-3">
+		<div class="l-box splash-text">
+		     
+      
+		  <h1 class="splash-head" style="font-size: 400%; margin-left: 5%"> Good Morning, {session{["username"]}}! </h1>
+		  {% endif %}
+		  <h3 class="content-subhead">&nbsp;&nbsp; Your Events</h3>
+
+		  <p style="margin-left: 5%">
+		    <li style="margin-left: 15%">Event1</li>
+		    <br>
+		    <li style="margin-left: 15%">Event2</li>
+		    <br>
+		    <li style="margin-left: 15%">Event3</li>
+		    <br>
+		    <li style="margin-left: 15%">Event4</li>
+		    <br>
+		    <li style="margin-left: 15%">Event5</li>
+
+
+                  <p class="post-meta">
+                    Click here to go to your <a href="calendar.html">calendar</a>
+                  </p>
+		  
+		  <div class="pure-g-r content-ribbon">
+		    <div class="pure-u-2-3">
+		      <div class="l-box">
+			<h3 class="content-subhead">&nbsp;&nbsp; Train Information</h3>
+			<p> {{Train}} </p>
+			
+			
+		      </div>
+		    </div>
+		  </div>
+
+
+		  
+</section>
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+
+<script src="http://yui.yahooapis.com/3.12.0/build/yui/yui.js"></script>
+<script>
+  YUI().use('node-base', 'node-event-delegate', function (Y) {
+  // This just makes sure that the href="#" attached to the <a> elements
+    // don't scroll you back up the page.
+    Y.one('body').delegate('click', function (e) {
+    e.preventDefault();
+    }, 'a[href="#"]');
+    });
+</script>
 
 
 
