@@ -10,15 +10,27 @@
     width: 450px;
     background-color: #CCE5FF;
     padding:10px;
-    border:5px solid #66B2FF;
+    border:1px solid #999;
     }
   </style>
 
   <title>Settings</title>
 </head>
-
-
-<body bgcolor ="#404040">
+<div class="header">
+	    <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
+	      <a class="pure-menu-heading" href="homepage.html">Your Site</a>
+	      <ul>
+	        <li class="pure-menu-selected"><a href="about.html">About</a></li>
+		<li class="pure-menu-selected"><a href="calendar.html">Calendar</a></li>
+		<li class="pure-menu-selected"><a href="settings.html">Settings</a></li>
+		<!--<li><a href="http://new.mta.info">MTA</a></li>-->
+		<!--<li><a href="http://www.weather.com">Weather</a></li>-->
+		<li class="pure-menu-selected"><a href="about.html">Logout</a></li>
+		
+	      </ul>
+	    </div>
+	  </div>
+<body bgcolor ="#CCE5FF">
   <div class="ex">
   <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Settings </h1> 
 
@@ -118,9 +130,9 @@
 	</select>
 	</div>
 	<br>
-      <div class="pure-controls">  
+	<div class="pure-controls">  
           <button type="submit" class="pure-button pure-button-primary">Submit</button>
-        </div>
+	</div>
       </fieldset>
   </form>
 </body>
