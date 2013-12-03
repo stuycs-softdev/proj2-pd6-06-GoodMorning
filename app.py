@@ -11,9 +11,9 @@ import json
 
 #---------------COMMENTS ARE EITHER EXPLANATIONS OR OLD CODE---------------
 
-c = MongoClient()
-db = c['test']
-events = db.events
+#c = MongoClient()
+#db = c['test']
+#events = db.events
 
 app = Flask(__name__)
 app.secret_key = 'jasoniscool'
@@ -208,7 +208,7 @@ def login():
         password = request.form['password']
         if not username or not password:    #there are empty fields
                 return render_template("login.html", message = "Please fill out the empty fields!")
-        elif utils.auth(username, password, db): #login successful
+        elif utils.login(username, password): #login successful
                 session["username"] = username
                 return redirect("/homepage")
          # unsuccessful login
@@ -222,6 +222,7 @@ def register():
         username = request.form['name']
         password = request.form['password']
         confirmPW = request.form['confirm']
+        nickname = request.form['nickname']
         box = request.form.get("acceptTerms")
         if password != confirmPW: #if the two pw's don't match
                 return render_template("register.html", message = "Your passwords do not match.")
@@ -229,10 +230,10 @@ def register():
                 return render_template("register.html", message = "Please check the terms and conditions.")
         elif not username or not password or not confirmPW: #if not all fields are filled
                 return render_template("register.html", message = "Please fill in all of the fields.")
-        elif utils.checkUser(username,db): #if username is taken
+        elif utils.checkforName(username): #if username is taken
                 return render_template("register.html", message = "Username already taken. Please find another.")
         else:
-                utils.addUser(username, password, events)
+                utils.register(username, password, nickname)
                 return redirect("/about") #send user back home
 
 
