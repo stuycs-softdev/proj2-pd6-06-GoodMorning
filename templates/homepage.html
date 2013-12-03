@@ -2,51 +2,94 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="refresh" content="60">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
 
     <title>Homepage &ndash; DJRV &ndash; SoftDev</title>
 
-    
-
-
-
-
-
-
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
-
-
-
-
 
     <link rel="stylesheet" href="../static/homepage.css">
 
-
-
-
-    
-
-    
-
+    <script type="text/javascript">
+      function displayDateAndTime() {
+        var final = "";
+        var date = new Date();
+        var wd = date.getDay();
+        if (wd == 0) {final += "Sunday";}
+        else if (wd == 1) {final += "Monday";}
+        else if (wd == 2) {final += "Tuesday";}
+        else if (wd == 3) {final += "Wednesday";}
+        else if (wd == 4) {final += "Thursday";}
+        else if (wd == 5) {final += "Friday";}
+        else if (wd == 6) {final += "Saturday";}
+        final += ", ";
+        var m = date.getMonth();
+        if (m == 0) {final += "January";}
+        else if (m == 1) {final += "February";}
+        else if (m == 2) {final += "March";}
+        else if (m == 3) {final += "April";}
+        else if (m == 4) {final += "May";}
+        else if (m == 5) {final += "June";}
+        else if (m == 6) {final += "July";}
+        else if (m == 7) {final += "August";}
+        else if (m == 8) {final += "September";}
+        else if (m == 9) {final += "October";}
+        else if (m == 10) {final += "November";}
+        else if (m == 11) {final += "December";}
+        final += " " + date.getDate() + ", " + date.getFullYear() + " - ";
+        var PM = false; 
+        var h = date.getHours();
+        if (h == 0) {
+          h = 12;
+        }
+        else if (h == 12) {
+          PM = true;
+        }
+        else if (h > 12) {
+          h -= 12;
+          PM = true;
+        }
+        final += h + ":";
+        var m = date.getMinutes();
+        if (m < 10) { final += "0" + m;}
+        else { final += m;}
+        var aorp = "AM";
+        if (PM) {aorp = "PM";}
+        final += aorp;
+        document.getElementById("datetime").innerHTML = final;
+      }
+</script>
   </head>
-  <body>
-
-
-
-
-
-
+  <body onload="displayDateAndTime()">
     <div class="pure-g-r" id="layout">
       <div class="sidebar pure-u">
         <header class="header">
 	  <h1> </h1>
 	  <h2> </h2>
-          <h1 class="brand-title">Today's Weather</h1>
-          <p> {{Weather}} </p>
+	  <br>
+          <h1 class="brand-title">Local Weather</h1>
+          <p style="color: #999;"> {{Weather}} blah blah blah blah blah blah blahb
+      labsdksbd asdan  sadkl asd kls dnals </p>
+	<p align:"center" class="post-meta">
+	Click here for more <a href="http://www.weather.com">weather</a>.
+	</p>
+	<br>
 	  <img src="http://pakistan.embassyhomepage.com/pakistani-weather-forecast.jpg"
-	       width="200px" style="vertical-align:top;">
-    
+	       width="75%" style="vertical-align:top; padding-left: 20%" align="center">
+	  <br>
+	  <br>
+	  <h1 class="brand-title">Transit Updates</h1>
+	  <p style="color: #999;"> {{Train}} blah blah blah blah blah blah blahb
+      labsdksbd asdan  sadkl asd kls dnals dnsakl naskd  nasld
+      nkldasmkl n ak</p>
+	<p align:"center" class="post-meta">
+	Click here for more <a href="http://new.mta.info">MTA info</a>.
+	</p>
+	<br>
+	<a href="http://www.maps.google.com">Get directions.</a>
+	<br>
 	</header>
       </div>
 
@@ -56,60 +99,56 @@
 	    <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
 	      <a class="pure-menu-heading" href="">Your Site</a>
 	      <ul>
-	
+	        <li class="pure-menu-selected"><a href="about.html">About</a></li>
 		<li class="pure-menu-selected"><a href="calendar.html">Calendar</a></li>
 		<li class="pure-menu-selected"><a href="settings.html">Settings</a></li>
-		<li><a href="http://new.mta.info">MTA</a></li>
-		<li><a href="http://www.weather.com">Weather</a></li>
+		<!--<li><a href="http://new.mta.info">MTA</a></li>-->
+		<!--<li><a href="http://www.weather.com">Weather</a></li>-->
 		<li class="pure-menu-selected"><a href="home.html">Logout</a></li>
+		<li class="pure-menu-selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		<li id="datetime" class="pure-menu-selected">datetime</li>
 	      </ul>
 	    </div>
 	  </div>
-	  {% if "username" in session %}
- <ul>
- <li style="float: right;" ><p> {{Date}} - {{Time}} </p></li>
- </ul>
 
-	  <div class="splash" style="padding-left: 15%; position: relative;">
+
+
+	  <!--{% if "username" in session %}-->
+
+
+
+	  <!--<ul id="datetime" style="float: right;"><p>datetime</p></ul>-->
+
+	  <div class="splash" style="padding-left: 0%; position: relative;">
 	    <div class="pure-g-r">
 	      <div class="pure-u-2-3">
 		<div class="l-box splash-text">
 		     
       
-		  <h1 class="splash-head" style="font-size: 400%; margin-left: 5%"> Good Morning, {session{["username"]}}! </h1>
-		  {% endif %}
-		  <h3 class="content-subhead">&nbsp;&nbsp; Your Events</h3>
-
-		  <p style="margin-left: 5%">
-		    <li style="margin-left: 15%">Event1</li>
-		    <br>
-		    <li style="margin-left: 15%">Event2</li>
-		    <br>
-		    <li style="margin-left: 15%">Event3</li>
-		    <br>
-		    <li style="margin-left: 15%">Event4</li>
-		    <br>
-		    <li style="margin-left: 15%">Event5</li>
+		  <h1 class="splash-head" style="font-size: 400%; margin-left: 0%"> Good Morning, {session{["username"]}}! </h1>
 
 
-                  <p class="post-meta">
-                    Click here to go to your <a href="calendar.html">calendar</a>
-                  </p>
-		  
-		  <div class="pure-g-r content-ribbon">
-		    <div class="pure-u-2-3">
-		      <div class="l-box">
-			<h3 class="content-subhead">&nbsp;&nbsp; Train Information</h3>
-			<p> {{Train}} </p>
-			
-			
-		      </div>
-		    </div>
-		  </div>
-
+		  <!--{% endif %}-->
 
 		  
-</section>
+		  <h3 class="content-subhead">&nbsp;&nbsp; Today's Events</h3>
+
+		  <p style="margin-left: 0%">
+		    <li style="margin-left: 5%">Event1</li>
+		    <br>
+		    <li style="margin-left: 5%">Event2</li>
+		    <br>
+		    <li style="margin-left: 5%">Event3</li>
+		    <br>
+		    <li style="margin-left: 5%">Event4</li>
+		    <br>
+		    <li style="margin-left: 5%">Event5</li>
+		    <br>
+		    <br>
+		    <p class="post-meta">
+		    Click here to go to your <a href="calendar.html">calendar</a>.
+		    </p>
+
 </div>
 
 
