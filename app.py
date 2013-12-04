@@ -182,7 +182,7 @@ def makeAndDisplayEvents(year,month):
         monthlyEvents.append(utils.getEvent(session["username"],yrstr, monstr,daystr))
         i += 1
 
-    return monthlyEventsg
+    return monthlyEvents
 
 @app.route("/homepage")
 def home():
@@ -271,7 +271,7 @@ def settings():
           #      return redirect("/login")
         if button == "submit":
                 utils.updateSettings(session["username"], nickname, train1, train2, train3, email)
-                return render_template("settings.html", message = "Done.")
+                return redirect("/homepage")
                 #to change name
         #if button == 'changeLocation':
         #        utils.changeLocation(session["username"], name) # to change location
