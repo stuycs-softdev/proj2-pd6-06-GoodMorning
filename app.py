@@ -223,20 +223,20 @@ def register():
         password = request.form['password']
         confirmPW = request.form['confirm']
         nickname = request.form['nickname']
-	print username 
-	print password
-	print confirmPW
-	print nickname
+	#print username 
+	#print password
+	#print confirmPW
+	#print nickname
         if not username or not password or not confirmPW: #not all of the fields are filled
-		print "Please fill in all of the fields."
+		#print "Please fill in all of the fields."
                 return render_template("register.html", message = "Please fill in all of the fields.")
         elif password != confirmPW: #if the two pw's don't match
-		print  "Your passwords do not match."
+		#print  "Your passwords do not match."
                 return render_template("register.html", message = "Your passwords do not match.")
         elif utils.register(username, password, nickname): #if username is taken
                 return redirect("/about") #send user back home
         else:
-		print "Username already taken. Please find another."
+		#print "Username already taken. Please find another."
                 return render_template("register.html", message = "Username already taken. Please find another.")
 
 
