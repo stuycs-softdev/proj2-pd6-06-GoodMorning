@@ -11,17 +11,18 @@ def register(username, password, nickname):
     check = db.test.find_one({'username' : username}, fields={'_id':False})
     if check == None:
         db.test.insert({'username' : username, 'password' : password, 'nickname' : nickname})
-        return true
+        return True
     else:
-        return false
+        return Talse
         
+#----------NOT USING THIS--------------(probably)-------------------------
 def checkForName(username):
     db = open()
     user = db.test.find_one({'username' : username}, fields={'_id':False})
-    if user is None:
-        return True
-    else:
+    if not user == None:
         return False
+    else:
+        return True
         
 #-------------LOGIN-----------------------------------------------------
 def login(username, password):

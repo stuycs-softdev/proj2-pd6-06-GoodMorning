@@ -197,7 +197,7 @@ def home():
                                                        #should have variables in html that correspond to these
          #if not logged in
         else:
-                return redirect("/login")
+                return redirect("/about")
 
 
 @app.route("/login",methods=["GET","POST"])
@@ -223,18 +223,22 @@ def register():
         password = request.form['password']
         confirmPW = request.form['confirm']
         nickname = request.form['nickname']
-        #box = request.form.get("acceptTerms")
-        if password != confirmPW: #if the two pw's don't match
-                return render_template("register.html", message = "Your passwords do not match.")
-        #elif not box: #if terms and conditions box is not checked
-         #       return render_template("register.html", message = "Please check the terms and conditions.")
-        elif not username or not password or not confirmPW: #if not all fields are filled
+	print username 
+	print password
+	print confirmPW
+	print nickname
+        if not username or not password or not confirmPW: #not all of the fields are filled
+		print "Please fill in all of the fields."
                 return render_template("register.html", message = "Please fill in all of the fields.")
-        elif utils.checkForName(username): #if username is taken
-                return render_template("register.html", message = "Username already taken. Please find another.")
-        else:
-                utils.register(username, password, nickname)
+        elif password != confirmPW: #if the two pw's don't match
+		print  "Your passwords do not match."
+                return render_template("register.html", message = "Your passwords do not match.")
+        elif utils.register(username, password, nickname): #if username is taken
                 return redirect("/about") #send user back home
+        else:
+		print "Username already taken. Please find another."
+                return render_template("register.html", message = "Username already taken. Please find another.")
+
 
 
 @app.route("/settings", methods = ["GET", "POST"])
@@ -264,4 +268,4 @@ def logout():
 
 if __name__=="__main__":
         app.debug=True
-        app.run()
+        app.run(port=6006)
