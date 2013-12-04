@@ -223,11 +223,11 @@ def register():
         password = request.form['password']
         confirmPW = request.form['confirm']
         nickname = request.form['nickname']
-        box = request.form.get("acceptTerms")
+        #box = request.form.get("acceptTerms")
         if password != confirmPW: #if the two pw's don't match
                 return render_template("register.html", message = "Your passwords do not match.")
-        elif not box: #if terms and conditions box is not checked
-                return render_template("register.html", message = "Please check the terms and conditions.")
+        #elif not box: #if terms and conditions box is not checked
+         #       return render_template("register.html", message = "Please check the terms and conditions.")
         elif not username or not password or not confirmPW: #if not all fields are filled
                 return render_template("register.html", message = "Please fill in all of the fields.")
         elif utils.checkForName(username): #if username is taken
