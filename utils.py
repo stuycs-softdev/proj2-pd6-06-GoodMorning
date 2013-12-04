@@ -51,6 +51,28 @@ def changePW(username, newpassword):
     else:
         db.test.update({'username' : username}, {'$set':{'password':newpassword}})
         return True
+#----------------Events--------------------------------
+def addEvent(username, year, month, date, hour, minute, title):
+    db=open()
+    db.test.insert({'username': user},{'year': year}, {'month': month}, {'date':date}, {'hour': hour}, {'minute':minute},{'title': title})
+
+def getEvent(username, year, month, date):
+    db = open()
+    db.find({'username': user}, {'year':year}, {'month':month}, {'date':date})
+    
+
+
+
+
+
+#def addEvent(user, year, month, date, hour, minute, title, coll): #adds events
+#    coll.insert({'username': user},{'year': year}, {'month': month}, {'date':date}, {'hour': hour}, {'minute':minute},{'title': title}) 
+
+#def getEvent(year, month, date, coll):
+#    return coll.find( {'year':year}, {'month':month}, {'date':date})
+
+#def getMonthList(user, month, year, coll):
+#    return coll.find({'user':user}, {'month':month}, {'year':year});
 #def changePW() ----------might think about implementing this---------- (done! i think)
 #def changeNickname() ------------and this-------------later-------- (also done! ...maybe....)
 
