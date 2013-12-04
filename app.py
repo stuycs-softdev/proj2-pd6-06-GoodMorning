@@ -271,7 +271,7 @@ def settings():
           #      return redirect("/login")
         if button == "submit":
                 utils.updateSettings(session["username"], nickname, train1, train2, train3, email)
-                return render_template("settings.html", message = "Done."
+                return render_template("settings.html", message = "Done.")
                 #to change name
         #if button == 'changeLocation':
         #        utils.changeLocation(session["username"], name) # to change location
@@ -279,7 +279,7 @@ def settings():
 @app.route("/logout")
 def logout():
         session.pop("username", None)
-        return redirect("/") #or maybe redirect to login? idk.
+        return redirect("/") 
 
 
 if __name__=="__main__":
