@@ -234,7 +234,8 @@ def register():
 		#print  "Your passwords do not match."
                 return render_template("register.html", message = "Your passwords do not match.")
         elif utils.register(username, password, nickname): #if username is taken
-                return redirect("/about") #send user back home
+		session["username"] = username
+                return redirect("/") #send user back home
         else:
 		#print "Username already taken. Please find another."
                 return render_template("register.html", message = "Username already taken. Please find another.")
