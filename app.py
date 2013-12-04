@@ -246,7 +246,7 @@ def register():
                 return redirect("/") #send user back home
         else:
 		#print "Username already taken. Please find another."
-                return render_template("register.html", message = "Username already taken. Please find another.")
+                return render_template("register.html", message = "Username already taken.")
 
 
 
