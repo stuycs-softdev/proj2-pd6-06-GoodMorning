@@ -72,20 +72,21 @@
 <body bgcolor ="#CCE5FF" onload="displayDateAndTime()">
 
 <div class="header">
-	    <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
-	      <a class="pure-menu-heading" href="homepage">Your Site</a>
-	      <ul>
-	        <li class="pure-menu-selected"><a href="about">About</a></li>
-		<li class="pure-menu-selected"><a href="calendar">Calendar</a></li>
-		<li class="pure-menu-selected"><a href="settings">Settings</a></li>
-		<!--<li><a href="http://new.mta.info">MTA</a></li>-->
-		<!--<li><a href="http://www.weather.com">Weather</a></li>-->
-		<li class="pure-menu-selected"><a href="about.html">Logout</a></li>
-		<li class="pure-menu-selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-		<li id="datetime" class="pure-menu-selected">datetime</li>
-	      </ul>
-	    </div>
-	  </div>
+            <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
+              <a class="pure-menu-heading" href="homepage.html">Your Site</a>
+              <ul>
+                <li class="pure-menu-selected"><a href="/">About</a></li>
+                <li class="pure-menu-selected"><a href="calendar">Calendar</a></li>
+                <li class="pure-menu-selected"><a href="settings">Settings</a></li>
+                <li class="pure-menu-selected"><a href="homepage">Home</a></li>
+                <!--<li><a href="http://new.mta.info">MTA</a></li>-->
+                <!--<li><a href="http://www.weather.com">Weather</a></li>-->
+                <li class="pure-menu-selected"><a href="/">Logout</a></li>
+                <li class="pure-menu-selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li id="datetime" class="pure-menu-selected">datetime</li>
+              </ul>
+            </div>
+          </div>
 
   <div class="ex">
   <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Settings </h1> 
@@ -103,92 +104,92 @@
           <input id="address" type="text" placeholder="Your email address">
         </div>
         
-	<br>
-	<div class = "pure-control-group">
-	  Which subway lines do you take? (Choose up to 3)  
-	  <label for="train1">First train:</label>  
-	  <select name="train1">
-	  <option value="--">--</option>
-	  <option value="1">1</option>
-	  <option value="2">2</option>
-	  <option value="3">3</option>
-	  <option value="4">4</option>
-	  <option value="5">5</option>
-	  <option value="6">6</option>
-	  <option value="7">7</option>
-	  <option value="A">A</option>
-	  <option value="B">B</option>
-	  <option value="C">C</option>
-	  <option value="D">D</option>
-	  <option value="E">E</option>
-	  <option value="F">F</option>
-	  <option value="G">G</option>
-	  <option value="J">J</option>
-	  <option value="L">L</option>
-	  <option value="M">M</option>
-	  <option value="N">N</option>
-	  <option value="Q">Q</option>
-	  <option value="R">R</option>
-	  <option value="S">S</option>
-	  <option value="Z">Z</option>
-	</select>
-	<label for="train2">Second train:</label> 
-	<select name="train2">
-	  <option value="--">--</option>
-	  <option value="1">1</option>1,2,3,4,5,6,7,A,B,C,D,E,F,G,J,L,M,N,Q,R,S,Z
-	  <option value="2">2</option>
-	  <option value="3">3</option>
-	  <option value="4">4</option>
-	  <option value="5">5</option>
-	  <option value="6">6</option>
-	  <option value="7">7</option>
-	  <option value="A">A</option>
-	  <option value="B">B</option>
-	  <option value="C">C</option>
-	  <option value="D">D</option>
-	  <option value="E">E</option>
-	  <option value="F">F</option>
-	  <option value="G">G</option>
-	  <option value="J">J</option>
-	  <option value="L">L</option>
-	  <option value="M">M</option>
-	  <option value="N">N</option>
-	  <option value="Q">Q</option>
-	  <option value="R">R</option>
-	  <option value="S">S</option>
-	  <option value="Z">Z</option>
-	</select>
-	<label for="train3">Third train:</label> 
-	<select name="train3">
-	  <option value="--">--</option>
-	  <option value="1">1</option>1,2,3,4,5,6,7,A,B,C,D,E,F,G,J,L,M,N,Q,R,S,Z
-	  <option value="2">2</option>
-	  <option value="3">3</option>
-	  <option value="4">4</option>
-	  <option value="5">5</option>
-	  <option value="6">6</option>
-	  <option value="7">7</option>
-	  <option value="A">A</option>
-	  <option value="B">B</option>
-	  <option value="C">C</option>
-	  <option value="D">D</option>
-	  <option value="E">E</option>
-	  <option value="F">F</option>
-	  <option value="G">G</option>
-	  <option value="J">J</option>
-	  <option value="L">L</option>
-	  <option value="M">M</option>
-	  <option value="N">N</option>
-	  <option value="Q">Q</option>
-	  <option value="R">R</option>
-	  <option value="S">S</option>
-	  <option value="Z">Z</option>
-	</select>
-	</div>
-	<br>
-	<div class="pure-controls">  
+        <br>
+        <div class = "pure-control-group">
+          Which subway lines do you take? (Choose up to 3)  
+          <label for="train1">First train:</label>  
+          <select name="train1">
+          <option value="--">--</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="G">G</option>
+          <option value="J">J</option>
+          <option value="L">L</option>
+          <option value="M">M</option>
+          <option value="N">N</option>
+          <option value="Q">Q</option>
+          <option value="R">R</option>
+          <option value="S">S</option>
+          <option value="Z">Z</option>
+        </select>
+        <label for="train2">Second train:</label> 
+        <select name="train2">
+          <option value="--">--</option>
+          <option value="1">1</option>1,2,3,4,5,6,7,A,B,C,D,E,F,G,J,L,M,N,Q,R,S,Z
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="G">G</option>
+          <option value="J">J</option>
+          <option value="L">L</option>
+          <option value="M">M</option>
+          <option value="N">N</option>
+          <option value="Q">Q</option>
+          <option value="R">R</option>
+          <option value="S">S</option>
+          <option value="Z">Z</option>
+        </select>
+        <label for="train3">Third train:</label> 
+        <select name="train3">
+          <option value="--">--</option>
+          <option value="1">1</option>1,2,3,4,5,6,7,A,B,C,D,E,F,G,J,L,M,N,Q,R,S,Z
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="G">G</option>
+          <option value="J">J</option>
+          <option value="L">L</option>
+          <option value="M">M</option>
+          <option value="N">N</option>
+          <option value="Q">Q</option>
+          <option value="R">R</option>
+          <option value="S">S</option>
+          <option value="Z">Z</option>
+        </select>
+        </div>
+        <br>
+        <div class="pure-controls">  
           <button type="submit" class="pure-button pure-button-primary">Submit</button>
-	</div>
+        </div>
       </fieldset>
   </form>
 </body>
