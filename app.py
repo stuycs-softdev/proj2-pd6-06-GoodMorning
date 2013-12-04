@@ -30,7 +30,10 @@ def test():
 
 @app.route("/home")
 def h():
-        return render_template("home.html")
+        if "username" not in session: #not logged in
+                return redirect("/")
+	else:
+	        return render_template("home.html")
 
 @app.route("/index")
 def index():
@@ -206,13 +209,18 @@ def login():
                 return render_template("login.html")
         username = request.form['name']
         password = request.form['password']
+	print username
+	print password
         if not username or not password:    #there are empty fields
+		print "1"
                 return render_template("login.html", message = "Please fill out the empty fields!")
         elif utils.login(username, password): #login successful
+		print "2"
                 session["username"] = username
-                return redirect("/homepage")
+                return redirect("/home")
          # unsuccessful login
         else:
+		print "3"
                 return render_template("login.html", message = "Incorrect username and password combination.")
 
 @app.route("/register",methods = ["GET","POST"])
@@ -235,6 +243,7 @@ def register():
                 return render_template("register.html", message = "Your passwords do not match.")
         elif utils.register(username, password, nickname): #if username is taken
 		session["username"] = username
+		print "success!"
                 return redirect("/") #send user back home
         else:
 		#print "Username already taken. Please find another."

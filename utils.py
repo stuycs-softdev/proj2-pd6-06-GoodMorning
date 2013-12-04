@@ -13,7 +13,7 @@ def register(username, password, nickname):
         db.test.insert({'username' : username, 'password' : password, 'nickname' : nickname})
         return True
     else:
-        return Talse
+        return False
         
 #----------NOT USING THIS--------------(probably)-------------------------
 def checkForName(username):
@@ -27,11 +27,11 @@ def checkForName(username):
 #-------------LOGIN-----------------------------------------------------
 def login(username, password):
     db = open()
-    user = db.test.find_one({'username' : username}, fields={'_id':False})
-    if user is not None and user['password'] == password:
-        return True
-    else:
+    user = db.test.find_one({'username' : username, 'password' : password}, fields={'_id':False})
+    if user == None:
         return False
+    else:
+        return True
         
 #----------------USER MANAGEMENT--------------------------------
 def changeNickname(username, nickname):
