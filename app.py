@@ -33,7 +33,7 @@ def h():
         if "username" not in session: #not logged in
                 return redirect("/")
 	else:
-	        return render_template("home.html")
+	        return render_template("homepage.html")
 
 @app.route("/index")
 def index():
