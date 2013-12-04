@@ -256,18 +256,25 @@ def settings():
                 return redirect("/login")
         if request.method=="GET":
                 return render_template("settings.html")
-        name = request.form['name'] #who you want to be greeted as
-        location = request.form['location'] #where you are
-        button = request.form['submit'] #this will be whichever button you've pressed: to change name or location
+        nickname = request.form['name'] #who you want to be greeted as
+        train1 = request.form.get("train1")
+        train2 = request.form.get("train2")
+        train3 = request.form.get("train3")
+        email = request.form['email']
+        button =  request.form.get("submit")
+        #location = request.form['location'] #where you are
+        #button = request.form['submit'] #this will be whichever button you've pressed: to change name or location
         #oldPW = request.form['oldPW']
         #newPW = request.form['newPW'] ------change password maybe? will leave this here.-----
         #confirmNPW = request.form['cNPW']
         #if "username" not in session: 
           #      return redirect("/login")
-        if button == 'changeName':
-                utils.changeName(session["username"], name) #to change name
-        if button == 'changeLocation':
-                utils.changeLocation(session["username"], name) # to change location
+        if button == "submit":
+                utils.updateSettings(session["username"], nickname, train1, train2, train3, email)
+                return render_template("settings.html", message = "Done."
+                #to change name
+        #if button == 'changeLocation':
+        #        utils.changeLocation(session["username"], name) # to change location
         
 @app.route("/logout")
 def logout():
