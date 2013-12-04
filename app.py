@@ -210,7 +210,7 @@ def login():
         elif utils.login(username, password): #login successful
 		print "2"
                 session["username"] = username
-                return redirect("/home")
+                return redirect("/homepage")
          # unsuccessful login
         else:
 		print "3"
@@ -266,7 +266,7 @@ def settings():
 @app.route("/logout")
 def logout():
         session.pop("username", None)
-        return redirect("/home") #or maybe redirect to login? idk.
+        return redirect("/homepage") #or maybe redirect to login? idk.
 
 
 if __name__=="__main__":
