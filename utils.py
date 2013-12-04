@@ -34,7 +34,7 @@ def login(username, password):
         return True
         
 #----------------USER MANAGEMENT--------------------------------
-def changeNickname(username, nickname):
+def changeName(username, nickname):
     db = open()
     user = db.test.find_one({'username' : username}, fields={'_id':False})
     if user == None:
