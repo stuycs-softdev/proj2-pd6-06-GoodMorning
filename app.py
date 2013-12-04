@@ -179,7 +179,7 @@ def makeAndDisplayEvents(year,month):
     i = 1
     while (i <= numdays): 
         daystr = str(i)
-        monthlyEvents.append(utils.getEvent(yrstr, monstr,daystr, events))
+        monthlyEvents.append(utils.getEvent(yrstr, monstr,daystr))
         i += 1
 
     return monthlyEventsg
