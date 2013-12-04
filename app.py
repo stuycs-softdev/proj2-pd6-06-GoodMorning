@@ -28,13 +28,6 @@ def test():
         sky = weather.getWeather()
         return render_template("test.html", temperature = temp, weather = sky, ott = mta2.ott(), ffs = mta2.ffs(), seven = mta2.seven(), ace = mta2.ace(), bdfm = mta2.bdfm(), g = mta2.g(), jz = mta2.jz(), l = mta2.l(), nqr = mta2.nqr(), s = mta2.s(), sir = mta2.sir())
 
-@app.route("/home")
-def h():
-        if "username" not in session: #not logged in
-                return redirect("/")
-	else:
-	        return render_template("homepage.html")
-
 @app.route("/index")
 def index():
         return render_template("index.html")
@@ -195,7 +188,7 @@ def home():
         #service = [x[1] for x in trains]
         if "username" in session: #if logged in already
                 username = session["username"]
-                return render_template("home.html", temperature = temp, weather = sky, ott = mta2.ott(), ffs = mta2.ffs(), seven = mta2.seven(), ace = mta2.ace(), bdfm = mta2.bdfm(), g = mta2.g(), jz = mta2.jz(), l = mta2.l(), nqr = mta2.nqr(), s = mta2.s(), sir = mta2.sir())
+                return render_template("homepage.html", temperature = temp, weather = sky, ott = mta2.ott(), ffs = mta2.ffs(), seven = mta2.seven(), ace = mta2.ace(), bdfm = mta2.bdfm(), g = mta2.g(), jz = mta2.jz(), l = mta2.l(), nqr = mta2.nqr(), s = mta2.s(), sir = mta2.sir())
                                                       #greeting = utils.getName(username)
                                                        #should have variables in html that correspond to these
          #if not logged in
