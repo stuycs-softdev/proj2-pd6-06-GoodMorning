@@ -35,14 +35,15 @@ def login(username, password):
         return True
         
 #----------------USER MANAGEMENT--------------------------------
-def changeName(username, nickname):
+def updateSettings(username, nickname, train1, train2, train3, email):
     db = open()
     user = db.find_one({'username' : username}, fields={'_id':False})
     if user == None:
         return False
     else:
-        db.update({'username' : username}, {'$set':{'nickname':nickname}})
+        db.test.update({'username' : username}, {'$set':{'nickname':nickname,'train1':train1, 'train2':train2, 'train3':train3, 'email':email}})
         return True
+
 
 def changePW(username, newpassword):
     db = open()
