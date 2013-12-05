@@ -56,7 +56,7 @@ def changePW(username, newpassword):
 #----------------Events--------------------------------
 def addEventObject(username, e):
     d = e.date
-    addEvent(username, d.year, d.month, d.day, d.hour, d.minute, e.title)
+    addEvent(username, str(d.year), str(d.month), str(d.day), str(d.hour), str(d.minute), e.title)
 
 def addEvent(username, year, month, date, hour, minute, title):
     db=open()
