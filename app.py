@@ -245,14 +245,14 @@ def settings():
         train1 = request.form.get("train1")
         train2 = request.form.get("train2")
         train3 = request.form.get("train3")
-        email = request.form['email']
+        email = request.form['address']
         button =  request.form.get("submit")
 	print nickname
 	print train1
 	print train2
 	print train3
 	print email
-	print button
+	#print button
         #location = request.form['location'] #where you are
         #button = request.form['submit'] #this will be whichever button you've pressed: to change name or location
         #oldPW = request.form['oldPW']
@@ -260,9 +260,8 @@ def settings():
         #confirmNPW = request.form['cNPW']
         #if "username" not in session: 
           #      return redirect("/login")
-        if button == "submit":
-                utils.updateSettings(session["username"], nickname, train1, train2, train3, email)
-                return render_template("settings.html", message = "Done.")
+        utils.updateSettings(session["username"], nickname, train1, train2, train3, email)
+        return redirect("/homepage")
                 #to change name
         #if button == 'changeLocation':
         #        utils.changeLocation(session["username"], name) # to change location
