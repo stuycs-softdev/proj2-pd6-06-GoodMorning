@@ -118,7 +118,7 @@ def getCal(year, month):
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
-        e = Event(year,month-1,d,h,mi,de)
+        e = Event(year,month,d,h,mi,de)
 
         utils.addEventObject(session["username"],e)
 
