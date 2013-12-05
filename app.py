@@ -2,11 +2,10 @@ from flask import Flask
 from flask import request, render_template, redirect, session
 from pymongo import MongoClient
 from datetime import datetime
-
+from event import Event
 import utils
 import mta2
 import weather
-import event
 import json
 
 #---------------COMMENTS ARE EITHER EXPLANATIONS OR OLD CODE---------------
@@ -94,9 +93,9 @@ def cal():
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + "-" + request.form['endhour'] + ":" + request.form['endmin'] + request.form['amorpm2'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
-        e = Event(y,m+1,d,h,mi,de)
+	e = Event(y,m+1,d,h,mi,de)
 
-        utils.addEvent(e)
+        utils.addEventObject(session["username"],e)
 
         el = makeAndDisplayEvents(y,m)
 
@@ -135,7 +134,7 @@ def getCal(year, month):
             de = request.form['newevent']
         e = Event(year,month+1,d,h,mi,de)
 
-        utils.addEvent(e)
+        utils.addEventObject(session["username"],e)
 
         el = makeAndDisplayEvents(year,month)
 
