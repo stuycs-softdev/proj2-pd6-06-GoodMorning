@@ -182,7 +182,7 @@ def makeAndDisplayEvents(year,month):
         monthlyEvents.append(utils.getEvent(session["username"],yrstr, monstr,daystr))
         i += 1
 
-    return monthlyEvents
+    return monthlyEventsg
 
 @app.route("/homepage")
 def home():
@@ -262,6 +262,12 @@ def settings():
         train3 = request.form.get("train3")
         email = request.form['email']
         button =  request.form.get("submit")
+        print nickname
+        print train1
+        print train2
+        print train3
+        print email
+        print button
         #location = request.form['location'] #where you are
         #button = request.form['submit'] #this will be whichever button you've pressed: to change name or location
         #oldPW = request.form['oldPW']
@@ -271,17 +277,17 @@ def settings():
           #      return redirect("/login")
         if button == "submit":
                 utils.updateSettings(session["username"], nickname, train1, train2, train3, email)
-                return redirect("/homepage")
+                return render_template("settings.html", message = "Done.")
                 #to change name
         #if button == 'changeLocation':
         #        utils.changeLocation(session["username"], name) # to change location
-        
+
 @app.route("/logout")
 def logout():
         session.pop("username", None)
-        return redirect("/") 
+        return redirect("/") #or maybe redirect to login? idk.
 
 
 if __name__=="__main__":
         app.debug=True
-        app.run(port=6006)
+        app.run(port=5000)
