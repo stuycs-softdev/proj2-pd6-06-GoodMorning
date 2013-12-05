@@ -93,9 +93,9 @@
 
 
   <form method="POST" class="pure-form pure-form-stacked">
-    <fieldset class="pure-group">
+    <fieldset>
       <div class="pure-control-group">
-          <label for="name">New Nickname</label>
+          <label for="nickname">New Nickname</label>
           <input name="name" type="text" placeholder="Name">
         </div>
         
@@ -188,7 +188,7 @@
         </div>
         <br>
         <div class="pure-controls">  
-          <button type="submit" class="pure-button pure-button-primary">Submit</button>
+          <button type="submit" class="pure-button pure-button-primary" onClick="submit(this.form)">Submit</button>
         </div>
       </fieldset>
   </form>
