@@ -91,7 +91,7 @@ def cal():
 def getCal(year, month):
 
     if request.method =='GET':
-        el = makeAndDisplayEvents(year,month)
+        el = makeAndDisplayEvents(year,month+1)
         return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[ev.title for ev in d] for d in el]))
     else:
         d = (int)(request.form['day'])
@@ -122,7 +122,7 @@ def getCal(year, month):
 
         utils.addEventObject(session["username"],e)
 
-        el = makeAndDisplayEvents(year,month)
+        el = makeAndDisplayEvents(year,month+1)
 
         return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[ev.title for ev in d] for d in el]))
 
