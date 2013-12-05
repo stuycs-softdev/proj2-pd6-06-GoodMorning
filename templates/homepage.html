@@ -66,11 +66,10 @@
     <div class="pure-g-r" id="layout">
       <div class="sidebar pure-u">
         <header class="header">
-	  <h1> </h1>
-	  <h2> </h2>
+	  <br>
 	  <br>
           <h1 class="brand-title">Local Weather</h1>
-          <p style="color: #999;"> It is currently {{temperature}} &#176; F. <br> Right now it is {{weather}}. </p>
+          <p style="color: #999;"> It is currently {{temperature}} &#176; F. <br> {{weather}}. </p>
 	<p align:"center" class="post-meta">
 	Click here for more <a href="http://www.weather.com">weather</a>.
 	</p>
@@ -80,12 +79,13 @@
 	  <br>
 	  <br>
 	  <h1 class="brand-title">Transit Updates</h1>
-	  <p style="color: #999;"> 123: {{ott}} <br> 456: {{ffs}} <br> 7: {{seven}} <br> ACE: {{ace}} <br> BDFM: {{bdfm}} <br> G: {{g}} <br> JZ: {{jz}} <br> L: {{l}} <br> NQR: {{nqr}} <br> S: {{s}} <br> SIR: {{sir}}</p>
+	  <p style="color: #999;"> 123:  {{ott}} <br> 456:  {{ffs}}
+      <br> 7:  {{seven}} <br> ACE:  {{ace}} <br> BDFM:  {{bdfm}} <br>
+      G:  {{g}} <br> JZ:  {{jz}} <br> L:  {{l}} <br> NQR:  {{nqr}}
+      <br> S:  {{s}} <br>  SIR: {{sir}}</p>
 	<p align:"center" class="post-meta">
 	Click here for more <a href="http://new.mta.info">MTA info</a>.
 	</p>
-	<br>
-	<a href="http://www.maps.google.com">Get directions.</a>
 	<br>
 	</header>
       </div>
@@ -97,13 +97,9 @@
 	      <a class="pure-menu-heading" href="">Your Site</a>
 	      <ul>
 	        <li class="pure-menu-selected"><a href="/">About</a></li>
-		<li class="pure-menu-selected"><a href="calendar">Calendar</a></li>
-		<!--------<li class="pure-menu-selected"><a href="settings">Settings</a></li> --> 
-		<li class="pure-menu-selected"><a href="homepage">Home</a></li>
-		<!--<li><a href="http://new.mta.info">MTA</a></li>-->
-		<!--<li><a href="http://www.weather.com">Weather</a></li>-->
+		<li class="pure-menu-selected"><a href="/calendar">Calendar</a></li>
 		<li class="pure-menu-selected"><a href="/logout">Logout</a></li>
-		<li class="pure-menu-selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		<li class="pure-menu-selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		<li id="datetime" class="pure-menu-selected">datetime</li>
 	      </ul>
 	    </div>
