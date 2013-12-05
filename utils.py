@@ -57,6 +57,7 @@ def addEventObject(username, e):
 
 def addEvent(username, year, month, date, hour, minute, title):
     db=open()
+    month = str(int(month)-1)
     db.insert({'username': username, 'year': year, 'month': month,
                'date':date, 'hour': hour, 'minute':minute,
                'title': title})
@@ -64,7 +65,7 @@ def addEvent(username, year, month, date, hour, minute, title):
 def getEvent(username, year, month, date):
     db = open()
     res = db.find({'username': username, 'year':year, 'month':month, 'date':date})
-    return [Event(int(e['year']), int(e['month']) - 1, int(e['date']),
+    return [Event(int(e['year']), int(e['month']), int(e['date']),
                   int(e['hour']), int(e['minute']), e['title']) for e in res]
     
 from event import organize
