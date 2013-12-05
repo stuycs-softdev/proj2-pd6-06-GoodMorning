@@ -79,11 +79,11 @@ def cal():
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + "-" + request.form['endhour'] + ":" + request.form['endmin'] + request.form['amorpm2'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
-	e = Event(y,m,d,h,mi,de)
+	e = Event(y,m-2,d,h,mi,de)
 
         utils.addEventObject(session["username"], e)
 
-        el = makeAndDisplayEvents(y,m-2)
+        el = makeAndDisplayEvents(y,m)
 
         return render_template('calendar.html', event_list=json.dumps([[ev.title for ev in d] for d in el]))
 
@@ -118,11 +118,11 @@ def getCal(year, month):
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
-        e = Event(year,month,d,h,mi,de)
+        e = Event(year,month-1,d,h,mi,de)
 
         utils.addEventObject(session["username"],e)
 
-        el = makeAndDisplayEvents(year,month-2)
+        el = makeAndDisplayEvents(year,month)
 
         return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[ev.title for ev in d] for d in el]))
 
