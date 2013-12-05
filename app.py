@@ -124,7 +124,7 @@ def getCal(year, month):
         return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[e.title for e in d] for d in el]))
 
 def makeAndDisplayEvents(year,month):
-    nmonth = month +1
+    nmonth = month
     monstr = str(nmonth)
     yrstr = str(year)
     monthlyEvents = []
@@ -164,7 +164,7 @@ def makeAndDisplayEvents(year,month):
         monthlyEvents.append(utils.getEvent(session["username"],yrstr, monstr,daystr))
         i += 1
 
-    return monthlyEventsg
+    return monthlyEvents
 
 @app.route("/homepage")
 def home():
