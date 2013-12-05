@@ -78,7 +78,7 @@ def cal():
             de = request.form['newevent']
 	e = Event(y,m+1,d,h,mi,de)
 
-        utils.addEventObject(session["username"],e)
+        utils.addEventObject(session["username"], se)
 
         el = makeAndDisplayEvents(y,m)
 
