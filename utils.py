@@ -1,16 +1,17 @@
 from pymongo import MongoClient
+from event import Event
 
 def open():
     client = MongoClient()
-    db = client["test"]
+    db = client.gm.users
     return db
     
 #------------ADDING USERS--------------------------------------------------
 def register(username, password, nickname):
     db = open()
-    check = db.test.find_one({'username' : username}, fields={'_id':False})
+    check = db.find_one({'username' : username}, fields={'_id':False})
     if check == None:
-        db.test.insert({'username' : username, 'password' : password, 'nickname' : nickname})
+        db.insert({'username' : username, 'password' : password, 'nickname' : nickname})
         return True
     else:
         return False
@@ -18,7 +19,7 @@ def register(username, password, nickname):
 #----------NOT USING THIS--------------(probably)-------------------------
 def checkForName(username):
     db = open()
-    user = db.test.find_one({'username' : username}, fields={'_id':False})
+    user = db.find_one({'username' : username}, fields={'_id':False})
     if not user == None:
         return False
     else:
@@ -27,7 +28,7 @@ def checkForName(username):
 #-------------LOGIN-----------------------------------------------------
 def login(username, password):
     db = open()
-    user = db.test.find_one({'username' : username, 'password' : password}, fields={'_id':False})
+    user = db.find_one({'username' : username, 'password' : password}, fields={'_id':False})
     if user == None:
         return False
     else:
@@ -36,29 +37,31 @@ def login(username, password):
 #----------------USER MANAGEMENT--------------------------------
 def changeName(username, nickname):
     db = open()
-    user = db.test.find_one({'username' : username}, fields={'_id':False})
+    user = db.find_one({'username' : username}, fields={'_id':False})
     if user == None:
         return False
     else:
-        db.test.update({'username' : username}, {'$set':{'nickname':nickname}})
+        db.update({'username' : username}, {'$set':{'nickname':nickname}})
         return True
 
 def changePW(username, newpassword):
     db = open()
-    user = db.test.find_one({'username' : username}, fields={'_id':False})
+    user = db.find_one({'username' : username}, fields={'_id':False})
     if user == None:
         return False
     else:
-        db.test.update({'username' : username}, {'$set':{'password':newpassword}})
+        db.update({'username' : username}, {'$set':{'password':newpassword}})
         return True
 #----------------Events--------------------------------
 def addEvent(username, year, month, date, hour, minute, title):
     db=open()
-    db.test.insert({'username': user},{'year': year}, {'month': month}, {'date':date}, {'hour': hour}, {'minute':minute},{'title': title})
+    db.insert({'username': username, 'year': year, 'month': month, 'date':date, 'hour': hour, 'minute':minute, 'title': title})
 
 def getEvent(username, year, month, date):
     db = open()
-    db.find({'username': user}, {'year':year}, {'month':month}, {'date':date})
+    res = db.find({'username': username, 'year':year, 'month':month, 'date':date})
+    return [Event(int(e['year']), int(e['month']), int(e['date']),
+                  int(e['hour']), int(e['minute']), e['title']) for e in res]
     
 
 
