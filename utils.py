@@ -69,8 +69,21 @@ def getEvent(username, year, month, date):
     
 from event import organize
 def getFiltered(username, year, month, date):
+    db = open()
+    res = db.find({'username':username, 'year':year})
+    if month > 8:
+        res += db.find({'username':username, 'year':str(int(year)+1)})
+    print res
     return organize(getEvent(username, year, month, date))
 
+from datetime import datetime
+def upNext(username):
+    now = datetime.now()
+    yr = str(now.year)
+    mo = str(now.month)
+    d  = str(now.day)
+    print yr, mo, d
+    return getFiltered(username, yr, mo, d)
 
 
 

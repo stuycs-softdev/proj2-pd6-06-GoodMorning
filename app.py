@@ -175,9 +175,14 @@ def home():
         #trains = [mta2.ott(), mta2.ffs(), mta2.seven(), mta2.ace(), mta2.bdfm(), mta2.g(), mta2.jz(), mta2.l(), mta2.nqr(), mta2.s(), mta2.sir()]
         temp = weather.getTemp()
         sky = weather.getWeather()
+	events = utils.upNext(session["username"])
         if "username" in session: #if logged in already
                 username = session["username"]
-                return render_template("homepage.html", username = username, temperature = temp, weather = sky, ott = mta2.ott(), ffs = mta2.ffs(), seven = mta2.seven(), ace = mta2.ace(), bdfm = mta2.bdfm(), g = mta2.g(), jz = mta2.jz(), l = mta2.l(), nqr = mta2.nqr(), s = mta2.s(), sir = mta2.sir())
+                return render_template("homepage.html", username = username, 
+				       temperature = temp, weather = sky, ott = mta2.ott(),
+				       ffs = mta2.ffs(), seven = mta2.seven(), ace = mta2.ace(),
+				       bdfm = mta2.bdfm(), g = mta2.g(), jz = mta2.jz(), l = mta2.l(), 
+				       nqr = mta2.nqr(), s = mta2.s(), sir = mta2.sir(), events=events)
                                                       #greeting = utils.getName(username)                                                       
          #if not logged in
         else:
