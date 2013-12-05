@@ -16,15 +16,12 @@ def register(username, password, nickname):
     else:
         return False
         
-#----------NOT USING THIS--------------(probably)-------------------------
-def checkForName(username):
+#----------------------OTHER STUFF-------------------------------
+def getNickName(username):
     db = open()
-    user = db.find_one({'username' : username}, fields={'_id':False})
-    if not user == None:
-        return False
-    else:
-        return True
-        
+    check = db.find_one({'username':username}, fields={'_id':False})
+    return check['nickname']
+
 #-------------LOGIN-----------------------------------------------------
 def login(username, password):
     db = open()
