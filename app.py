@@ -83,7 +83,7 @@ def cal():
 
         utils.addEventObject(session["username"], e)
 
-        el = makeAndDisplayEvents(y,m-1)
+        el = makeAndDisplayEvents(y,m)
 
         return render_template('calendar.html', event_list=json.dumps([[ev.title for ev in d] for d in el]))
 
