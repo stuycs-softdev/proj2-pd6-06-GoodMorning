@@ -79,7 +79,7 @@ def cal():
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + "-" + request.form['endhour'] + ":" + request.form['endmin'] + request.form['amorpm2'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
-	e = Event(y,m,d,h,mi,de)
+	e = Event(y,m+1,d,h,mi,de)
 
         utils.addEventObject(session["username"], e)
 
@@ -118,7 +118,7 @@ def getCal(year, month):
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
-        e = Event(year,month,d,h,mi,de)
+        e = Event(year,month+1,d,h,mi,de)
 
         utils.addEventObject(session["username"],e)
 
@@ -133,32 +133,32 @@ def makeAndDisplayEvents(year,month):
     monthlyEvents = []
     numdays = 31
 
-    if month == 0: 
+    if month == 1: 
         numdays = 31
-    elif (month == 1): 
+    elif (month == 2): 
         if year % 4 == 0:
             numdays = 29
         else: 
             numdays = 28
-    elif (month == 2):
+    elif (month == 3):
         numdays = 31
-    elif (month == 3): 
-        numdays = 30
     elif (month == 4): 
-        numdays = 31
-    elif (month == 5):              
         numdays = 30
-    elif (month == 6): 
+    elif (month == 5): 
         numdays = 31
+    elif (month == 6):              
+        numdays = 30
     elif (month == 7): 
         numdays = 31
     elif (month == 8): 
-        numdays = 30
-    elif (month == 9):
         numdays = 31
-    elif (month == 10): 
+    elif (month == 9): 
         numdays = 30
+    elif (month == 10):
+        numdays = 31
     elif (month == 11): 
+        numdays = 30
+    elif (month == 12): 
         numdays= 31
 
     i = 1
