@@ -122,7 +122,7 @@ def getCal(year, month):
 
         utils.addEventObject(session["username"],e)
 
-        el = makeAndDisplayEvents(year,month-1)
+        el = makeAndDisplayEvents(year,month-2)
 
         return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[ev.title for ev in d] for d in el]))
 
