@@ -184,7 +184,7 @@ def home():
                                                       #greeting = utils.getName(username)                                                       
          #if not logged in
         else:
-                return redirect("/about")
+                return redirect("/")
 
 
 @app.route("/login",methods=["GET","POST"])
