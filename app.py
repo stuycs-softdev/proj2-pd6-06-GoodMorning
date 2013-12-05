@@ -19,7 +19,10 @@ app.secret_key = 'jasoniscool'
 
 @app.route("/")
 def about():
-        return render_template("about.html")
+	if "username" not in session:
+		return render_template("about.html")
+        else:
+		return redirect("/homepage")
 
 @app.route('/calendar', methods = ['GET', 'POST'])
 def cal():
