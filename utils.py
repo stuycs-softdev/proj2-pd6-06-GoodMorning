@@ -57,7 +57,6 @@ def addEventObject(username, e):
 
 def addEvent(username, year, month, date, hour, minute, title):
     db=open()
-    month = str(int(month)+1)
     db.insert({'username': username, 'year': year, 'month': month,
                'date':date, 'hour': hour, 'minute':minute,
                'title': title})

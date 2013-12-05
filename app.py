@@ -38,29 +38,29 @@ def cal():
         y = (int)(request.form['year'])
         mon = request.form['month']
         if mon == "January":
-            m = 0
-        elif mon == "February":
             m = 1
-        elif mon == "March":
+        elif mon == "February":
             m = 2
-        elif mon == "April":
+        elif mon == "March":
             m = 3
-        elif mon == "May":
+        elif mon == "April":
             m = 4
-        elif mon == "June":
+        elif mon == "May":
             m = 5
-        elif mon == "July":
+        elif mon == "June":
             m = 6
-        elif mon == "August":
+        elif mon == "July":
             m = 7
-        elif mon == "September":
+        elif mon == "August":
             m = 8
-        elif mon == "October":
+        elif mon == "September":
             m = 9
-        elif mon == "November":
+        elif mon == "October":
             m = 10
-        elif mon == "December":
+        elif mon == "November":
             m = 11
+        elif mon == "December":
+            m = 12
         d = (int)(request.form['day'])
         if request.form['starthour'] == "":
             h = 0
