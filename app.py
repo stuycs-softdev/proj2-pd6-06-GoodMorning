@@ -21,23 +21,6 @@ app.secret_key = 'jasoniscool'
 def about():
         return render_template("about.html")
 
-@app.route("/test")
-def test():
-        temp = weather.getTemp()
-        sky = weather.getWeather()
-        return render_template("test.html", temperature = temp, weather = sky, ott = mta2.ott(), ffs = mta2.ffs(), seven = mta2.seven(), ace = mta2.ace(), bdfm = mta2.bdfm(), g = mta2.g(), jz = mta2.jz(), l = mta2.l(), nqr = mta2.nqr(), s = mta2.s(), sir = mta2.sir())
-
-#@app.route("/home")
-#def h():
-#        if "username" not in session: #not logged in
-#                return redirect("/")#
-#	else:
-#	        return render_template("home.html")
-
-@app.route("/index")
-def index():
-        return render_template("index.html")
-
 @app.route('/calendar', methods = ['GET', 'POST'])
 def cal():
     if request.method =='GET':
@@ -150,7 +133,7 @@ def makeAndDisplayEvents(year,month):
     if month == 0: 
         numdays = 31
     elif (month == 1): 
-        if y % 4 == 0:
+        if year % 4 == 0:
             numdays = 29
         else: 
             numdays = 28
