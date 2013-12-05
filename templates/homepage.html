@@ -128,16 +128,18 @@
 		  <h3 class="content-subhead">&nbsp;&nbsp; Upcoming Events</h3>
 
 		  <p style="margin-left: 0%">
-		    <li style="margin-left: 5%">Event1</li>
+		    {% for e in events %}
+		    <li style="margin-left: 5%">{{e.title}}</li>
 		    <br>
-		    <li style="margin-left: 5%">Event2</li>
+		    {%endfor%}
+		    <!--<li style="margin-left: 5%">Event2</li>
 		    <br>
 		    <li style="margin-left: 5%">Event3</li>
 		    <br>
 		    <li style="margin-left: 5%">Event4</li>
 		    <br>
 		    <li style="margin-left: 5%">Event5</li>
-		    <br>
+		    <br>-->
 		    <br>
 		    <p class="post-meta">
 		    Click here to go to your <a href="calendar">calendar</a>.

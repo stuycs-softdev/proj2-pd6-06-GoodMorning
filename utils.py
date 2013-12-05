@@ -61,20 +61,22 @@ def addEvent(username, year, month, date, hour, minute, title):
                'date':date, 'hour': hour, 'minute':minute,
                'title': title})
 
+def _eventsByCursor(res):
+    return [Event(int(e['year']), int(e['month']), int(e['date']),
+                  int(e['hour']), int(e['minute']), e['title']) for e in res]
+
 def getEvent(username, year, month, date):
     db = open()
     res = db.find({'username': username, 'year':year, 'month':month, 'date':date})
-    return [Event(int(e['year']), int(e['month']), int(e['date']),
-                  int(e['hour']), int(e['minute']), e['title']) for e in res]
+    return _eventsByCursor(res)
     
 from event import organize
 def getFiltered(username, year, month, date):
     db = open()
-    res = db.find({'username':username, 'year':year})
+    res = _eventsByCursor(db.find({'username':username, 'year':year}))
     if month > 8:
-        res += db.find({'username':username, 'year':str(int(year)+1)})
-    print res
-    return organize(getEvent(username, year, month, date))
+        res += _eventsByCursor(db.find({'username':username, 'year':str(int(year)+1)}))
+    return organize(res)
 
 from datetime import datetime
 def upNext(username):
@@ -82,7 +84,6 @@ def upNext(username):
     yr = str(now.year)
     mo = str(now.month)
     d  = str(now.day)
-    print yr, mo, d
     return getFiltered(username, yr, mo, d)
 
 

@@ -176,6 +176,7 @@ def home():
         temp = weather.getTemp()
         sky = weather.getWeather()
 	events = utils.upNext(session["username"])
+	events = events[:5]
         if "username" in session: #if logged in already
                 username = session["username"]
                 return render_template("homepage.html", username = username, 
