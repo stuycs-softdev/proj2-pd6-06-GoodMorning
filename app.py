@@ -95,7 +95,7 @@ def cal():
             de = request.form['newevent']
 	e = Event(y,m+1,d,h,mi,de)
 
-        utils.addEventObject(session["username"],e)
+        utils.addEventObject(session["username"], se)
 
         el = makeAndDisplayEvents(y,m)
 
@@ -150,7 +150,7 @@ def makeAndDisplayEvents(year,month):
     if month == 0: 
         numdays = 31
     elif (month == 1): 
-        if y % 4 == 0:
+        if year % 4 == 0:
             numdays = 29
         else: 
             numdays = 28
