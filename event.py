@@ -20,10 +20,11 @@ class Event():
 
 #events = [Event(1000, 1, 27, 5, 00, "hello")]
 
-    def organize(events):
-        today = datetime.today()
-        events = sorted([e for e in events if e.should_show()], key=lambda e: e.date)
-        return events
+def form(e):
+    return "%s at %s"%(e.title, e.date)
 
-    def form(e):
-        return "%s at %s"%(e.title, e.date)
+def organize(events):
+    today = datetime.today()
+    events = sorted([e for e in events if e.should_show()], key=lambda e: e.date)
+    return events
+
