@@ -262,12 +262,12 @@ def settings():
         train3 = request.form.get("train3")
         email = request.form['email']
         button =  request.form.get("submit")
-        print nickname
-        print train1
-        print train2
-        print train3
-        print email
-        print button
+	print nickname
+	print train1
+	print train2
+	print train3
+	print email
+	print button
         #location = request.form['location'] #where you are
         #button = request.form['submit'] #this will be whichever button you've pressed: to change name or location
         #oldPW = request.form['oldPW']
