@@ -133,36 +133,36 @@ def makeAndDisplayEvents(year,month):
     monthlyEvents = []
     numdays = 31
 
-    if month == -1: 
+    if month == 0: 
         numdays = 31
-    elif (month == 0): 
+    elif (month == 1): 
         if year % 4 == 0:
             numdays = 29
         else: 
             numdays = 28
-    elif (month == 1):
+    elif (month == 2):
         numdays = 31
-    elif (month == 2): 
-        numdays = 30
     elif (month == 3): 
-        numdays = 31
-    elif (month == 4):              
         numdays = 30
-    elif (month == 7): 
+    elif (month == 4): 
         numdays = 31
+    elif (month == 5):              
+        numdays = 30
     elif (month == 6): 
         numdays = 31
     elif (month == 7): 
-        numdays = 30
-    elif (month == 8):
         numdays = 31
-    elif (month == 9): 
+    elif (month == 8): 
         numdays = 30
+    elif (month == 9):
+        numdays = 31
     elif (month == 10): 
+        numdays = 30
+    elif (month == 11): 
         numdays= 31
 
     i = 1
-    while (i <= numdays): 
+    while (i <= numdays+1): 
         daystr = str(i)
         evlist = utils.getEvent(session["username"],yrstr, monstr,daystr)
         monthlyEvents.append(evlist)
