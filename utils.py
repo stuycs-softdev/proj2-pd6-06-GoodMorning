@@ -53,9 +53,15 @@ def changePW(username, newpassword):
         db.update({'username' : username}, {'$set':{'password':newpassword}})
         return True
 #----------------Events--------------------------------
+def addEventObject(username, e):
+    d = e.date
+    addEvent(username, d.year, d.month, d.day, d.hour, d.minute, e.title)
+
 def addEvent(username, year, month, date, hour, minute, title):
     db=open()
-    db.insert({'username': username, 'year': year, 'month': month, 'date':date, 'hour': hour, 'minute':minute, 'title': title})
+    db.insert({'username': username, 'year': year, 'month': month,
+               'date':date, 'hour': hour, 'minute':minute,
+               'title': title})
 
 def getEvent(username, year, month, date):
     db = open()
