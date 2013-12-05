@@ -162,7 +162,7 @@ def makeAndDisplayEvents(year,month):
         numdays= 31
 
     i = 1
-    while (i <= numdays+1): 
+    while (i <= numdays+2): 
         daystr = str(i)
         evlist = utils.getEvent(session["username"],yrstr, monstr,daystr)
         monthlyEvents.append(evlist)
