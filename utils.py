@@ -67,7 +67,9 @@ def getEvent(username, year, month, date):
     return [Event(int(e['year']), int(e['month']), int(e['date']),
                   int(e['hour']), int(e['minute']), e['title']) for e in res]
     
-
+from event import organize
+def getFiltered(username, year, month, date):
+    return organize(getEvent(username, year, month, date))
 
 
 
