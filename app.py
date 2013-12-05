@@ -38,29 +38,29 @@ def cal():
         y = (int)(request.form['year'])
         mon = request.form['month']
         if mon == "January":
-            m = 0
-        elif mon == "February":
             m = 1
-        elif mon == "March":
+        elif mon == "February":
             m = 2
-        elif mon == "April":
+        elif mon == "March":
             m = 3
-        elif mon == "May":
+        elif mon == "April":
             m = 4
-        elif mon == "June":
+        elif mon == "May":
             m = 5
-        elif mon == "July":
+        elif mon == "June":
             m = 6
-        elif mon == "August":
+        elif mon == "July":
             m = 7
-        elif mon == "September":
+        elif mon == "August":
             m = 8
-        elif mon == "October":
+        elif mon == "September":
             m = 9
-        elif mon == "November":
+        elif mon == "October":
             m = 10
-        elif mon == "December":
+        elif mon == "November":
             m = 11
+        elif mon == "December":
+            m = 12
         d = (int)(request.form['day'])
         if request.form['starthour'] == "":
             h = 0
@@ -79,7 +79,7 @@ def cal():
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + "-" + request.form['endhour'] + ":" + request.form['endmin'] + request.form['amorpm2'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
-	e = Event(y,m+1,d,h,mi,de)
+	e = Event(y,m,d,h,mi,de)
 
         utils.addEventObject(session["username"], e)
 
@@ -91,7 +91,7 @@ def cal():
 def getCal(year, month):
 
     if request.method =='GET':
-        el = makeAndDisplayEvents(year,month)
+        el = makeAndDisplayEvents(year,month+1)
         return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[ev.title for ev in d] for d in el]))
     else:
         d = (int)(request.form['day'])
@@ -122,7 +122,7 @@ def getCal(year, month):
 
         utils.addEventObject(session["username"],e)
 
-        el = makeAndDisplayEvents(year,month)
+        el = makeAndDisplayEvents(year,month+1)
 
         return render_template('calpage.html', y=year, m=month, event_list=json.dumps([[ev.title for ev in d] for d in el]))
 
