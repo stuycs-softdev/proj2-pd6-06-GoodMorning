@@ -79,11 +79,11 @@ def cal():
             de = request.form['starthour'] + ":" + request.form['startmin'] + request.form['amorpm1'] + "-" + request.form['endhour'] + ":" + request.form['endmin'] + request.form['amorpm2'] + " - " + request.form['newevent']
         else:
             de = request.form['newevent']
-	e = Event(y,m+1,d,h,mi,de)
+	e = Event(y,m,d,h,mi,de)
 
-        utils.addEventObject(session["username"], se)
+        utils.addEventObject(session["username"], e)
 
-        el = makeAndDisplayEvents(y,m)
+        el = makeAndDisplayEvents(y,m-1)
 
         return render_template('calendar.html', event_list=json.dumps([[e.title for e in d] for d in el]))
 
