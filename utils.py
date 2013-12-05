@@ -41,7 +41,7 @@ def updateSettings(username, nickname, train1, train2, train3, email):
     if user == None:
         return False
     else:
-        db.test.update({'username' : username}, {'$set':{'nickname':nickname,'train1':train1, 'train2':train2, 'train3':train3, 'email':email}})
+        db.update({'username' : username}, {'$set':{'nickname':nickname,'train1':train1, 'train2':train2, 'train3':train3, 'email':email}})
         return True
 
 
