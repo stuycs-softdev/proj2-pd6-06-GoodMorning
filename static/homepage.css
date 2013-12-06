@@ -19,6 +19,9 @@ a:focus {
     position: relative;
 }
 
+.pure-u-2-3 {
+    width: 100%;
+}
 .sidebar {
     position: fixed;
     top: 0;
