@@ -122,8 +122,8 @@ def home():
 	events = utils.upNext(session["username"])
         events = events[:5]        
         if "username" in session: #if logged in already
-                username = session["username"]
-                return render_template("homepage.html", username = username, 
+                nick = utils.getNickName(session["username"])
+                return render_template("homepage.html", nickname = nick, 
 				       temperature = temp, weather = sky, ott = mta2.ott(),
 				       ffs = mta2.ffs(), seven = mta2.seven(), ace = mta2.ace(),
 				       bdfm = mta2.bdfm(), g = mta2.g(), jz = mta2.jz(), l = mta2.l(), 
