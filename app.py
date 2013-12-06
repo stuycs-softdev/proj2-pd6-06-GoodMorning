@@ -42,7 +42,7 @@ def getCal(year, month):
         inclTime = True
         inclEndTime = True
         if request.form['starthour'] == "":
-            h = 0
+            h = 23
             inclTime = False
         else:
             if request.form['amorpm1'] == "PM":
@@ -50,7 +50,7 @@ def getCal(year, month):
             else:
                 h = (int)(request.form['starthour'])
         if request.form['startmin'] == "":
-            mi = 0
+            mi = 59
             inclTime = False
         else:
             mi = (int)(request.form['startmin'])
