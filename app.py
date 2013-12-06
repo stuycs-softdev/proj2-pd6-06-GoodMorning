@@ -29,7 +29,7 @@ def cal():
     now = datetime.now()
     yr = now.year
     mo = now.month -1
-    return redirect('/calendar/%d/%d', yr, mo)    
+    return redirect('/calendar/%d/%d'%(yr, mo))    
         
 @app.route('/calendar/<int:year>/<int:month>', methods = ['GET', 'POST'])
 def getCal(year, month):
