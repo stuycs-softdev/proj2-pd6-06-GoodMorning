@@ -129,7 +129,7 @@
 
 		  <p style="margin-left: 0%">
 		    {% for e in events %}
-		    <li style="margin-left: 5%">{{e.title}}</li>
+		    <li style="margin-left: 5%">{{e.date}}: {{e.title}}</li>
 		    <br>
 		    {%endfor%}
 		    <!--<li style="margin-left: 5%">Event2</li>
