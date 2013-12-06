@@ -38,6 +38,8 @@ td {
     height: 100px;
     text-align: left;
     vertical-align: top;
+    overflow: hidden; 
+    text-overflow: ellipsis;
     /*background-color: white*/
     }
 
@@ -79,8 +81,7 @@ td:hover{
 li {
     font: x-small Arial, sans-serif;
     text-align: left;
-    color: #0080FF;
-    padding: 5px 10px; 
+    color: #0080FF; 
     background-color: transparent;
 }
 
@@ -90,6 +91,10 @@ h1 {
     font-weight:normal;
     text-decoration: underline;
     padding: 0 0px;
+}
+
+.morepadding {
+    padding: 5px 10px;
 }
 
 .right {
