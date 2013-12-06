@@ -24,7 +24,7 @@ a:focus {
     top: 0;
     bottom: 0;
     width: 25%;
-    margin: 5% 2em 0;
+    margin: 3% 2em 0;
     margin-left: -25%;
     background: #CCE5FF;
     border: 1px;
@@ -34,6 +34,12 @@ a:focus {
 .header {
     margin: 0 2em 0;
     text-align: justify;
+}
+
+.subway {
+    list-style-type: none;
+    color: #999;
+    margin-left: 10%;
 }
 
 .left {
