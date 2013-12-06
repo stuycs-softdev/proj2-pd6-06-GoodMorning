@@ -121,7 +121,7 @@ def home():
         sky = weather.getWeather()
 	events = utils.upNext(session["username"])
         for i in range(5):
-            events[i] = str.events[i].date + events[i].title
+            events[i] = str(events[i].date) + events[i].title
         if "username" in session: #if logged in already
                 username = session["username"]
                 return render_template("homepage.html", username = username, 
