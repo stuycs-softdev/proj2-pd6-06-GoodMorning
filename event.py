@@ -42,7 +42,7 @@ class Event():
 
     def should_show(self):
         today = datetime.today()
-        return today.date() <= self.date.date() and (today.date() < self.date.date() or today.hour <= self.date.hour)
+        return today.date() <= self.date.date() and (today.date() < self.date.date() or (today.hour <= self.date.hour and int(self.date.hour) != 0 and int(self.date.minute) != 0))
         ret = self.date.year >= today.year
         
         return (self.date.hour >= today.hour and
