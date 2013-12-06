@@ -122,7 +122,7 @@ def home():
 	events = utils.upNext(session["username"])
         events = events[:5]
         for i in range(5):
-            events[i] = str(events[i].date) + events[i].title
+            events[i] = str(events[i].date) + events[i]
         if "username" in session: #if logged in already
                 username = session["username"]
                 return render_template("homepage.html", username = username, 
